@@ -14,12 +14,12 @@ namespace ArtlyV1.Controllers
 
         public String register(String username, String fullname, String email, String password, String retypePassword)
         {
-            if(username == null || fullname == null || email == null || password == null || retypePassword == null )
+            if(username == "" || fullname == "" || email == "" || password == "" || retypePassword == "")
             {
                 return "One of the fields are missing!";
             }
 
-            if(new EmailAddressAttribute().IsValid(email) == false)
+            if(new EmailAddressAttribute().IsValid(email) == false || email.EndsWith(".com") != true)
             {
                 return "Email is not valid!";
             }

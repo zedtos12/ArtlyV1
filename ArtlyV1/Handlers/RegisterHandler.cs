@@ -14,16 +14,22 @@ namespace ArtlyV1.Handlers
     {
         ArtlyDatabaseEntities db = DatabaseSingleton.getInstance();
 
-        private async Task<MsUser> findUserUsingUsername(String username)
+        private MsUser findUserUsingUsername(String username)
         {
-            MsUser user = await (from x in db.MsUsers where x.UserName == username select x).FirstOrDefaultAsync();
+            MsUser user = (from x in db.MsUsers where x.UserName == username select x).FirstOrDefault();
             return user;
         }
 
-        private async Task<MsUser> findUserUsingEmail(String email)
+        private MsUser findUserUsingEmail(String email)
         {
-            MsUser user = await (from x in db.MsUsers where x.Email == email select x).FirstOrDefaultAsync();
+            MsUser user = (from x in db.MsUsers where x.Email == email select x).FirstOrDefault();
             return user;
+        }
+        
+        private String getRoleID()
+        {
+            String roleID = (from x in db.LtRoles where x.RoleName == "User" select x.IdRole).FirstOrDefault();
+            return roleID;
         }
 
         private void addUser(MsUser user)
@@ -44,11 +50,8 @@ namespace ArtlyV1.Handlers
                 return "Email not unique!";
             }
 
-            MsUser user = UserFactory.create(username, fullname, email, password);
-
-            user.IsActive = true;
-            user.IdGender = null;
-            user.DOB = null;
+            MsUser user = UserFactory.create(Guid.NewGuid().ToString(), username, fullname, email, password, true, null, getRoleID().ToString(), null, 0);
+            addUser(user);
 
             return "Successful";
         }

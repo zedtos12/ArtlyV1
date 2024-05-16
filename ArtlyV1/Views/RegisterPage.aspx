@@ -55,7 +55,11 @@
                           <div class="control__indicator"></div>
                       </label>
                   </div>
-                  <div class="alert alert-danger" role="alert" style="display: none;"></div>
+
+                  <div id="alertBox" class="alert alert-danger" role="alert" runat="server" visible="false">
+                      <asp:Label ID="errorLabel" runat="server"></asp:Label>
+                  </div>
+
                   <asp:Button type="submit" class="btn btn-block btn-primary" ID="submitBtn" runat="server" Text="Register" OnClick="submitBtn_Click" />
           </div>
         </div>

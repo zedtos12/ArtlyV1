@@ -29,8 +29,13 @@ namespace ArtlyV1.Views
 
             if(returned != "Successful")
             {
-                
+                alertBox.Visible = true;
+                errorLabel.Text = returned;
+                return;
             }
+
+            alertBox.Visible = false;
+            errorLabel.Text = null;
         }
     }
 }
