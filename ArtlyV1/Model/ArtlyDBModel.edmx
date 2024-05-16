@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ArtlyDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LtGender">
+          <Key>
+            <PropertyRef Name="IdGender" />
+          </Key>
+          <Property Name="IdGender" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="GenderName" Type="nvarchar" MaxLength="72" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="LtProductCategory">
+          <Key>
+            <PropertyRef Name="IdProductCategory" />
+          </Key>
+          <Property Name="IdProductCategory" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="ProductCategoryName" Type="nvarchar" MaxLength="72" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="LtProductType">
+          <Key>
+            <PropertyRef Name="IdProductType" />
+          </Key>
+          <Property Name="IdProductType" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="ProductTypeName" Type="nvarchar" MaxLength="72" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="LtRole">
+          <Key>
+            <PropertyRef Name="IdRole" />
+          </Key>
+          <Property Name="IdRole" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="72" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="MsProduct">
+          <Key>
+            <PropertyRef Name="IdProduct" />
+          </Key>
+          <Property Name="IdProduct" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="72" Nullable="false" />
+          <Property Name="IdProductCategory" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="IdProductType" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Stock" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="MsUser">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="72" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="72" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="72" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="72" Nullable="false" />
+          <Property Name="IdGender" Type="nvarchar" MaxLength="36" />
+          <Property Name="IdRole" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="DOB" Type="datetime2" Precision="7" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="Balance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__MsProduct__IdPro__4CA06362">
+          <End Role="LtProductCategory" Type="Self.LtProductCategory" Multiplicity="1" />
+          <End Role="MsProduct" Type="Self.MsProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LtProductCategory">
+              <PropertyRef Name="IdProductCategory" />
+            </Principal>
+            <Dependent Role="MsProduct">
+              <PropertyRef Name="IdProductCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MsProduct__IdPro__4D94879B">
+          <End Role="LtProductType" Type="Self.LtProductType" Multiplicity="1" />
+          <End Role="MsProduct" Type="Self.MsProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LtProductType">
+              <PropertyRef Name="IdProductType" />
+            </Principal>
+            <Dependent Role="MsProduct">
+              <PropertyRef Name="IdProductType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MsUser__IdGender__628FA481">
+          <End Role="LtGender" Type="Self.LtGender" Multiplicity="0..1" />
+          <End Role="MsUser" Type="Self.MsUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LtGender">
+              <PropertyRef Name="IdGender" />
+            </Principal>
+            <Dependent Role="MsUser">
+              <PropertyRef Name="IdGender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MsUser__IdRole__6383C8BA">
+          <End Role="LtRole" Type="Self.LtRole" Multiplicity="1" />
+          <End Role="MsUser" Type="Self.MsUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LtRole">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="MsUser">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ArtlyDatabaseModelStoreContainer">
+          <EntitySet Name="LtGender" EntityType="Self.LtGender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LtProductCategory" EntityType="Self.LtProductCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LtProductType" EntityType="Self.LtProductType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LtRole" EntityType="Self.LtRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MsProduct" EntityType="Self.MsProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MsUser" EntityType="Self.MsUser" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__MsProduct__IdPro__4CA06362" Association="Self.FK__MsProduct__IdPro__4CA06362">
+            <End Role="LtProductCategory" EntitySet="LtProductCategory" />
+            <End Role="MsProduct" EntitySet="MsProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MsProduct__IdPro__4D94879B" Association="Self.FK__MsProduct__IdPro__4D94879B">
+            <End Role="LtProductType" EntitySet="LtProductType" />
+            <End Role="MsProduct" EntitySet="MsProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MsUser__IdGender__628FA481" Association="Self.FK__MsUser__IdGender__628FA481">
+            <End Role="LtGender" EntitySet="LtGender" />
+            <End Role="MsUser" EntitySet="MsUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MsUser__IdRole__6383C8BA" Association="Self.FK__MsUser__IdRole__6383C8BA">
+            <End Role="LtRole" EntitySet="LtRole" />
+            <End Role="MsUser" EntitySet="MsUser" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ArtlyDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LtGender">
+          <Key>
+            <PropertyRef Name="IdGender" />
+          </Key>
+          <Property Name="IdGender" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GenderName" Type="String" MaxLength="72" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="MsUsers" Relationship="Self.FK__MsUser__IdGender__628FA481" FromRole="LtGender" ToRole="MsUser" />
+        </EntityType>
+        <EntityType Name="LtProductCategory">
+          <Key>
+            <PropertyRef Name="IdProductCategory" />
+          </Key>
+          <Property Name="IdProductCategory" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductCategoryName" Type="String" MaxLength="72" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="MsProducts" Relationship="Self.FK__MsProduct__IdPro__4CA06362" FromRole="LtProductCategory" ToRole="MsProduct" />
+        </EntityType>
+        <EntityType Name="LtProductType">
+          <Key>
+            <PropertyRef Name="IdProductType" />
+          </Key>
+          <Property Name="IdProductType" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductTypeName" Type="String" MaxLength="72" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="MsProducts" Relationship="Self.FK__MsProduct__IdPro__4D94879B" FromRole="LtProductType" ToRole="MsProduct" />
+        </EntityType>
+        <EntityType Name="LtRole">
+          <Key>
+            <PropertyRef Name="IdRole" />
+          </Key>
+          <Property Name="IdRole" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="72" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="MsUsers" Relationship="Self.FK__MsUser__IdRole__6383C8BA" FromRole="LtRole" ToRole="MsUser" />
+        </EntityType>
+        <EntityType Name="MsProduct">
+          <Key>
+            <PropertyRef Name="IdProduct" />
+          </Key>
+          <Property Name="IdProduct" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="72" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdProductCategory" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdProductType" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Stock" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="LtProductCategory" Relationship="Self.FK__MsProduct__IdPro__4CA06362" FromRole="MsProduct" ToRole="LtProductCategory" />
+          <NavigationProperty Name="LtProductType" Relationship="Self.FK__MsProduct__IdPro__4D94879B" FromRole="MsProduct" ToRole="LtProductType" />
+        </EntityType>
+        <EntityType Name="MsUser">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="72" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="72" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="72" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="72" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdGender" Type="String" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="IdRole" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DOB" Type="DateTime" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Balance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="LtGender" Relationship="Self.FK__MsUser__IdGender__628FA481" FromRole="MsUser" ToRole="LtGender" />
+          <NavigationProperty Name="LtRole" Relationship="Self.FK__MsUser__IdRole__6383C8BA" FromRole="MsUser" ToRole="LtRole" />
+        </EntityType>
+        <Association Name="FK__MsUser__IdGender__628FA481">
+          <End Role="LtGender" Type="Self.LtGender" Multiplicity="0..1" />
+          <End Role="MsUser" Type="Self.MsUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LtGender">
+              <PropertyRef Name="IdGender" />
+            </Principal>
+            <Dependent Role="MsUser">
+              <PropertyRef Name="IdGender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MsProduct__IdPro__4CA06362">
+          <End Role="LtProductCategory" Type="Self.LtProductCategory" Multiplicity="1" />
+          <End Role="MsProduct" Type="Self.MsProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LtProductCategory">
+              <PropertyRef Name="IdProductCategory" />
+            </Principal>
+            <Dependent Role="MsProduct">
+              <PropertyRef Name="IdProductCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MsProduct__IdPro__4D94879B">
+          <End Role="LtProductType" Type="Self.LtProductType" Multiplicity="1" />
+          <End Role="MsProduct" Type="Self.MsProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LtProductType">
+              <PropertyRef Name="IdProductType" />
+            </Principal>
+            <Dependent Role="MsProduct">
+              <PropertyRef Name="IdProductType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MsUser__IdRole__6383C8BA">
+          <End Role="LtRole" Type="Self.LtRole" Multiplicity="1" />
+          <End Role="MsUser" Type="Self.MsUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LtRole">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="MsUser">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ArtlyDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LtGenders" EntityType="Self.LtGender" />
+          <EntitySet Name="LtProductCategories" EntityType="Self.LtProductCategory" />
+          <EntitySet Name="LtProductTypes" EntityType="Self.LtProductType" />
+          <EntitySet Name="LtRoles" EntityType="Self.LtRole" />
+          <EntitySet Name="MsProducts" EntityType="Self.MsProduct" />
+          <EntitySet Name="MsUsers" EntityType="Self.MsUser" />
+          <AssociationSet Name="FK__MsUser__IdGender__628FA481" Association="Self.FK__MsUser__IdGender__628FA481">
+            <End Role="LtGender" EntitySet="LtGenders" />
+            <End Role="MsUser" EntitySet="MsUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MsProduct__IdPro__4CA06362" Association="Self.FK__MsProduct__IdPro__4CA06362">
+            <End Role="LtProductCategory" EntitySet="LtProductCategories" />
+            <End Role="MsProduct" EntitySet="MsProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MsProduct__IdPro__4D94879B" Association="Self.FK__MsProduct__IdPro__4D94879B">
+            <End Role="LtProductType" EntitySet="LtProductTypes" />
+            <End Role="MsProduct" EntitySet="MsProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MsUser__IdRole__6383C8BA" Association="Self.FK__MsUser__IdRole__6383C8BA">
+            <End Role="LtRole" EntitySet="LtRoles" />
+            <End Role="MsUser" EntitySet="MsUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ArtlyDatabaseModelStoreContainer" CdmEntityContainer="ArtlyDatabaseEntities">
+          <EntitySetMapping Name="LtGenders">
+            <EntityTypeMapping TypeName="ArtlyDatabaseModel.LtGender">
+              <MappingFragment StoreEntitySet="LtGender">
+                <ScalarProperty Name="IdGender" ColumnName="IdGender" />
+                <ScalarProperty Name="GenderName" ColumnName="GenderName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LtProductCategories">
+            <EntityTypeMapping TypeName="ArtlyDatabaseModel.LtProductCategory">
+              <MappingFragment StoreEntitySet="LtProductCategory">
+                <ScalarProperty Name="IdProductCategory" ColumnName="IdProductCategory" />
+                <ScalarProperty Name="ProductCategoryName" ColumnName="ProductCategoryName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LtProductTypes">
+            <EntityTypeMapping TypeName="ArtlyDatabaseModel.LtProductType">
+              <MappingFragment StoreEntitySet="LtProductType">
+                <ScalarProperty Name="IdProductType" ColumnName="IdProductType" />
+                <ScalarProperty Name="ProductTypeName" ColumnName="ProductTypeName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LtRoles">
+            <EntityTypeMapping TypeName="ArtlyDatabaseModel.LtRole">
+              <MappingFragment StoreEntitySet="LtRole">
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MsProducts">
+            <EntityTypeMapping TypeName="ArtlyDatabaseModel.MsProduct">
+              <MappingFragment StoreEntitySet="MsProduct">
+                <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="IdProductCategory" ColumnName="IdProductCategory" />
+                <ScalarProperty Name="IdProductType" ColumnName="IdProductType" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MsUsers">
+            <EntityTypeMapping TypeName="ArtlyDatabaseModel.MsUser">
+              <MappingFragment StoreEntitySet="MsUser">
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IdGender" ColumnName="IdGender" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
