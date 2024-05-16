@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ArtlyV1.Model
+namespace ArtlyV1.Models
 {
     using System;
     using System.Data.Entity;
