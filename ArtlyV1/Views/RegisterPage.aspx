@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Navbar.Master" AutoEventWireup="true" CodeBehind="RegisterPage.aspx.cs" Inherits="ArtlyV1.Views.RegisterPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title> Artly Register Page </title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,9 +14,8 @@
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
     
     <!-- Style -->
-    <link rel="stylesheet" href="CSS/RegisterPageStyle.css">
+    <link rel="stylesheet" href="CSS/LoginRegisterPageStyle.css">
 
-    <title>Sign Up #1</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="d-lg-flex half">
@@ -25,6 +25,7 @@
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-7">
+            <form runat="server">
             <h3 class="mb-4" style="color: white;">Sign Up</h3>
                 
                   <div class="form-group first">
@@ -61,13 +62,13 @@
                   </div>
 
                   <asp:Button type="submit" class="btn btn-block btn-primary" ID="submitBtn" runat="server" Text="Register" OnClick="submitBtn_Click" />
-          </div>
+                </form>
+                </div>
         </div>
       </div>
     </div> 
   </div>
     <script src="JS/jquery-3.3.1.min.js"></script>
-    <script src="JS/popper.min.js"></script>
     <script src="JS/bootstrap.min.js"></script>
     <script src="JS/RegisterPageMain.js"></script>
 </asp:Content>

@@ -10,9 +10,9 @@ namespace ArtlyV1.Controllers
 {
     public class RegisterController
     {
-        private RegisterHandler registerHandler = new RegisterHandler();
+        RegisterHandler registerHandler = new RegisterHandler();
 
-        public String register(String username, String fullname, String email, String password, String retypePassword)
+        public String register(String username, String fullname, String email, String password, String retypePassword, Boolean checkboxChecked)
         {
             if(username == "" || fullname == "" || email == "" || password == "" || retypePassword == "")
             {
@@ -27,6 +27,11 @@ namespace ArtlyV1.Controllers
             if(password != retypePassword)
             {
                 return "Passwords are not matching!";
+            }
+
+            if(checkboxChecked == false)
+            {
+                return "Checkbox needs to be checked!";
             }
 
             return registerHandler.register(username, fullname, email, password);
