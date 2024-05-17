@@ -39,7 +39,6 @@ namespace ArtlyV1.Views
             errorLabel.Text = null;
 
             Response.Redirect("~/Views/LoginPage.aspx");
-            }
         }
     }
 }

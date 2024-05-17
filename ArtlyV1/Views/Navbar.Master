@@ -5,11 +5,41 @@
 <html>
 <head runat="server">
     <title></title>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/NavbarStyle.css" />
+    <link rel="stylesheet" href="Fonts/Inria-Serif/inria-serif.css">
+    <link rel="stylesheet" href="Fonts/Inder/inder.css">
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
      <div>
+         <%if (Session["user"] == null || Response.Cookies["user"] == null)
+            { %>
+            <div class="navbar navbar-expand-md bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="HomePage.aspx">
+                        <img src="Images/ArtlyBrandImage.png" /> 
+                        Artly
+                    </a>
+                <div class="navbar-line ml-2"></div>
+                <div class="collapse navbar-collapse ml-4">
+                    <ul class="navbar-nav me-auto mb-1">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#"> Gallery </a>
+                        </li>
+                        <li class="nav-item ml-4">
+                            <a class="nav-link active" href="#"> Commission </a>
+                        </li>
+                    </ul>
+                    <div class="search-wrapper ml-4">
+                        <input class="searchbar pl-2 p-1 pr-5" type="text" id="searchBox" placeholder="Search for art...">
+                        <img src="Images/Navbar/searchIcon.png" />
+                    </div>
+                </div>
+                </div>
+            </div>
+         <%   } %>
          <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
          </asp:ContentPlaceHolder>
      </div>

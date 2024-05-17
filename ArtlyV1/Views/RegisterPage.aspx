@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="CSS/owl.carousel.min.css">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="CSS/bootstrap.min.css">
     
     <!-- Style -->
     <link rel="stylesheet" href="CSS/LoginRegisterPageStyle.css">
