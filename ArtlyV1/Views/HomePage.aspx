@@ -12,9 +12,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="bg">
-        <div class=""
+        <div class=""></div>
     </div>
-
-    <script src="JS/bootstrap.min.js"></script>
-    <script src="JS/jquery-3.3.1.min.js"></script>
 </asp:Content>

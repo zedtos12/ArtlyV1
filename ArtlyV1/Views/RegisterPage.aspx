@@ -24,7 +24,6 @@
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-7">
-            <form runat="server">
             <h3 class="mb-4" style="color: white;">Sign Up</h3>
                 
                   <div class="form-group first">
@@ -61,13 +60,10 @@
                   </div>
 
                   <asp:Button type="submit" class="btn btn-block btn-primary" ID="submitBtn" runat="server" Text="Register" OnClick="submitBtn_Click" />
-                </form>
                 </div>
         </div>
       </div>
     </div> 
   </div>
-    <script src="JS/jquery-3.3.1.min.js"></script>
-    <script src="JS/bootstrap.min.js"></script>
-    <script src="JS/RegisterPageMain.js"></script>
+    <script src="JS/LoginRegisterPageMain.js"></script>
 </asp:Content>

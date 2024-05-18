@@ -5,6 +5,9 @@
 <html>
 <head runat="server">
     <title></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
     <link rel="stylesheet" href="CSS/NavbarStyle.css" />
     <link rel="stylesheet" href="Fonts/Inria-Serif/inria-serif.css">
@@ -13,35 +16,84 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <form runat="server">
      <div>
-         <%if (Session["user"] == null || Response.Cookies["user"] == null)
-            { %>
-            <div class="navbar navbar-expand-md bg-dark">
+            <nav class="navbar navbar-dark navbar-expand-xl bg-dark">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="HomePage.aspx">
                         <img src="Images/ArtlyBrandImage.png" /> 
                         Artly
                     </a>
-                <div class="navbar-line ml-2"></div>
-                <div class="collapse navbar-collapse ml-4">
-                    <ul class="navbar-nav me-auto mb-1">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#"> Gallery </a>
-                        </li>
-                        <li class="nav-item ml-4">
-                            <a class="nav-link active" href="#"> Commission </a>
-                        </li>
-                    </ul>
-                    <div class="search-wrapper ml-4">
-                        <input class="searchbar pl-2 p-1 pr-5" type="text" id="searchBox" placeholder="Search for art...">
-                        <img src="Images/Navbar/searchIcon.png" />
+
+                    <div class="navbar-line ml-4"></div>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-1 ml-4">
+                            <li class="nav-item mr-4">
+                                <a class="nav-link" href="#"> Gallery </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"> Commission </a>
+                            </li>
+                        </ul>
+                        <div class="search-wrapper ml-4">
+                            <input class="searchbar pl-2 p-1 pr-5" type="text" id="searchBox" placeholder="Search for art...">
+                            <img src="Images/Navbar/searchIcon.png" />
+                        </div>
+
+                        <%if (Session["user"] == null && Request.Cookies["user"] == null)
+                        { %>
+                            <ul class="navbar-nav me-auto mb-1 ml-auto">
+                                <li class="nav-item ml-4">
+                                    <a class="nav-link active" href="LoginPage.aspx"> Login </a>
+                                </li>
+                                <li class="nav-item ml-4">
+                                    <a class="nav-link active" href="RegisterPage.aspx"> Register </a>
+                                </li>
+                            </ul>
+
+                        <%   }
+                            else
+                            {
+                                if (Session["user"] == null && Request.Cookies["user"].Value != null)
+                                {
+                                    Session["user"] = Request.Cookies["user"].Value;
+                                }
+
+%>
+                            <ul class="navbar-nav me-auto mb-1 ml-auto">
+                                <li class="nav-item ml-4 d-flex align-items-center">
+                                    <img class="accountImg" src="Images/Navbar/AccountDefaultIcon.png" />
+                                    <a class="nav-link active ml-2" href="#"> <%=Session["user"]%> </a>
+                                </li>
+                                <li class="nav-item ml-4 mr-2 d-flex">
+                                    <asp:Button ID="logoutBtn" runat="server" CssClass="btn" Text="Logout" OnClick="logoutBtn_Click" />
+                                </li>
+                                <li class="nav-item ml-4 d-flex">
+                                    <button id="uploadBtn" class="btn d-flex align-items-center" runat="server">
+                                        <img class="uploadImg mr-3" src="Images/Navbar/UploadIcon.png"/>
+                                        Upload
+                                    </button>
+                                </li>
+                            </ul>
+                        <%  } %>
                     </div>
                 </div>
-                </div>
-            </div>
-         <%   } %>
+            </nav>
+         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
          <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
          </asp:ContentPlaceHolder>
-     </div>
+    </div>
+    </form>
+
+    <script src="JS/jquery-3.3.1.min.js"></script>
+    <script src="JS/bootstrap.min.js"></script>
+    <script src="JS/popper.min.js"></script>
 </body>
 </html>

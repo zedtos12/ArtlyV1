@@ -13,7 +13,7 @@ namespace ArtlyV1.Views
         LoginController loginController = new LoginController();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void submitBtn_Click(object sender, EventArgs e)
@@ -36,14 +36,14 @@ namespace ArtlyV1.Views
 
             if (remember == true)
             {
-                HttpCookie userCookie = new HttpCookie("user");
-                userCookie.Value = username;
+                HttpCookie userCookie = new HttpCookie("user", username);
                 userCookie.Expires = DateTime.Now.AddDays(1);
+                Response.Cookies.Add(userCookie);
             }
-            else
-            {
-                Session["user"] = username;
-            }
+                
+            Session["user"] = username;
+
+            Response.Redirect("~/Views/HomePage.aspx");
         }
     }
 }

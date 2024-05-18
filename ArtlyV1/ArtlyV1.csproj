@@ -92,11 +92,9 @@
     </Content>
     <Content Include="Views\CSS\bootstrap.min.css" />
     <Content Include="Views\CSS\HomePageStyle.css" />
-    <Content Include="Views\CSS\LoginPageStyle.css" />
     <Content Include="Views\CSS\NavbarStyle.css" />
     <Content Include="Views\CSS\owl.carousel.min.css" />
     <Content Include="Views\CSS\LoginRegisterPageStyle.css" />
-    <Content Include="Views\CSS\LoginPageUtils.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
@@ -114,12 +112,14 @@
     <Content Include="Views\HomePage.aspx" />
     <Content Include="Views\Images\ArtlyBrandImage.png" />
     <Content Include="Views\Images\bg-01.jpg" />
-    <Content Include="Views\Images\Navbar\searchIcon.png" />
+    <Content Include="Views\Images\Navbar\SearchIcon.png" />
+    <Content Include="Views\Images\Navbar\AccountDefaultIcon.png" />
+    <Content Include="Views\Images\Navbar\UploadIcon.png" />
     <Content Include="Views\Images\RegisterPageImage.jpg" />
     <Content Include="Views\JS\bootstrap.min.js" />
     <Content Include="Views\JS\jquery-3.3.1.min.js" />
-    <Content Include="Views\JS\LoginPageMain.js" />
-    <Content Include="Views\JS\RegisterPageMain.js" />
+    <Content Include="Views\JS\popper.min.js" />
+    <Content Include="Views\JS\LoginRegisterPageMain.js" />
     <Content Include="Views\JS\owl.carousel.min.js" />
     <Content Include="Views\LoginPage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />

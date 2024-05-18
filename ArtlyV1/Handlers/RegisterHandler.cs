@@ -35,7 +35,7 @@ namespace ArtlyV1.Handlers
         private void addUser(MsUser user)
         {
             db.MsUsers.Add(user);
-            db.SaveChangesAsync();
+            db.SaveChanges();
         }
 
         public String register(String username, String fullname, String email, String password)
