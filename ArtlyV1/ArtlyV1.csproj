@@ -130,6 +130,7 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Factories\UserFactory.cs" />
     <Compile Include="Handlers\LoginHandler.cs" />
+    <Compile Include="Handlers\ProductPageHandler.cs" />
     <Compile Include="Handlers\RegisterHandler.cs" />
     <Compile Include="Models\ArtlyDBModel.Context.cs">
       <AutoGen>True</AutoGen>
