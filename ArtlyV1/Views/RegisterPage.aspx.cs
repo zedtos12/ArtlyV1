@@ -14,7 +14,7 @@ namespace ArtlyV1.Views
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         protected void submitBtn_Click(object sender, EventArgs e)
@@ -24,10 +24,11 @@ namespace ArtlyV1.Views
             String email = emailTB.Text;
             String password = passwordTB.Text;
             String retypePassword = retypePasswordTB.Text;
+            Boolean checkboxChecked = checkbox.Checked;
 
-            String returned = registerController.register(username, fullname, email, password, retypePassword);
+            String returned = registerController.register(username, fullname, email, password, retypePassword, checkboxChecked);
 
-            if(returned != "Successful")
+            if (returned != "Successful")
             {
                 alertBox.Visible = true;
                 errorLabel.Text = returned;
@@ -36,6 +37,8 @@ namespace ArtlyV1.Views
 
             alertBox.Visible = false;
             errorLabel.Text = null;
+
+            Response.Redirect("~/Views/LoginPage.aspx");
         }
     }
 }
