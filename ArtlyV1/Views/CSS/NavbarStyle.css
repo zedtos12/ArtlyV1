@@ -27,6 +27,7 @@ nav {
 .nav-item {
     font-family: "Inder", sans-serif;
     font-size: 20px;
+    height: 50px;
 }
 .navbar-dark .navbar-nav .nav-link {
     color: white;
@@ -37,30 +38,16 @@ nav {
     transition: 0.2s ease-in-out;
 }
 
-.search-wrapper {
-    position: relative;
-}
-.searchbar {
-    color: white;
-    border: 1px solid #CFCFCF;
-    border-radius: 5px;
-    background-color: #3A3A3A;
-    font-family: "Inder", sans-serif;
-    font-size: 12px;
-    width: 250px;
-}
-.search-wrapper img {
-    position: absolute;
-    right: 5px;
-    top: 7px;
-    width: 15px;
-}
-
 /* Authenticated navbar */
 
 .accountImg {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
+}
+
+.cartImg {
+    width: 26px;
+    height: 24px;
 }
 
 #logoutBtn {
@@ -87,12 +74,12 @@ nav {
     font-weight: 600;
     color: black;
     transition: 0.2s ease-in-out;
-    background-image: linear-gradient(#FCBF49, #FFA800);
+    background: linear-gradient(to right, #FCBF49, #FFA800);
 }
 #uploadBtn:hover {
     text-decoration: none;
     transition: 0.2s ease-in-out;
-    background-image: linear-gradient(#F8B941, #D68D00);
+    background: linear-gradient(to right, #F8B941, #D68D00);
 }
 
 @media (max-width: 1199px) {
@@ -102,9 +89,5 @@ nav {
 
     .navbar-line {
         display: none;
-    }
-
-    .search-wrapper img {
-        left: 225px;
     }
 }

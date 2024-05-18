@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Navbar.master.cs" Inherits="ArtlyV1.Views.Navbar" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Navbar.Master.cs" Inherits="ArtlyV1.Views.Navbar" %>
 
 <!DOCTYPE html>
 
@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/owl.carousel.min.css">
     <link rel="stylesheet" href="CSS/NavbarStyle.css" />
     <link rel="stylesheet" href="Fonts/Inria-Serif/inria-serif.css">
     <link rel="stylesheet" href="Fonts/Inder/inder.css">
@@ -18,7 +19,7 @@
 <body>
     <form runat="server">
      <div>
-            <nav class="navbar navbar-dark navbar-expand-xl bg-dark">
+            <nav class="navbar navbar-dark navbar-expand-xl bg-transparent">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="HomePage.aspx">
                         <img src="Images/ArtlyBrandImage.png" /> 
@@ -31,10 +32,8 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-
-
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-1 ml-4">
+                        <ul class="navbar-nav me-auto ml-4">
                             <li class="nav-item mr-4">
                                 <a class="nav-link" href="#"> Gallery </a>
                             </li>
@@ -42,19 +41,15 @@
                                 <a class="nav-link" href="#"> Commission </a>
                             </li>
                         </ul>
-                        <div class="search-wrapper ml-4">
-                            <input class="searchbar pl-2 p-1 pr-5" type="text" id="searchBox" placeholder="Search for art...">
-                            <img src="Images/Navbar/searchIcon.png" />
-                        </div>
 
                         <%if (Session["user"] == null && Request.Cookies["user"] == null)
                         { %>
                             <ul class="navbar-nav me-auto mb-1 ml-auto">
-                                <li class="nav-item ml-4">
-                                    <a class="nav-link active" href="LoginPage.aspx"> Login </a>
+                                <li class="nav-item ml-4 d-flex">
+                                    <a class="nav-link active d-flex align-items-center" href="LoginPage.aspx"> Login </a>
                                 </li>
-                                <li class="nav-item ml-4">
-                                    <a class="nav-link active" href="RegisterPage.aspx"> Register </a>
+                                <li class="nav-item ml-4 d-flex">
+                                    <a class="nav-link active d-flex align-items-center" href="RegisterPage.aspx"> Register </a>
                                 </li>
                             </ul>
 
@@ -65,13 +60,19 @@
                                 {
                                     Session["user"] = Request.Cookies["user"].Value;
                                 }
-
-%>
+                        %>
                             <ul class="navbar-nav me-auto mb-1 ml-auto">
-                                <li class="nav-item ml-4 d-flex align-items-center">
-                                    <img class="accountImg" src="Images/Navbar/AccountDefaultIcon.png" />
-                                    <a class="nav-link active ml-2" href="#"> <%=Session["user"]%> </a>
+                                <li class="nav-item ml-4 d-flex">
+                                    <a class="d-flex align-items-center" href="#">
+                                        <img class="cartImg" src="Images/Navbar/CartIcon.png" />
+                                    </a>
                                 </li>
+                                <li class="nav-item ml-4 d-flex">
+                                    <a class="nav-link active d-flex align-items-center" href="#">
+                                        <img class="accountImg" src="Images/Navbar/AccountDefaultIcon.png" />
+                                    </a>
+                                </li>
+                                
                                 <li class="nav-item ml-4 mr-2 d-flex">
                                     <asp:Button ID="logoutBtn" runat="server" CssClass="btn" Text="Logout" OnClick="logoutBtn_Click" />
                                 </li>
@@ -86,7 +87,6 @@
                     </div>
                 </div>
             </nav>
-         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
          <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
          </asp:ContentPlaceHolder>
     </div>

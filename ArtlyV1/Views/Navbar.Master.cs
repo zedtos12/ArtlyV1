@@ -9,21 +9,23 @@ namespace ArtlyV1.Views
 {
     public partial class Navbar : System.Web.UI.MasterPage
     {
+
+        public List<String> testList = new List<String>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            testList.Add("test1");
+            testList.Add("test2");
+            testList.Add("test3");
         }
 
         protected void logoutBtn_Click(object sender, EventArgs e)
         {
-            Label1.Text = "pressed";
-
             HttpCookie userCookie = Request.Cookies["user"];
 
-            if(userCookie != null)
+            if (userCookie != null)
             {
-                Label1.Text = userCookie.Name;
-                userCookie.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies["user"].Expires = DateTime.Now.AddDays(-1);
             }
 
             Session["user"] = null;
