@@ -26,7 +26,7 @@
                         Artly
                     </a>
 
-                    <div class="navbar-line ml-4"></div>
+                    <div class="navbar-line ml-3"></div>
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -55,24 +55,19 @@
 
                         <%   }
                             else
-                            {
-                                if (Session["user"] == null && Request.Cookies["user"].Value != null)
-                                {
-                                    Session["user"] = Request.Cookies["user"].Value;
-                                }
-                        %>
+                            { %>
                             <ul class="navbar-nav me-auto mb-1 ml-auto">
                                 <li class="nav-item ml-4 d-flex">
                                     <a class="d-flex align-items-center" href="#">
                                         <img class="cartImg" src="Images/Navbar/CartIcon.png" />
                                     </a>
                                 </li>
-                                <li class="nav-item ml-4 d-flex">
-                                    <a class="nav-link active d-flex align-items-center" href="#">
+                                <li class="nav-item ml-4 d-flex align-items-center">
+                                    <a class="nav-link active d-flex align-items-center justify-content-center mr-2" href="#">
                                         <img class="accountImg" src="Images/Navbar/AccountDefaultIcon.png" />
                                     </a>
+                                    $<%=String.Format("{0:0.00}", Session["balance"]) %>
                                 </li>
-                                
                                 <li class="nav-item ml-4 mr-2 d-flex">
                                     <asp:Button ID="logoutBtn" runat="server" CssClass="btn" Text="Logout" OnClick="logoutBtn_Click" />
                                 </li>
@@ -89,6 +84,21 @@
             </nav>
          <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
          </asp:ContentPlaceHolder>
+         <footer class="footer d-flex align-items-center justify-content-center">
+             <a class="footerBrand d-flex align-items-center justify-content-center" href="HomePage.aspx">
+                 <img class="footerBrandImage" src="Images/ArtlyBrandImage.png"/>
+                 <div class="footerBrandText mb-1"> Artly </div>
+             </a>
+             <div class="footerLine ml-3"></div>
+             <div class="footerDescription ml-3"> 
+                 <span class="footerDescriptionHighlight">Creativity</span> meets <span class="footerDescriptionHighlight">Convenience</span>.
+             </div>
+             <div class="footerLinkWrapper ml-5">
+                 <a class="footerLink" href="#"> Terms </a>
+                 <a class="footerLink ml-3" href="#"> Privacy </a>
+                 <a class="footerLink ml-3" href="#"> Contact </a>
+             </div>
+         </footer>
     </div>
     </form>
 

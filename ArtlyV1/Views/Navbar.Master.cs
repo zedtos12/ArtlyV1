@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArtlyV1.Handlers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,14 +10,18 @@ namespace ArtlyV1.Views
 {
     public partial class Navbar : System.Web.UI.MasterPage
     {
-
-        public List<String> testList = new List<String>();
-
+        NavbarHandler navbarHandler = new NavbarHandler();
         protected void Page_Load(object sender, EventArgs e)
         {
-            testList.Add("test1");
-            testList.Add("test2");
-            testList.Add("test3");
+            if (Session["user"] == null && Request.Cookies["user"] != null)
+            {
+                Session["user"] = Request.Cookies["user"].Value;
+            }
+
+            if (Session["user"] != null)
+            {
+                Session["balance"] = navbarHandler.getUserBalance(Session["user"].ToString());
+            }
         }
 
         protected void logoutBtn_Click(object sender, EventArgs e)

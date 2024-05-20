@@ -61,8 +61,6 @@
         </div>
     </div>
 
-    <asp:Label ID="Label1" runat="server" Text="Label" ForeColor="White"></asp:Label>
-
     <script src="JS/jquery-3.3.1.min.js"></script>
     <script defer src="JS/owl.carousel.min.js"></script>
     <script src="JS/HomePageMain.js"></script>
