@@ -23,6 +23,25 @@ namespace ArtlyV1.Handlers
             return productName;
         }
 
+        public String getSellerName(String productID)
+        {
+            String userID = (from x in db.MsProducts where x.IdProduct == productID select x.UserInput).FirstOrDefault();
+            String sellerName = (from x in db.MsUsers where x.IdUser == userID select x.UserName).FirstOrDefault();
+            return sellerName;
+        }
+
+        public String getProductImage(String productID)
+        {
+            String productImage = (from x in db.MsProducts where x.IdProduct == productID select x.ProductImage).FirstOrDefault();
+            return productImage;
+        }
+
+        public String getProductDescription(String productID)
+        {
+            String productDescription = (from x in db.MsProducts where x.IdProduct == productID select x.Description).FirstOrDefault(); 
+            return productDescription;
+        }
+
         public decimal getProductPrice(String productID)
         {
             decimal productPrice = (from x in db.MsProducts where x.IdProduct == productID select x.Price).FirstOrDefault();

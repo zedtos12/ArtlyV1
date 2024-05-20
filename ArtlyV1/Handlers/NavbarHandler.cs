@@ -11,9 +11,9 @@ namespace ArtlyV1.Handlers
     {
         ArtlyDatabaseEntities db = DatabaseSingleton.getInstance();
 
-        public decimal getUserBalance(String username)
+        public decimal getUserBalance(String userID)
         {
-            decimal balance = (from x in db.MsUsers where x.UserName == username select x.Balance).FirstOrDefault();
+            decimal balance = (from x in db.MsUsers where x.IdUser == userID select x.Balance).FirstOrDefault();
             return balance;
         }
     }

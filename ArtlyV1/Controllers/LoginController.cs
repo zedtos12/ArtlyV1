@@ -19,5 +19,10 @@ namespace ArtlyV1.Controllers
 
             return loginHandler.login(username, password);
         }
+
+        public String getUserID(String username)
+        {
+            return loginHandler.getUserID(username);
+        }
     }
 }
