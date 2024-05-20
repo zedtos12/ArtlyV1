@@ -22,12 +22,12 @@ namespace ArtlyV1.Handlers
 
         private List<MsProduct> getProductsByCategory(String idProductCategory, String idProductType)
         {
-            using (db) 
-            { 
-                List<MsProduct> results = (from products in db.MsProducts 
-                              where products.IdProductCategory == idProductCategory
-                              && products.IdProductType == idProductType
-                              select products).ToList();
+            using (db)
+            {
+                List<MsProduct> results = (from products in db.MsProducts
+                                           where products.IdProductCategory == idProductCategory
+                                           && products.IdProductType == idProductType
+                                           select products).ToList();
                 return results;
             }
 
@@ -35,7 +35,7 @@ namespace ArtlyV1.Handlers
 
         private List<MsProduct> getProductsBySearch(String searchQuery)
         {
-            using (db) 
+            using (db)
             {
                 List<MsProduct> results = (from products in db.MsProducts
                                            where products.ProductName.Contains(searchQuery)
@@ -59,7 +59,7 @@ namespace ArtlyV1.Handlers
             using (db)
             {
                 List<LtProductType> results = (from type in db.LtProductTypes
-                                                   select type).ToList();
+                                               select type).ToList();
                 return results;
             }
         }
