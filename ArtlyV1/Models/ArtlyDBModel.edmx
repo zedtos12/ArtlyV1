@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ArtlyDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ArtlyDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="LtGender">
           <Key>
             <PropertyRef Name="IdGender" />
@@ -48,6 +48,10 @@
           <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Stock" Type="int" Nullable="false" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="DateCreated" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="ProductImage" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="UserInput" Type="nvarchar" MaxLength="36" Nullable="false" />
         </EntityType>
         <EntityType Name="MsUser">
           <Key>
@@ -63,6 +67,15 @@
           <Property Name="DOB" Type="datetime2" Precision="7" />
           <Property Name="IsActive" Type="bit" />
           <Property Name="Balance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TrUserAddress">
+          <Key>
+            <PropertyRef Name="IdAddress" />
+          </Key>
+          <Property Name="IdAddress" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="IdUser" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="AddressName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK__MsProduct__IdPro__4CA06362">
           <End Role="LtProductCategory" Type="Self.LtProductCategory" Multiplicity="1" />
@@ -85,6 +98,18 @@
             </Principal>
             <Dependent Role="MsProduct">
               <PropertyRef Name="IdProductType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MsProduct__UserI__6E01572D">
+          <End Role="MsUser" Type="Self.MsUser" Multiplicity="1" />
+          <End Role="MsProduct" Type="Self.MsProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MsUser">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="MsProduct">
+              <PropertyRef Name="UserInput" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -112,6 +137,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__TrUserAdd__IdUse__75A278F5">
+          <End Role="MsUser" Type="Self.MsUser" Multiplicity="1" />
+          <End Role="TrUserAddress" Type="Self.TrUserAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MsUser">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="TrUserAddress">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ArtlyDatabaseModelStoreContainer">
           <EntitySet Name="LtGender" EntityType="Self.LtGender" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LtProductCategory" EntityType="Self.LtProductCategory" Schema="dbo" store:Type="Tables" />
@@ -119,12 +156,17 @@
           <EntitySet Name="LtRole" EntityType="Self.LtRole" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MsProduct" EntityType="Self.MsProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MsUser" EntityType="Self.MsUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrUserAddress" EntityType="Self.TrUserAddress" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__MsProduct__IdPro__4CA06362" Association="Self.FK__MsProduct__IdPro__4CA06362">
             <End Role="LtProductCategory" EntitySet="LtProductCategory" />
             <End Role="MsProduct" EntitySet="MsProduct" />
           </AssociationSet>
           <AssociationSet Name="FK__MsProduct__IdPro__4D94879B" Association="Self.FK__MsProduct__IdPro__4D94879B">
             <End Role="LtProductType" EntitySet="LtProductType" />
+            <End Role="MsProduct" EntitySet="MsProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MsProduct__UserI__6E01572D" Association="Self.FK__MsProduct__UserI__6E01572D">
+            <End Role="MsUser" EntitySet="MsUser" />
             <End Role="MsProduct" EntitySet="MsProduct" />
           </AssociationSet>
           <AssociationSet Name="FK__MsUser__IdGender__628FA481" Association="Self.FK__MsUser__IdGender__628FA481">
@@ -135,9 +177,12 @@
             <End Role="LtRole" EntitySet="LtRole" />
             <End Role="MsUser" EntitySet="MsUser" />
           </AssociationSet>
+          <AssociationSet Name="FK__TrUserAdd__IdUse__75A278F5" Association="Self.FK__TrUserAdd__IdUse__75A278F5">
+            <End Role="MsUser" EntitySet="MsUser" />
+            <End Role="TrUserAddress" EntitySet="TrUserAddress" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ArtlyDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -190,6 +235,11 @@
           <Property Name="IsActive" Type="Boolean" />
           <NavigationProperty Name="LtProductCategory" Relationship="Self.FK__MsProduct__IdPro__4CA06362" FromRole="MsProduct" ToRole="LtProductCategory" />
           <NavigationProperty Name="LtProductType" Relationship="Self.FK__MsProduct__IdPro__4D94879B" FromRole="MsProduct" ToRole="LtProductType" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ProductImage" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UserInput" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MsUser" Relationship="ArtlyDatabaseModel.FK__MsProduct__UserI__6E01572D" FromRole="MsProduct" ToRole="MsUser" />
         </EntityType>
         <EntityType Name="MsUser">
           <Key>
@@ -207,6 +257,8 @@
           <Property Name="Balance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <NavigationProperty Name="LtGender" Relationship="Self.FK__MsUser__IdGender__628FA481" FromRole="MsUser" ToRole="LtGender" />
           <NavigationProperty Name="LtRole" Relationship="Self.FK__MsUser__IdRole__6383C8BA" FromRole="MsUser" ToRole="LtRole" />
+          <NavigationProperty Name="MsProducts" Relationship="ArtlyDatabaseModel.FK__MsProduct__UserI__6E01572D" FromRole="MsUser" ToRole="MsProduct" />
+          <NavigationProperty Name="TrUserAddresses" Relationship="ArtlyDatabaseModel.FK__TrUserAdd__IdUse__75A278F5" FromRole="MsUser" ToRole="TrUserAddress" />
         </EntityType>
         <Association Name="FK__MsUser__IdGender__628FA481">
           <End Role="LtGender" Type="Self.LtGender" Multiplicity="0..1" />
@@ -279,7 +331,50 @@
             <End Role="LtRole" EntitySet="LtRoles" />
             <End Role="MsUser" EntitySet="MsUsers" />
           </AssociationSet>
+          <EntitySet Name="TrUserAddresses" EntityType="ArtlyDatabaseModel.TrUserAddress" />
+          <AssociationSet Name="FK__MsProduct__UserI__6E01572D" Association="ArtlyDatabaseModel.FK__MsProduct__UserI__6E01572D">
+            <End Role="MsUser" EntitySet="MsUsers" />
+            <End Role="MsProduct" EntitySet="MsProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TrUserAdd__IdUse__75A278F5" Association="ArtlyDatabaseModel.FK__TrUserAdd__IdUse__75A278F5">
+            <End Role="MsUser" EntitySet="MsUsers" />
+            <End Role="TrUserAddress" EntitySet="TrUserAddresses" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="TrUserAddress">
+          <Key>
+            <PropertyRef Name="IdAddress" />
+          </Key>
+          <Property Name="IdAddress" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="IdUser" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AddressName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MsUser" Relationship="ArtlyDatabaseModel.FK__TrUserAdd__IdUse__75A278F5" FromRole="TrUserAddress" ToRole="MsUser" />
+        </EntityType>
+        <Association Name="FK__MsProduct__UserI__6E01572D">
+          <End Type="ArtlyDatabaseModel.MsUser" Role="MsUser" Multiplicity="1" />
+          <End Type="ArtlyDatabaseModel.MsProduct" Role="MsProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MsUser">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="MsProduct">
+              <PropertyRef Name="UserInput" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TrUserAdd__IdUse__75A278F5">
+          <End Type="ArtlyDatabaseModel.MsUser" Role="MsUser" Multiplicity="1" />
+          <End Type="ArtlyDatabaseModel.TrUserAddress" Role="TrUserAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MsUser">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="TrUserAddress">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -325,6 +420,10 @@
           <EntitySetMapping Name="MsProducts">
             <EntityTypeMapping TypeName="ArtlyDatabaseModel.MsProduct">
               <MappingFragment StoreEntitySet="MsProduct">
+                <ScalarProperty Name="UserInput" ColumnName="UserInput" />
+                <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
                 <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="IdProductCategory" ColumnName="IdProductCategory" />
@@ -348,6 +447,16 @@
                 <ScalarProperty Name="DOB" ColumnName="DOB" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="Balance" ColumnName="Balance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrUserAddresses">
+            <EntityTypeMapping TypeName="ArtlyDatabaseModel.TrUserAddress">
+              <MappingFragment StoreEntitySet="TrUserAddress">
+                <ScalarProperty Name="AddressName" ColumnName="AddressName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdAddress" ColumnName="IdAddress" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
