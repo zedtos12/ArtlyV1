@@ -21,8 +21,13 @@ namespace ArtlyV1.Models
         public decimal Price { get; set; }
         public int Stock { get; set; }
         public Nullable<bool> IsActive { get; set; }
+        public System.DateTime DateCreated { get; set; }
+        public string Description { get; set; }
+        public string ProductImage { get; set; }
+        public string UserInput { get; set; }
     
         public virtual LtProductCategory LtProductCategory { get; set; }
         public virtual LtProductType LtProductType { get; set; }
+        public virtual MsUser MsUser { get; set; }
     }
 }
