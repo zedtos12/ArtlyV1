@@ -96,6 +96,7 @@
     <Content Include="Views\CSS\owl.carousel.min.css" />
     <Content Include="Views\CSS\LoginRegisterPageStyle.css" />
     <Content Include="Views\CSS\ProductDetailPageStyle.css" />
+    <Content Include="Views\CSS\ProductPageStyle.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
@@ -129,6 +130,14 @@
     <Content Include="Views\Images\Navbar\AccountDefaultIcon.png" />
     <Content Include="Views\Images\Navbar\UploadIcon.png" />
     <Content Include="Views\Images\Navbar\CartIcon.png" />
+    <Content Include="Views\Images\Product\Product1.png" />
+    <Content Include="Views\Images\Product\Product2.png" />
+    <Content Include="Views\Images\Product\Product3.png" />
+    <Content Include="Views\Images\Product\Product4.png" />
+    <Content Include="Views\Images\Product\Product5.png" />
+    <Content Include="Views\Images\Product\Product6.png" />
+    <Content Include="Views\Images\Product\Product7.png" />
+    <Content Include="Views\Images\Product\Product8.png" />
     <Content Include="Views\Images\RegisterPageImage.jpg" />
     <Content Include="Views\JS\bootstrap.min.js" />
     <Content Include="Views\JS\HomePageMain.js" />
@@ -138,17 +147,20 @@
     <Content Include="Views\JS\owl.carousel.min.js" />
     <Content Include="Views\LoginPage.aspx" />
     <Content Include="Views\ProductDetail.aspx" />
+    <Content Include="Views\ProductPage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductDetailController.cs" />
+    <Compile Include="Controllers\ProductPageController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Factories\UserFactory.cs" />
     <Compile Include="Handlers\LoginHandler.cs" />
     <Compile Include="Handlers\NavbarHandler.cs" />
     <Compile Include="Handlers\ProductDetailHandler.cs" />
+    <Compile Include="Handlers\ProductPageHandler.cs" />
     <Compile Include="Handlers\RegisterHandler.cs" />
     <Compile Include="Models\ArtlyDBModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -183,6 +195,9 @@
     <Compile Include="Models\MsUser.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TrUserAddress.cs">
+      <DependentUpon>ArtlyDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\DatabaseSingleton.cs" />
     <Compile Include="TestEncrypte.cs" />
@@ -213,6 +228,13 @@
     </Compile>
     <Compile Include="Views\ProductDetail.aspx.designer.cs">
       <DependentUpon>ProductDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductPage.aspx.cs">
+      <DependentUpon>ProductPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ProductPage.aspx.designer.cs">
+      <DependentUpon>ProductPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\RegisterPage.aspx.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>

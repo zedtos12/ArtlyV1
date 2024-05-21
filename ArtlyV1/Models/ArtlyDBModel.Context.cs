@@ -31,5 +31,6 @@ namespace ArtlyV1.Models
         public virtual DbSet<LtRole> LtRoles { get; set; }
         public virtual DbSet<MsProduct> MsProducts { get; set; }
         public virtual DbSet<MsUser> MsUsers { get; set; }
+        public virtual DbSet<TrUserAddress> TrUserAddresses { get; set; }
     }
 }
