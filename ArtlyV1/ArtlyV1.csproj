@@ -146,6 +146,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Factories\AddressFactory.cs" />
     <Compile Include="Factories\UserFactory.cs" />
     <Compile Include="Handlers\LoginHandler.cs" />
     <Compile Include="Handlers\NavbarHandler.cs" />
