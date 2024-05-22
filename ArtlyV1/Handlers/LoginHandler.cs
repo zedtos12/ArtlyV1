@@ -33,5 +33,10 @@ namespace ArtlyV1.Handlers
 
             return "Successful";
         }
+
+        public String getUserID(String username)
+        {
+            return findUser(username).IdUser;
+        }
     }
 }

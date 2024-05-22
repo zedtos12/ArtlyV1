@@ -8,10 +8,10 @@
 	
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="wrapper" style="min-height:90vh">
+    <div class="wrapper" style="min-height: 90vh; width: 100%;">
         <div class="container mt-5">
 
-          <div class="row d-flex justify-content-center ">
+          <div class="row d-flex justify-content-center">
 
             <div class="col-md-8">
 
@@ -25,7 +25,7 @@
             </div>
           </div>
         </div>
-      <div class="container mt-5 d-flex" style="max-width:90%;">
+      <div class="container mt-5 d-flex justify-content-around" style="width: 100%; max-width: 100%; padding-right: 20px; padding-left: 20px;">
           <div class="Filter">
               <div class="Type-Filter-Container">
                   <h1 style="color:white; font-size:25px">Types</h1>
@@ -55,19 +55,23 @@
               </div>
               <asp:Button CssClass="btn btn-outline-warning" ID="ApplyFilter" runat="server" Text="Apply Filter" OnClick="ApplyFilter_Click" style="margin-left: 10px; margin-top: 10%"/>
           </div>
-          <section class="section-products" style="padding:0; width:100%;">
+          <section class="section-products" style="padding:0; width: 70%;">
 		    <div class="container" style="padding-top: 20px; ">
 			    <div class="row">
                     <asp:Repeater runat="server" ID="ProductList">
                         <ItemTemplate>
                             <div class="col-md-6 col-lg-4 col-xl-3">
-                                <div class="single-product" style="background: url('<%#Eval("ProductImage")%>') no-repeat center center; background-size: cover; max-height:290px;">
-                                    <div class="part-1">
-                                        <ul>
-                                            <label class="labelPrice" style="font-weight:bold;">Rp<%# String.Format("{0:N0}",Eval("Price")) %></label>
-                                        </ul>
+                                <asp:HyperLink runat="server" ID="productDetailLink" NavigateUrl='<%#Eval("IdProduct", "~/Views/ProductDetail.aspx?ID={0}")%>'>
+\                                    <div class="single-product" style="background: url('<%#Eval("ProductImage")%>') no-repeat center center; background-size: cover; max-height:290px;">
+                                        <div class="part-1">
+                                            <ul>
+                                                <label class="labelProductName"><%#Eval("ProductName") %></label>
+                                                <label class="labelSellerName"><%#Eval("MsUser.UserName") %></label>
+                                                <label class="labelPrice">Rp <%#String.Format("{0:N2}", Eval("Price"))%></label>
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
+                                </asp:HyperLink>
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>	    
