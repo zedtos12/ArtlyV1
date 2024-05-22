@@ -1,0 +1,195 @@
+﻿body {
+    background: linear-gradient(black, #151515 20%, #252525 60%, #2F2F2F);
+    background: #1C1C1C;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card {
+    background: linear-gradient(black, #151515 20%, #252525 60%, #2F2F2F);
+    padding: 15px;
+    border: none;
+}
+
+.input-box {
+    position: relative;
+    border-color: white;
+}
+
+    .input-box i {
+        position: absolute;
+        right: 13px;
+        top: 15px;
+        color: #ced4da;
+    }
+
+.form-control {
+    height: 50px;
+    border-color: white;
+}
+
+    .form-control:focus {
+        box-shadow: none;
+        border-color: #ffc107;
+        color: var(--NN950,#212121);
+        font-family: inherit;
+    }
+
+
+.list {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.border-bottom {
+    border-bottom: 2px solid #eee;
+}
+
+.list i {
+    font-size: 19px;
+    color: red;
+}
+
+.list small {
+    color: #dedddd;
+}
+
+.Content {
+    margin-top: 20px;
+}
+
+.Filter, .Product-List {
+    background-color: transparent;
+    padding: 20px;
+    color: white;
+}
+
+.Filter {
+    width: 17%;
+}
+
+.Product-List {
+    width: 75%;
+}
+
+.form-check-input:checked {
+    background-color: #FCBF49;
+    border-color: #FCBF49;
+}
+
+/*product*/
+a,
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.single-product .part-1:hover {
+}
+
+
+
+.section-products {
+    padding: 80px 0 54px;
+}
+
+    .section-products .header {
+        margin-bottom: 50px;
+    }
+
+        .section-products .header h3 {
+            font-size: 1rem;
+            color: #fe302f;
+            font-weight: 500;
+        }
+
+        .section-products .header h2 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: #444444;
+        }
+
+    .section-products .single-product {
+        margin-bottom: 26px;
+    }
+
+        .section-products .single-product .part-1 {
+            position: relative;
+            height: 290px;
+            max-height: 290px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+            .section-products .single-product .part-1::before {
+                position: absolute;
+                content: "";
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                transition: all 0.3s;
+            }
+
+        .section-products .single-product:hover .part-1::before {
+            transform: scale(1.2,1.2) rotate(5deg);
+        }
+
+        .section-products .single-product .part-1 ul {
+            position: absolute;
+            bottom: -41px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            opacity: 0;
+            transition: bottom 0.5s, opacity 0.5s;
+            width: 50%;
+            height:10%;
+            background: #bdc3c7;
+        }
+
+    .section-products .single-product:hover .part-1 ul {
+        bottom: 20px;
+        opacity: 1;
+    }
+
+        .section-products .single-product:hover .part-1 ul .labelPrice {
+            margin-left: 8px;
+            color: black;
+            font-weight:bold;
+        }
+
+    .section-products .single-product .part-1 ul li {
+        display: inline-block;
+        margin-right: 4px;
+    }
+
+
+    .section-products .single-product .part-2 .product-title {
+        font-size: 1rem;
+    }
+
+    .section-products .single-product .part-2 h4 {
+        display: inline-block;
+        font-size: 1rem;
+    }
+
+    .section-products .single-product .part-2 .product-old-price {
+        position: relative;
+        padding: 0 7px;
+        margin-right: 2px;
+        opacity: 0.6;
+    }
+
+        .section-products .single-product .part-2 .product-old-price::after {
+            position: absolute;
+            content: "";
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #444444;
+            transform: translateY(-50%);
+        }

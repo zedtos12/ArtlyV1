@@ -11,57 +11,60 @@ namespace ArtlyV1.Handlers
     {
         ArtlyDatabaseEntities db = DatabaseSingleton.getInstance();
 
-        private List<MsProduct> getProducts()
+        public List<MsProduct> getProducts()
         {
-            using (db)
-            {
-                List<MsProduct> results = (from products in db.MsProducts select products).ToList();
-                return results;
-            }
+            List<MsProduct> results = (from products in db.MsProducts select products).ToList();
+            return results;
         }
 
-        private List<MsProduct> getProductsByCategory(String idProductCategory, String idProductType)
+        public List<MsProduct> getProductsByCategory(String idProductCategory, String idProductType)
         {
-            using (db)
-            {
-                List<MsProduct> results = (from products in db.MsProducts
-                                           where products.IdProductCategory == idProductCategory
-                                           && products.IdProductType == idProductType
-                                           select products).ToList();
-                return results;
-            }
+            List<MsProduct> results = (from products in db.MsProducts
+                                       where products.IdProductCategory == idProductCategory
+                                       && products.IdProductType == idProductType
+                                       select products).ToList();
+            return results;
 
         }
 
-        private List<MsProduct> getProductsBySearch(String searchQuery)
+        public List<MsProduct> getProductsBySearch(String searchQuery)
         {
-            using (db)
-            {
-                List<MsProduct> results = (from products in db.MsProducts
-                                           where products.ProductName.Contains(searchQuery)
-                                           select products).ToList();
-                return results;
-            }
+            List<MsProduct> results = (from products in db.MsProducts
+                                       where products.ProductName.Contains(searchQuery)
+                                       select products).ToList();
+            return results;
         }
 
-        private List<LtProductCategory> getCategories()
+        public List<LtProductCategory> getCategories()
         {
-            using (db)
-            {
-                List<LtProductCategory> results = (from category in db.LtProductCategories
-                                                   select category).ToList();
-                return results;
-            }
+            List<LtProductCategory> results = (from category in db.LtProductCategories
+                                               select category).ToList();
+            return results;
         }
 
-        private List<LtProductType> getTypes()
+        public List<LtProductType> getTypes()
         {
-            using (db)
-            {
-                List<LtProductType> results = (from type in db.LtProductTypes
-                                               select type).ToList();
-                return results;
-            }
+
+            List<LtProductType> results = db.LtProductTypes.ToList();
+            return results;
+        }
+
+        public List<MsProduct> getProductByFilter(string search, List<string> idProductCategory, List<string> idProductType)
+        {
+            List<MsProduct> results = db.MsProducts
+                            .ToList();
+
+            if (!String.IsNullOrEmpty(search))
+                results = results.Where(x => x.ProductName.ToLower().Contains(search.ToLower())).ToList();
+
+            if (idProductCategory.Count() > 0)
+                results = results.Where(x => idProductCategory.Any(y => y == x.IdProductCategory)).ToList();
+
+            if (idProductType.Count() > 0)
+                results = results.Where(x => idProductType.Any(y => y == x.IdProductType)).ToList();
+
+
+            return results;
         }
     }
 }
