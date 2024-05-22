@@ -181,6 +181,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ArtlyDBModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\LtGender.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>

@@ -51,8 +51,7 @@ namespace ArtlyV1.Handlers
 
         public List<MsProduct> getProductByFilter(string search, List<string> idProductCategory, List<string> idProductType)
         {
-            List<MsProduct> results = db.MsProducts
-                            .ToList();
+            List<MsProduct> results = db.MsProducts.Include("MsUser").ToList();
 
             if (!String.IsNullOrEmpty(search))
                 results = results.Where(x => x.ProductName.ToLower().Contains(search.ToLower())).ToList();

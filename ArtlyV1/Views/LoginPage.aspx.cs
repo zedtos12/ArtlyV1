@@ -34,14 +34,16 @@ namespace ArtlyV1.Views
             alertBox.Visible = false;
             errorLabel.Text = null;
 
+            String userID = loginController.getUserID(username);
+
             if (remember == true)
             {
-                HttpCookie userCookie = new HttpCookie("user", username);
+                HttpCookie userCookie = new HttpCookie("user", userID);
                 userCookie.Expires = DateTime.Now.AddDays(1);
                 Response.Cookies.Add(userCookie);
             }
                 
-            Session["user"] = username;
+            Session["user"] = userID;
 
             Response.Redirect("~/Views/HomePage.aspx");
         }

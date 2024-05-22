@@ -11,6 +11,7 @@ namespace ArtlyV1.Views
     public partial class Navbar : System.Web.UI.MasterPage
     {
         NavbarHandler navbarHandler = new NavbarHandler();
+        public decimal balance;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["user"] == null && Request.Cookies["user"] != null)
@@ -20,7 +21,7 @@ namespace ArtlyV1.Views
 
             if (Session["user"] != null)
             {
-                Session["balance"] = navbarHandler.getUserBalance(Session["user"].ToString());
+                balance = navbarHandler.getUserBalance(Session["user"].ToString());
             }
         }
 

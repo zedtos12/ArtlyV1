@@ -17,22 +17,15 @@ namespace ArtlyV1.Handlers
             return product != null;
         }
 
-        public String getProductName(String productID)
+        public MsProduct getProduct(String productID)
         {
-            String productName = (from x in db.MsProducts where x.IdProduct == productID select x.ProductName).FirstOrDefault();
-            return productName;
+            MsProduct product = (from x in db.MsProducts where x.IdProduct == productID select x).FirstOrDefault();
+            return product;
         }
 
-        public decimal getProductPrice(String productID)
-        {
-            decimal productPrice = (from x in db.MsProducts where x.IdProduct == productID select x.Price).FirstOrDefault();
-            return productPrice;
-        }
-
-        public int getProductStock(String productID)
-        {
-            int productStock = (from x in db.MsProducts where x.IdProduct == productID select x.Stock).FirstOrDefault();
-            return productStock;
+        public String getSellerName(String productID) {
+            String sellerName = (from x in db.MsProducts where x.IdProduct == productID select x.ProductName).FirstOrDefault();
+            return sellerName;
         }
     }
 }
