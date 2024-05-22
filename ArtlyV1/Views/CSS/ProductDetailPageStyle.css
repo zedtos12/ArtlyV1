@@ -9,8 +9,23 @@
     width: 100%;
 }
 
+.productImage {
+    width: 300px;
+}
+
 .container {
     margin: 0;
+}
+
+.sellerLink {
+    color: #FCBF49;
+    transition: 0.2s ease-in-out;
+}
+
+.sellerLink:hover {
+    color: #E99900;
+    text-decoration: none;
+    transition: 0.2s ease-in-out;
 }
 
 .btn-outline-light:hover {
@@ -25,4 +40,11 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 input[type=number] {
     -moz-appearance: textfield;
+}
+
+@media (max-width: 768px) {
+    .productText {
+        justify-content: center;
+        align-items: center;
+    }
 }

@@ -1,5 +1,6 @@
 ﻿using ArtlyV1.Controllers;
 using ArtlyV1.Handlers;
+using ArtlyV1.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,8 @@ namespace ArtlyV1.Views
     {
         ProductDetailController detailController = new ProductDetailController();
         ProductDetailHandler detailHandler = new ProductDetailHandler();
-        public String productID;
+        private String productID;
+        private MsProduct product;
         public String productName;
         public String sellerName;
         public String productImage;
@@ -24,7 +26,7 @@ namespace ArtlyV1.Views
         protected void Page_Load(object sender, EventArgs e)
         {
             //productID = Request["productID"];
-            productID = "001CCA71-5CDD-4744-87D3-8D2F4E415C9F";
+            productID = Request.QueryString["ID"];
 
             if (productID == null)
             {
@@ -36,12 +38,29 @@ namespace ArtlyV1.Views
                 Response.Redirect("~/Views/ProductPage.aspx");
             }
 
-            productName = detailHandler.getProductName(productID);
+            product = detailHandler.getProduct(productID);
+
+            productName = product.ProductName;
             sellerName = detailHandler.getSellerName(productID);
-            productImage = detailHandler.getProductImage(productID);
-            productDescription = detailHandler.getProductDescription(productID);
-            productPrice = detailHandler.getProductPrice(productID);
-            productStock = detailHandler.getProductStock(productID);
+            productImage = product.ProductImage;
+            productDescription = product.Description;
+            productPrice = product.Price;
+            productStock = product.Stock;
         }
+
+        protected void addCartButton_Click(object sender, EventArgs e)
+        {
+            List<CartItem> cartList = (List<CartItem>)Session["cart"];
+            if (cartList == null) cartList = new List<CartItem>();
+            int qty = Int32.Parse(inputQuantity.Value);
+
+            CartItem cartItem = new CartItem(product, qty);
+
+            cartList.Add(cartItem);
+            Session["cart"] = cartList;
+
+            successBox.Visible = true;
+            successLabel.Text = String.Format("{0} '{1}' successfully added to your cart.", qty, productName);
+         }
     }
 }
