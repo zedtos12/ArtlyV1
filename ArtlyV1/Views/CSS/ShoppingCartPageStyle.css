@@ -1,0 +1,139 @@
+﻿body {
+    background: linear-gradient(black, #151515 20%, #252525 60%, #2F2F2F);
+}
+
+.cartWrapper {
+    width: 100%;
+    min-height: 90vh;
+    font-family: "Inder", sans-serif;
+    color: white;
+    padding: 0 50px;
+}
+
+.cartTitle {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.productTitle {
+    width: 300px;
+}
+
+.priceTitle {
+    width: 200px;
+    text-align: center;
+}
+
+.quantityTitle {
+    width: 150px;
+    text-align: center;
+}
+
+.totalPriceTitle {
+    width: 200px;
+    text-align: center;
+}
+
+.cartSubtitle {
+    font-size: 18px;
+}
+
+.cartSubtitleHighlight {
+    font-weight: 600;
+}
+
+.cartContent {
+    width: 100%;
+}
+
+.cartItemListWrapper {
+    width: 850px;
+    background-color: #323232;
+    border-radius: 10px;
+}
+
+.cartItemListTitle {
+    width: 100%;
+    padding: 15px 30px;
+}
+
+.cartItemImage {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.cartItemDescription {
+    width: 175px;
+}
+
+.cartItemSellerName {
+    color: #FCBF49;
+    font-size: 14px;
+}
+
+.cartItemPrice {
+    width: 200px;
+    text-align: center;
+}
+
+.cartItemQuantity {
+    width: 150px;
+    text-align: center;
+}
+
+.cartItemTotalPrice {
+    width: 200px;
+    color: #FCBF49;
+    text-align: center;
+}
+
+.cartItemSeparator {
+    width: 750px;
+    height: 1px;
+    border: 1px solid white;
+}
+
+.summaryWrapper {
+    width: 300px;
+    height: 50px;
+    background-color: #323232;
+    border-radius: 10px;
+}
+
+@media (max-width: 1250px) {
+    .cartContent {
+        flex-direction: column;
+    }
+
+    .summaryWrapper {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 950px) {
+    .cartWrapper {
+        padding: 0 10px;
+    }
+
+    .cartItemListWrapper {
+        width: 90%;
+    }
+
+    .cartItemListTitle {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cartItemWrapper {
+        flex-direction: column;
+        align-items: center;
+        height: 300px;
+        justify-content: space-between;
+    }
+
+    .cartItemDescription {
+        align-items: center;
+        width: 100%;
+        text-align: center;
+    }
+}

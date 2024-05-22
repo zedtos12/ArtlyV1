@@ -54,7 +54,7 @@ namespace ArtlyV1.Views
             if (cartList == null) cartList = new List<CartItem>();
             int qty = Int32.Parse(inputQuantity.Value);
 
-            CartItem cartItem = new CartItem(product, qty);
+            CartItem cartItem = new CartItem(product, sellerName, qty);
 
             cartList.Add(cartItem);
             Session["cart"] = cartList;

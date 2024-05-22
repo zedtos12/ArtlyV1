@@ -24,7 +24,8 @@ namespace ArtlyV1.Handlers
         }
 
         public String getSellerName(String productID) {
-            String sellerName = (from x in db.MsProducts where x.IdProduct == productID select x.ProductName).FirstOrDefault();
+            String sellerID = (from x in db.MsProducts where x.IdProduct == productID select x.UserInput).FirstOrDefault();
+            String sellerName = (from x in db.MsUsers where x.IdUser == sellerID select x.UserName).FirstOrDefault();
             return sellerName;
         }
     }
