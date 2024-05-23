@@ -147,10 +147,13 @@
     <Content Include="Views\JS\LoginRegisterPageMain.js" />
     <Content Include="Views\JS\owl.carousel.min.js" />
     <Content Include="Views\LoginPage.aspx" />
+    <Content Include="Views\OrderHistoryPage.aspx" />
     <Content Include="Views\ProductDetail.aspx" />
     <Content Include="Views\ProductPage.aspx" />
     <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
+    <Content Include="Views\SalesHistoryPage.aspx" />
+    <Content Include="Views\TransactionDetailPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -162,10 +165,12 @@
     <Compile Include="Factories\UserFactory.cs" />
     <Compile Include="Handlers\LoginHandler.cs" />
     <Compile Include="Handlers\NavbarHandler.cs" />
+    <Compile Include="Handlers\OrderHistoryHandler.cs" />
     <Compile Include="Handlers\ProductDetailHandler.cs" />
     <Compile Include="Handlers\ProductPageHandler.cs" />
     <Compile Include="Handlers\ProfileHandler.cs" />
     <Compile Include="Handlers\RegisterHandler.cs" />
+    <Compile Include="Handlers\SalesHistoryHandler.cs" />
     <Compile Include="Models\ArtlyDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -226,6 +231,13 @@
     <Compile Include="Views\Navbar.Master.designer.cs">
       <DependentUpon>Navbar.Master</DependentUpon>
     </Compile>
+    <Compile Include="Views\OrderHistoryPage.aspx.cs">
+      <DependentUpon>OrderHistoryPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OrderHistoryPage.aspx.designer.cs">
+      <DependentUpon>OrderHistoryPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProductDetail.aspx.cs">
       <DependentUpon>ProductDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -253,6 +265,20 @@
     </Compile>
     <Compile Include="Views\RegisterPage.aspx.designer.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SalesHistoryPage.aspx.cs">
+      <DependentUpon>SalesHistoryPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SalesHistoryPage.aspx.designer.cs">
+      <DependentUpon>SalesHistoryPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransactionDetailPage.aspx.cs">
+      <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TransactionDetailPage.aspx.designer.cs">
+      <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
