@@ -24,5 +24,10 @@ namespace ArtlyV1.Controllers
         {
             return loginHandler.getUserID(username);
         }
+
+        public String getUserRole(string userId)
+        {
+            return loginHandler.getUserRole(userId);
+        }
     }
 }

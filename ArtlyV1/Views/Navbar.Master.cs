@@ -35,6 +35,7 @@ namespace ArtlyV1.Views
             }
 
             Session["user"] = null;
+            Session["userrole"] = null;
 
             Response.Redirect("~/Views/HomePage.aspx");
         }
