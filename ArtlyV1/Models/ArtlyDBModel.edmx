@@ -67,7 +67,6 @@
           <Property Name="DOB" Type="datetime2" Precision="7" />
           <Property Name="IsActive" Type="bit" />
           <Property Name="Balance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="ShopName" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="TrUserAddress">
           <Key>
@@ -260,7 +259,6 @@
           <NavigationProperty Name="LtRole" Relationship="Self.FK__MsUser__IdRole__6383C8BA" FromRole="MsUser" ToRole="LtRole" />
           <NavigationProperty Name="MsProducts" Relationship="ArtlyDatabaseModel.FK__MsProduct__UserI__6E01572D" FromRole="MsUser" ToRole="MsProduct" />
           <NavigationProperty Name="TrUserAddresses" Relationship="ArtlyDatabaseModel.FK__TrUserAdd__IdUse__75A278F5" FromRole="MsUser" ToRole="TrUserAddress" />
-          <Property Name="ShopName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK__MsUser__IdGender__628FA481">
           <End Role="LtGender" Type="Self.LtGender" Multiplicity="0..1" />
@@ -439,7 +437,6 @@
           <EntitySetMapping Name="MsUsers">
             <EntityTypeMapping TypeName="ArtlyDatabaseModel.MsUser">
               <MappingFragment StoreEntitySet="MsUser">
-                <ScalarProperty Name="ShopName" ColumnName="ShopName" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
