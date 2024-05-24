@@ -90,6 +90,8 @@
       <DependentUpon>ArtlyDBModel.edmx</DependentUpon>
       <LastGenOutput>ArtlyDBModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\BecomeSeller.aspx" />
+    <Content Include="Views\CSS\BecomSellerStyle.css" />
     <Content Include="Views\CSS\bootstrap.min.css" />
     <Content Include="Views\CSS\HomePageStyle.css" />
     <Content Include="Views\CSS\NavbarStyle.css" />
@@ -140,6 +142,7 @@
     <Content Include="Views\Images\Product\Product7.png" />
     <Content Include="Views\Images\Product\Product8.png" />
     <Content Include="Views\Images\RegisterPageImage.jpg" />
+    <Content Include="Views\JS\BecomeSellerJs.js" />
     <Content Include="Views\JS\bootstrap.min.js" />
     <Content Include="Views\JS\HomePageMain.js" />
     <Content Include="Views\JS\jquery-3.3.1.min.js" />
@@ -206,6 +209,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\DatabaseSingleton.cs" />
     <Compile Include="TestEncrypte.cs" />
+    <Compile Include="Views\BecomeSeller.aspx.cs">
+      <DependentUpon>BecomeSeller.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\BecomeSeller.aspx.designer.cs">
+      <DependentUpon>BecomeSeller.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
