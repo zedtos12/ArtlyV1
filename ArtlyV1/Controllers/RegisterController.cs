@@ -36,5 +36,10 @@ namespace ArtlyV1.Controllers
 
             return registerHandler.register(username, fullname, email, password);
         }
+
+        public void SellerRegis(string idUser)
+        {
+            registerHandler.SellerRegis(idUser);
+        }
     }
 }

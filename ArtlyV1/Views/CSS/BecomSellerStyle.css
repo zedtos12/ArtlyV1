@@ -57,6 +57,7 @@ body {
 
     .contentBtn:hover {
         background: linear-gradient(to right, #50EDED, #349F9F);
+        font-weight:bolder;
     }
 
 .service-6 {
@@ -133,3 +134,77 @@ body {
         font-size: 16px;
     }
 
+.modal {
+    backdrop-filter : blur(10px);
+}
+
+.modal-header{
+    max-height: 30vh;
+    overflow:scroll;
+    overflow-x:hidden;
+}
+
+*::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
+
+    *::-webkit-scrollbar-track:hover {
+        background-color: #FFFFFF;
+    }
+
+    *::-webkit-scrollbar-track:active {
+        background-color: #FFFFFF;
+    }
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #FFC107;
+}
+
+    *::-webkit-scrollbar-thumb:hover {
+        background-color: #FFC107;
+    }
+
+    *::-webkit-scrollbar-thumb:active {
+        background-color: #FFC107;
+    }
+
+.checkbx-agree:checked {
+    background-color: #FFC107;
+    border-color: #FFC107;
+}
+
+.control .control--checkbox input:checked {
+    background-color: #FFC107;
+    border-color: #FFC107;
+}
+
+
+.btn-primary {
+    background-color: #FFC107;
+    border-color: #FFC107;
+}
+    .btn-primary::before {
+        background-color: #FFC107;
+        border-color: #FFC107;
+    }
+
+    .btn-primary::after {
+        background-color: #FFC107;
+        border-color: #FFC107;
+    }
+
+    .btn-primary:disabled {
+        background-color: #FFC107;
+        border-color: #FFC107;
+    }
+    .btn-primary:enabled:hover {
+        background-color: #D5A734;
+        border-color: #D5A734;
+    }

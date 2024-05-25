@@ -60,3 +60,16 @@ function scrollToSection() {
 		scrollTop: $('#section-information').offset().top
 	}, 500);
 }
+
+document.addEventListener('scroll', function () {
+	const endAgreement = document.getElementById('end-agreement');
+	const acceptButton = document.getElementById('acceptButton');
+	const rect = endAgreement.getBoundingClientRect();
+	const isVisible = rect.top <= window.innerHeight && rect.bottom >= 0;
+
+	if (isVisible) {
+		acceptButton.disabled = false;
+	} else {
+		acceptButton.disabled = true;
+	}
+});
