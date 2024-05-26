@@ -64,7 +64,7 @@
                             { %>
                             <ul class="navbar-nav me-auto mb-1 ml-auto">
                                 <li class="nav-item ml-4 d-flex">
-                                    <a class="d-flex align-items-center" href="#">
+                                    <a class="d-flex align-items-center" href="ShoppingCartPage.aspx">
                                         <img class="cartImg" src="Images/Navbar/CartIcon.png" />
                                     </a>
                                 </li>
