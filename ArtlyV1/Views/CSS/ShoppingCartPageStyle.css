@@ -17,6 +17,7 @@
 
 .productTitle {
     width: 300px;
+    text-align: center;
 }
 
 .priceTitle {
@@ -89,15 +90,66 @@
 
 .cartItemSeparator {
     width: 750px;
-    height: 1px;
-    border: 1px solid white;
+    border: 1px solid rgba(255,255,255,.25);
+    align-self: center;
 }
 
 .summaryWrapper {
-    width: 300px;
-    height: 50px;
+    width: 400px;
     background-color: #323232;
     border-radius: 10px;
+}
+
+.btn-outline-light:hover {
+    background-color: #FCBF49;
+    border-color: #FCBF49;
+}
+
+.summaryTitle {
+    font-size: 24px;
+}
+
+.summaryPriceHighlight {
+    color: #FCBF49;
+}
+
+.summarySeparator {
+    width: 100%;
+    border: 1px solid rgba(255,255,255,.25);
+    align-self: center;
+}
+
+.summaryTotal {
+    font-size: 20px;
+}
+
+.removeBtn {
+    padding: 0;
+    color: white;
+    text-decoration: underline;
+}
+
+.removeBtn:hover {
+    color: #FCBF49;
+    text-decoration: underline;
+}
+
+.qtyBtn {
+    color: white;
+}
+
+.qtyBtn:hover {
+    color: white;
+}
+
+.non-functional-btn {
+    width: 100%;
+    background-color: #212529;
+    color: white;
+}
+
+.non-functional-btn:hover {
+    color: white;
 }
 
 @media (max-width: 1250px) {
@@ -110,13 +162,21 @@
     }
 }
 
-@media (max-width: 950px) {
+@media (max-width: 1250px) {
     .cartWrapper {
         padding: 0 10px;
     }
 
     .cartItemListWrapper {
         width: 90%;
+    }
+
+    .cartItemImage {
+        margin: 0;
+    }
+
+    .cartItemSeparator {
+        width: 85%;
     }
 
     .cartItemListTitle {
