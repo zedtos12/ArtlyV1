@@ -7,12 +7,14 @@ namespace ArtlyV1.Models
 {
     public class CartItem
     {
-        private MsProduct product { get; set; }
-        private int qty { get; set; }
+        public MsProduct product { get; set; }
+        public String sellerName { get; set; }
+        public int qty { get; set; }
 
-        public CartItem(MsProduct product, int qty)
+        public CartItem(MsProduct product, String sellerName, int qty)
         {
             this.product = product;
+            this.sellerName = sellerName;
             this.qty = qty;
         }
     }

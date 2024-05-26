@@ -22,6 +22,7 @@ namespace ArtlyV1.Views
             if (Session["user"] != null)
             {
                 balance = navbarHandler.getUserBalance(Session["user"].ToString());
+                Session["balance"] = balance;
             }
         }
 
