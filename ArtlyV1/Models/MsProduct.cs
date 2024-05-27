@@ -14,6 +14,12 @@ namespace ArtlyV1.Models
     
     public partial class MsProduct
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MsProduct()
+        {
+            this.TransationDetails = new HashSet<TransationDetail>();
+        }
+    
         public string IdProduct { get; set; }
         public string ProductName { get; set; }
         public string IdProductCategory { get; set; }
@@ -29,5 +35,7 @@ namespace ArtlyV1.Models
         public virtual LtProductCategory LtProductCategory { get; set; }
         public virtual LtProductType LtProductType { get; set; }
         public virtual MsUser MsUser { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TransationDetail> TransationDetails { get; set; }
     }
 }

@@ -151,6 +151,8 @@
     <Content Include="Views\JS\LoginRegisterPageMain.js" />
     <Content Include="Views\JS\owl.carousel.min.js" />
     <Content Include="Views\LoginPage.aspx" />
+    <Content Include="Views\OrderDetailPage.aspx" />
+    <Content Include="Views\OrderHistoryPage.aspx" />
     <Content Include="Views\ProductDetail.aspx" />
     <Content Include="Views\ProductPage.aspx" />
     <Content Include="Views\ProfilePage.aspx" />
@@ -167,10 +169,12 @@
     <Compile Include="Factories\UserFactory.cs" />
     <Compile Include="Handlers\LoginHandler.cs" />
     <Compile Include="Handlers\NavbarHandler.cs" />
+    <Compile Include="Handlers\OrderHistoryHandler.cs" />
     <Compile Include="Handlers\ProductDetailHandler.cs" />
     <Compile Include="Handlers\ProductPageHandler.cs" />
     <Compile Include="Handlers\ProfileHandler.cs" />
     <Compile Include="Handlers\RegisterHandler.cs" />
+    <Compile Include="Handlers\SalesHistoryHandler.cs" />
     <Compile Include="Models\ArtlyDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -190,6 +194,9 @@
     <Compile Include="Models\LtGender.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LtPaymentMethod.cs">
+      <DependentUpon>ArtlyDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LtProductCategory.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
@@ -199,10 +206,25 @@
     <Compile Include="Models\LtRole.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LtStatu.cs">
+      <DependentUpon>ArtlyDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Message.cs">
+      <DependentUpon>ArtlyDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\MsProduct.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MsTransaction.cs">
+      <DependentUpon>ArtlyDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\MsUser.cs">
+      <DependentUpon>ArtlyDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TopUp.cs">
+      <DependentUpon>ArtlyDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TransationDetail.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TrUserAddress.cs">
@@ -238,6 +260,20 @@
     </Compile>
     <Compile Include="Views\Navbar.Master.designer.cs">
       <DependentUpon>Navbar.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderDetailPage.aspx.cs">
+      <DependentUpon>OrderDetailPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OrderDetailPage.aspx.designer.cs">
+      <DependentUpon>OrderDetailPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderHistoryPage.aspx.cs">
+      <DependentUpon>OrderHistoryPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OrderHistoryPage.aspx.designer.cs">
+      <DependentUpon>OrderHistoryPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ProductDetail.aspx.cs">
       <DependentUpon>ProductDetail.aspx</DependentUpon>

@@ -19,6 +19,10 @@ namespace ArtlyV1.Models
         {
             this.MsProducts = new HashSet<MsProduct>();
             this.TrUserAddresses = new HashSet<TrUserAddress>();
+            this.Messages = new HashSet<Message>();
+            this.Messages1 = new HashSet<Message>();
+            this.MsTransactions = new HashSet<MsTransaction>();
+            this.TopUps = new HashSet<TopUp>();
         }
     
         public string IdUser { get; set; }
@@ -38,5 +42,13 @@ namespace ArtlyV1.Models
         public virtual ICollection<MsProduct> MsProducts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TrUserAddress> TrUserAddresses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Message> Messages { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Message> Messages1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MsTransaction> MsTransactions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TopUp> TopUps { get; set; }
     }
 }
