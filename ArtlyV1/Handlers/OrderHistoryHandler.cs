@@ -11,11 +11,11 @@ namespace ArtlyV1.Handlers
     {
         ArtlyDatabaseEntities db = DatabaseSingleton.getInstance();
 
-        public List<MsTransaction> findOrdersByUsername(String username)
-        {
-            List<MsTransaction> orders = (from x in db.MsTransaction where x.UserName == username select x).ToList();
-            return orders;
-        }
+        //public List<MsTransaction> findOrdersByUsername(String username)
+        //{
+        //    List<MsTransaction> orders = (from x in db.MsTransaction where x.UserName == username select x).ToList();
+        //    return orders;
+        //}
 
 
     }

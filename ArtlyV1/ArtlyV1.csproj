@@ -98,6 +98,7 @@
     <Content Include="Views\CSS\ProductDetailPageStyle.css" />
     <Content Include="Views\CSS\ProductPageStyle.css" />
     <Content Include="Views\CSS\ProfileStyle.css" />
+    <Content Include="Views\CSS\styles.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
