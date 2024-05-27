@@ -158,6 +158,7 @@
     <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
     <Content Include="Views\ShoppingCartPage.aspx" />
+    <Content Include="Views\TopUpHistoryPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +176,7 @@
     <Compile Include="Handlers\ProfileHandler.cs" />
     <Compile Include="Handlers\RegisterHandler.cs" />
     <Compile Include="Handlers\SalesHistoryHandler.cs" />
+    <Compile Include="Handlers\TopUpHandler.cs" />
     <Compile Include="Models\ArtlyDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -224,7 +226,7 @@
     <Compile Include="Models\TopUp.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TransationDetail.cs">
+    <Compile Include="Models\TransactionDetail.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TrUserAddress.cs">
@@ -309,6 +311,13 @@
     </Compile>
     <Compile Include="Views\ShoppingCartPage.aspx.designer.cs">
       <DependentUpon>ShoppingCartPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TopUpHistoryPage.aspx.cs">
+      <DependentUpon>TopUpHistoryPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TopUpHistoryPage.aspx.designer.cs">
+      <DependentUpon>TopUpHistoryPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

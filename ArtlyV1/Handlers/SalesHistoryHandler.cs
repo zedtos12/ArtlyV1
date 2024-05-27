@@ -11,15 +11,13 @@ namespace ArtlyV1.Handlers
     {
         ArtlyDatabaseEntities db = DatabaseSingleton.getInstance();
 
-        //public List<TransactionDetail> findSalesByUsername(String username)
-        //{
-        //    string userId = "specificUserId"; // Replace with the specific UserId
-
-        //    List<TransactionDetail> lst = (from td in db.TransactionDetails
-        //                                   join p in db.Products on td.IdProduct equals p.IdProduct
-        //                                   where p.IdProductOwner == userId
-        //                                   select td).ToList();
-        //    return lst;
-        //}
+        public List<TransactionDetail> findSalesByUserID(String UserID)
+        {
+            List<TransactionDetail> lst = (from td in db.TransactionDetails
+                                           join p in db.MsProducts on td.IdProduct equals p.IdProduct
+                                           where p.IdProductOwner == UserID
+                                           select td).ToList();
+            return lst;
+        }
     }
 }

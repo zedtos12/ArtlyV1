@@ -17,7 +17,7 @@ namespace ArtlyV1.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MsProduct()
         {
-            this.TransationDetails = new HashSet<TransationDetail>();
+            this.TransactionDetails = new HashSet<TransactionDetail>();
         }
     
         public string IdProduct { get; set; }
@@ -31,11 +31,12 @@ namespace ArtlyV1.Models
         public string Description { get; set; }
         public string ProductImage { get; set; }
         public string UserInput { get; set; }
+        public string IdProductOwner { get; set; }
     
         public virtual LtProductCategory LtProductCategory { get; set; }
         public virtual LtProductType LtProductType { get; set; }
         public virtual MsUser MsUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TransationDetail> TransationDetails { get; set; }
+        public virtual ICollection<TransactionDetail> TransactionDetails { get; set; }
     }
 }
