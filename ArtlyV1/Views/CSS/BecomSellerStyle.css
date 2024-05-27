@@ -1,0 +1,210 @@
+﻿@import url(//fonts.googleapis.com/css?family=Montserrat:300,500,600,700,800);
+@import url(//fonts.googleapis.com/css?family=Montserrat:300,400,500);
+
+body {
+    background: linear-gradient(black, #151515 20%, #252525 60%, #2F2F2F);
+}
+
+.static-slider1 {
+    font-family: "Montserrat", sans-serif;
+    color: #8d97ad;
+    font-weight: 300;
+}
+
+    .static-slider1 h1, .static-slider1 h2, .static-slider1 h3, .static-slider1 h4, .static-slider1 h5, .static-slider1 h6 {
+        color: #ffc107;
+    }
+
+    .static-slider1 .title {
+        font-weight: 700;
+        line-height: 56px;
+        font-size: 42px;
+    }
+
+        .static-slider1 .title span {
+            border-bottom: 3px solid white;
+        }
+
+@media (max-width:767px) {
+    .static-slider1 .title {
+        font-weight: 700;
+        line-height: 36px;
+        font-size: 24px;
+    }
+}
+
+.static-slider1 .btn-md {
+    padding: 15px 45px;
+    font-size: 16px;
+}
+
+.static-slider1 .text-success-gradiant {
+    background: white;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+}
+
+.contentBtn {
+    padding: 10px 20px;
+    font-size: 20px;
+    background: linear-gradient(to right, #58FFFF, #46BDBD);
+    border: 0;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+    .contentBtn:hover {
+        background: linear-gradient(to right, #50EDED, #349F9F);
+        font-weight:bolder;
+    }
+
+.service-6 {
+    min-height : 90vh;
+    font-family: "Montserrat", sans-serif;
+    color: #8d97ad;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+}
+
+    .service-6 h1, .service-6 h2, .service-6 h3, .service-6 h4, .service-6 h5, .service-6 h6 {
+        color: #ffc107;
+    }
+
+    .service-6 .font-weight-medium {
+        font-weight: 500;
+    }
+
+    .service-6 .subtitle {
+        color: #8d97ad;
+        line-height: 24px;
+    }
+
+    .service-6 a {
+        text-decoration: none;
+    }
+
+    .service-6 .wrap-service6-box {
+        -webkit-transition: 0.2s ease-in;
+        -o-transition: 0.2s ease-in;
+        transition: 0.2s ease-in;
+        
+        
+    }
+
+        .service-6 .wrap-service6-box .card-body {
+            padding: 30px;
+            border-block: 2px white solid;
+            min-width: 300px;
+            max-width: 300px;
+            min-height: 250px;
+            max-height: 250px;
+        }
+
+            .service-6 .wrap-service6-box .card-body p {
+                opacity: 0.8;
+            }
+
+        .service-6 .wrap-service6-box:hover {
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+    .service-6 .bg-danger-gradiant {
+        background: transparent;
+    }
+
+    .service-6 .btn-outline-success {
+        color: white !important;
+        background-color: transparent;
+        border-color: #46BDBD !important;
+    }
+
+        .service-6 .btn-outline-success:hover {
+            background: linear-gradient(to right, #58FFFF, #46BDBD);
+            border-color: white;
+            color: black !important;
+        }
+
+    .service-6 .btn-md {
+        padding: 15px 45px;
+        font-size: 16px;
+    }
+
+.modal {
+    backdrop-filter : blur(10px);
+}
+
+.modal-header{
+    max-height: 30vh;
+    overflow:scroll;
+    overflow-x:hidden;
+}
+
+*::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
+
+    *::-webkit-scrollbar-track:hover {
+        background-color: #FFFFFF;
+    }
+
+    *::-webkit-scrollbar-track:active {
+        background-color: #FFFFFF;
+    }
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #FFC107;
+}
+
+    *::-webkit-scrollbar-thumb:hover {
+        background-color: #FFC107;
+    }
+
+    *::-webkit-scrollbar-thumb:active {
+        background-color: #FFC107;
+    }
+
+.checkbx-agree:checked {
+    background-color: #FFC107;
+    border-color: #FFC107;
+}
+
+.control .control--checkbox input:checked {
+    background-color: #FFC107;
+    border-color: #FFC107;
+}
+
+
+.btn-primary {
+    background-color: #FFC107;
+    border-color: #FFC107;
+}
+    .btn-primary::before {
+        background-color: #FFC107;
+        border-color: #FFC107;
+    }
+
+    .btn-primary::after {
+        background-color: #FFC107;
+        border-color: #FFC107;
+    }
+
+    .btn-primary:disabled {
+        background-color: #FFC107;
+        border-color: #FFC107;
+    }
+    .btn-primary:enabled:hover {
+        background-color: #D5A734;
+        border-color: #D5A734;
+    }

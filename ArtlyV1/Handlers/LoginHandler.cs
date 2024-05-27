@@ -38,5 +38,13 @@ namespace ArtlyV1.Handlers
         {
             return findUser(username).IdUser;
         }
+
+        public String getUserRole(String userId)
+        {
+            return db.MsUsers
+                .Where(x => x.IdUser == userId)
+                .Select(x => x.LtRole.RoleName)
+                .FirstOrDefault();
+        }
     }
 }

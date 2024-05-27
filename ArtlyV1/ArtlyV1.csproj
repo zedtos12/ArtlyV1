@@ -90,6 +90,8 @@
       <DependentUpon>ArtlyDBModel.edmx</DependentUpon>
       <LastGenOutput>ArtlyDBModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\BecomeSeller.aspx" />
+    <Content Include="Views\CSS\BecomSellerStyle.css" />
     <Content Include="Views\CSS\bootstrap.min.css" />
     <Content Include="Views\CSS\HomePageStyle.css" />
     <Content Include="Views\CSS\NavbarStyle.css" />
@@ -98,7 +100,7 @@
     <Content Include="Views\CSS\ProductDetailPageStyle.css" />
     <Content Include="Views\CSS\ProductPageStyle.css" />
     <Content Include="Views\CSS\ProfileStyle.css" />
-    <Content Include="Views\CSS\styles.css" />
+    <Content Include="Views\CSS\ShoppingCartPageStyle.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
@@ -141,6 +143,7 @@
     <Content Include="Views\Images\Product\Product7.png" />
     <Content Include="Views\Images\Product\Product8.png" />
     <Content Include="Views\Images\RegisterPageImage.jpg" />
+    <Content Include="Views\JS\BecomeSellerJs.js" />
     <Content Include="Views\JS\bootstrap.min.js" />
     <Content Include="Views\JS\HomePageMain.js" />
     <Content Include="Views\JS\jquery-3.3.1.min.js" />
@@ -154,7 +157,7 @@
     <Content Include="Views\ProductPage.aspx" />
     <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
-    <Content Include="Views\SalesHistoryPage.aspx" />
+    <Content Include="Views\ShoppingCartPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -212,6 +215,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\DatabaseSingleton.cs" />
     <Compile Include="TestEncrypte.cs" />
+    <Compile Include="Views\BecomeSeller.aspx.cs">
+      <DependentUpon>BecomeSeller.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\BecomeSeller.aspx.designer.cs">
+      <DependentUpon>BecomeSeller.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -275,12 +285,12 @@
     <Compile Include="Views\RegisterPage.aspx.designer.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\SalesHistoryPage.aspx.cs">
-      <DependentUpon>SalesHistoryPage.aspx</DependentUpon>
+    <Compile Include="Views\ShoppingCartPage.aspx.cs">
+      <DependentUpon>ShoppingCartPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\SalesHistoryPage.aspx.designer.cs">
-      <DependentUpon>SalesHistoryPage.aspx</DependentUpon>
+    <Compile Include="Views\ShoppingCartPage.aspx.designer.cs">
+      <DependentUpon>ShoppingCartPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

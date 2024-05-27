@@ -4,6 +4,7 @@ using ArtlyV1.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -54,6 +55,19 @@ namespace ArtlyV1.Handlers
             addUser(user);
 
             return "Successful";
+        }
+
+        public void SellerRegis(string idUser)
+        {
+            var getUser = db.MsUsers.Where(x => x.IdUser == idUser).FirstOrDefault();
+            var getSellerRole = db.LtRoles.Where(x => x.RoleName == "Seller").FirstOrDefault();
+
+            if (getUser.IdRole != getSellerRole.IdRole)
+            {
+                getUser.IdRole = getSellerRole.IdRole;
+                db.MsUsers.AddOrUpdate(getUser);
+                db.SaveChanges();
+            }
         }
     }
 }

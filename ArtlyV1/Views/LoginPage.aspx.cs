@@ -35,6 +35,12 @@ namespace ArtlyV1.Views
             errorLabel.Text = null;
 
             String userID = loginController.getUserID(username);
+            String userRole = "";
+
+            if (!String.IsNullOrEmpty(userID))
+            {
+                userRole = loginController.getUserRole(userID);
+            }
 
             if (remember == true)
             {
@@ -44,6 +50,7 @@ namespace ArtlyV1.Views
             }
                 
             Session["user"] = userID;
+            Session["userrole"] = userRole;
 
             Response.Redirect("~/Views/HomePage.aspx");
         }
