@@ -12,7 +12,7 @@ namespace ArtlyV1.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TransationDetail
+    public partial class TransactionDetail
     {
         public string IdTransactionDetail { get; set; }
         public string IdTransaction { get; set; }
@@ -20,7 +20,7 @@ namespace ArtlyV1.Models
         public int Quantity { get; set; }
         public decimal UnitPrice { get; set; }
     
-        public virtual MsProduct MsProduct { get; set; }
         public virtual MsTransaction MsTransaction { get; set; }
+        public virtual MsProduct MsProduct { get; set; }
     }
 }

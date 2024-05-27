@@ -151,6 +151,7 @@
     <Content Include="Views\JS\LoginRegisterPageMain.js" />
     <Content Include="Views\JS\owl.carousel.min.js" />
     <Content Include="Views\LoginPage.aspx" />
+    <Content Include="Views\MessagePage.aspx" />
     <Content Include="Views\OrderDetailPage.aspx" />
     <Content Include="Views\OrderHistoryPage.aspx" />
     <Content Include="Views\ProductDetail.aspx" />
@@ -158,6 +159,7 @@
     <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
     <Content Include="Views\ShoppingCartPage.aspx" />
+    <Content Include="Views\TopUpHistoryPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -166,8 +168,10 @@
     <Compile Include="Controllers\ProductPageController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Factories\AddressFactory.cs" />
+    <Compile Include="Factories\MessageFactory.cs" />
     <Compile Include="Factories\UserFactory.cs" />
     <Compile Include="Handlers\LoginHandler.cs" />
+    <Compile Include="Handlers\MessageHandler.cs" />
     <Compile Include="Handlers\NavbarHandler.cs" />
     <Compile Include="Handlers\OrderHistoryHandler.cs" />
     <Compile Include="Handlers\ProductDetailHandler.cs" />
@@ -175,6 +179,7 @@
     <Compile Include="Handlers\ProfileHandler.cs" />
     <Compile Include="Handlers\RegisterHandler.cs" />
     <Compile Include="Handlers\SalesHistoryHandler.cs" />
+    <Compile Include="Handlers\TopUpHandler.cs" />
     <Compile Include="Models\ArtlyDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -224,7 +229,7 @@
     <Compile Include="Models\TopUp.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TransationDetail.cs">
+    <Compile Include="Models\TransactionDetail.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TrUserAddress.cs">
@@ -253,6 +258,13 @@
     </Compile>
     <Compile Include="Views\LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MessagePage.aspx.cs">
+      <DependentUpon>MessagePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MessagePage.aspx.designer.cs">
+      <DependentUpon>MessagePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Navbar.Master.cs">
       <DependentUpon>Navbar.Master</DependentUpon>
@@ -309,6 +321,13 @@
     </Compile>
     <Compile Include="Views\ShoppingCartPage.aspx.designer.cs">
       <DependentUpon>ShoppingCartPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TopUpHistoryPage.aspx.cs">
+      <DependentUpon>TopUpHistoryPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TopUpHistoryPage.aspx.designer.cs">
+      <DependentUpon>TopUpHistoryPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

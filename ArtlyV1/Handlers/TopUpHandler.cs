@@ -7,14 +7,14 @@ using System.Web;
 
 namespace ArtlyV1.Handlers
 {
-    public class OrderHistoryHandler
+    public class TopUpHandler
     {
         ArtlyDatabaseEntities db = DatabaseSingleton.getInstance();
 
-        public List<MsTransaction> findOrdersByUserID(String UserID)
+        public List<TopUp> GetTopUpsByUserID(string userID)
         {
-            List<MsTransaction> orders = (from x in db.MsTransactions where x.IdUser == UserID select x).ToList();
-            return orders;
+            List<TopUp> topUps = (from x in db.TopUps where x.IdUser == userID select x).ToList();
+            return topUps;
         }
     }
 }

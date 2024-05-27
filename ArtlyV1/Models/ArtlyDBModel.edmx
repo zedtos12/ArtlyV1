@@ -79,6 +79,7 @@
           <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="ProductImage" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="UserInput" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="IdProductOwner" Type="nvarchar" MaxLength="36" />
         </EntityType>
         <EntityType Name="MsTransaction">
           <Key>
@@ -115,7 +116,7 @@
           <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="TopUpDate" Type="datetime2" Precision="7" Nullable="false" />
         </EntityType>
-        <EntityType Name="TransationDetail">
+        <EntityType Name="TransactionDetail">
           <Key>
             <PropertyRef Name="IdTransactionDetail" />
           </Key>
@@ -266,26 +267,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transatio__IdPro__114A936A">
+        <Association Name="FK__Transacti__IdPro__2A164134">
           <End Role="MsProduct" Type="Self.MsProduct" Multiplicity="1" />
-          <End Role="TransationDetail" Type="Self.TransationDetail" Multiplicity="*" />
+          <End Role="TransactionDetail" Type="Self.TransactionDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MsProduct">
               <PropertyRef Name="IdProduct" />
             </Principal>
-            <Dependent Role="TransationDetail">
+            <Dependent Role="TransactionDetail">
               <PropertyRef Name="IdProduct" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transatio__IdTra__10566F31">
+        <Association Name="FK__Transacti__IdTra__29221CFB">
           <End Role="MsTransaction" Type="Self.MsTransaction" Multiplicity="1" />
-          <End Role="TransationDetail" Type="Self.TransationDetail" Multiplicity="*" />
+          <End Role="TransactionDetail" Type="Self.TransactionDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MsTransaction">
               <PropertyRef Name="IdTransaction" />
             </Principal>
-            <Dependent Role="TransationDetail">
+            <Dependent Role="TransactionDetail">
               <PropertyRef Name="IdTransaction" />
             </Dependent>
           </ReferentialConstraint>
@@ -314,7 +315,7 @@
           <EntitySet Name="MsTransaction" EntityType="Self.MsTransaction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MsUser" EntityType="Self.MsUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TopUps" EntityType="Self.TopUps" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TransationDetail" EntityType="Self.TransationDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionDetail" EntityType="Self.TransactionDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TrUserAddress" EntityType="Self.TrUserAddress" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Messages__IdRece__151B244E" Association="Self.FK__Messages__IdRece__151B244E">
             <End Role="MsUser" EntitySet="MsUser" />
@@ -360,13 +361,13 @@
             <End Role="MsUser" EntitySet="MsUser" />
             <End Role="TopUps" EntitySet="TopUps" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transatio__IdPro__114A936A" Association="Self.FK__Transatio__IdPro__114A936A">
+          <AssociationSet Name="FK__Transacti__IdPro__2A164134" Association="Self.FK__Transacti__IdPro__2A164134">
             <End Role="MsProduct" EntitySet="MsProduct" />
-            <End Role="TransationDetail" EntitySet="TransationDetail" />
+            <End Role="TransactionDetail" EntitySet="TransactionDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transatio__IdTra__10566F31" Association="Self.FK__Transatio__IdTra__10566F31">
+          <AssociationSet Name="FK__Transacti__IdTra__29221CFB" Association="Self.FK__Transacti__IdTra__29221CFB">
             <End Role="MsTransaction" EntitySet="MsTransaction" />
-            <End Role="TransationDetail" EntitySet="TransationDetail" />
+            <End Role="TransactionDetail" EntitySet="TransactionDetail" />
           </AssociationSet>
           <AssociationSet Name="FK__TrUserAdd__IdUse__75A278F5" Association="Self.FK__TrUserAdd__IdUse__75A278F5">
             <End Role="MsUser" EntitySet="MsUser" />
@@ -393,7 +394,7 @@
           <Property Name="IdProductCategory" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ProductCategoryName" Type="String" MaxLength="72" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" />
-          <NavigationProperty Name="MsProducts" Relationship="Self.FK__MsProduct__IdPro__4CA06362" FromRole="LtProductCategory" ToRole="MsProduct" />
+          <NavigationProperty Name="MsProducts" Relationship="ArtlyDatabaseModel.FK__MsProduct__IdPro__4CA06362" FromRole="LtProductCategory" ToRole="MsProduct" />
         </EntityType>
         <EntityType Name="LtProductType">
           <Key>
@@ -402,7 +403,7 @@
           <Property Name="IdProductType" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ProductTypeName" Type="String" MaxLength="72" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" />
-          <NavigationProperty Name="MsProducts" Relationship="Self.FK__MsProduct__IdPro__4D94879B" FromRole="LtProductType" ToRole="MsProduct" />
+          <NavigationProperty Name="MsProducts" Relationship="ArtlyDatabaseModel.FK__MsProduct__IdPro__4D94879B" FromRole="LtProductType" ToRole="MsProduct" />
         </EntityType>
         <EntityType Name="LtRole">
           <Key>
@@ -412,26 +413,6 @@
           <Property Name="RoleName" Type="String" MaxLength="72" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" />
           <NavigationProperty Name="MsUsers" Relationship="Self.FK__MsUser__IdRole__6383C8BA" FromRole="LtRole" ToRole="MsUser" />
-        </EntityType>
-        <EntityType Name="MsProduct">
-          <Key>
-            <PropertyRef Name="IdProduct" />
-          </Key>
-          <Property Name="IdProduct" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ProductName" Type="String" MaxLength="72" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IdProductCategory" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IdProductType" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="Stock" Type="Int32" Nullable="false" />
-          <Property Name="IsActive" Type="Boolean" />
-          <NavigationProperty Name="LtProductCategory" Relationship="Self.FK__MsProduct__IdPro__4CA06362" FromRole="MsProduct" ToRole="LtProductCategory" />
-          <NavigationProperty Name="LtProductType" Relationship="Self.FK__MsProduct__IdPro__4D94879B" FromRole="MsProduct" ToRole="LtProductType" />
-          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="ProductImage" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="UserInput" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="MsUser" Relationship="ArtlyDatabaseModel.FK__MsProduct__UserI__6E01572D" FromRole="MsProduct" ToRole="MsUser" />
-          <NavigationProperty Name="TransationDetails" Relationship="ArtlyDatabaseModel.FK__Transatio__IdPro__114A936A" FromRole="MsProduct" ToRole="TransationDetail" />
         </EntityType>
         <EntityType Name="MsUser">
           <Key>
@@ -449,12 +430,12 @@
           <Property Name="Balance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <NavigationProperty Name="LtGender" Relationship="Self.FK__MsUser__IdGender__628FA481" FromRole="MsUser" ToRole="LtGender" />
           <NavigationProperty Name="LtRole" Relationship="Self.FK__MsUser__IdRole__6383C8BA" FromRole="MsUser" ToRole="LtRole" />
-          <NavigationProperty Name="MsProducts" Relationship="ArtlyDatabaseModel.FK__MsProduct__UserI__6E01572D" FromRole="MsUser" ToRole="MsProduct" />
           <NavigationProperty Name="TrUserAddresses" Relationship="ArtlyDatabaseModel.FK__TrUserAdd__IdUse__75A278F5" FromRole="MsUser" ToRole="TrUserAddress" />
           <NavigationProperty Name="Messages" Relationship="ArtlyDatabaseModel.FK__Messages__IdRece__151B244E" FromRole="MsUser" ToRole="Message" />
           <NavigationProperty Name="Messages1" Relationship="ArtlyDatabaseModel.FK__Messages__IdSend__14270015" FromRole="MsUser" ToRole="Message" />
           <NavigationProperty Name="MsTransactions" Relationship="ArtlyDatabaseModel.FK__MsTransac__IdUse__0B91BA14" FromRole="MsUser" ToRole="MsTransaction" />
           <NavigationProperty Name="TopUps" Relationship="ArtlyDatabaseModel.FK__TopUps__IdUser__17F790F9" FromRole="MsUser" ToRole="TopUp" />
+          <NavigationProperty Name="MsProducts" Relationship="ArtlyDatabaseModel.FK__MsProduct__UserI__6E01572D" FromRole="MsUser" ToRole="MsProduct" />
         </EntityType>
         <Association Name="FK__MsUser__IdGender__628FA481">
           <End Role="LtGender" Type="Self.LtGender" Multiplicity="0..1" />
@@ -465,30 +446,6 @@
             </Principal>
             <Dependent Role="MsUser">
               <PropertyRef Name="IdGender" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__MsProduct__IdPro__4CA06362">
-          <End Role="LtProductCategory" Type="Self.LtProductCategory" Multiplicity="1" />
-          <End Role="MsProduct" Type="Self.MsProduct" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LtProductCategory">
-              <PropertyRef Name="IdProductCategory" />
-            </Principal>
-            <Dependent Role="MsProduct">
-              <PropertyRef Name="IdProductCategory" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__MsProduct__IdPro__4D94879B">
-          <End Role="LtProductType" Type="Self.LtProductType" Multiplicity="1" />
-          <End Role="MsProduct" Type="Self.MsProduct" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LtProductType">
-              <PropertyRef Name="IdProductType" />
-            </Principal>
-            <Dependent Role="MsProduct">
-              <PropertyRef Name="IdProductType" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -509,29 +466,16 @@
           <EntitySet Name="LtProductCategories" EntityType="Self.LtProductCategory" />
           <EntitySet Name="LtProductTypes" EntityType="Self.LtProductType" />
           <EntitySet Name="LtRoles" EntityType="Self.LtRole" />
-          <EntitySet Name="MsProducts" EntityType="Self.MsProduct" />
           <EntitySet Name="MsUsers" EntityType="Self.MsUser" />
           <AssociationSet Name="FK__MsUser__IdGender__628FA481" Association="Self.FK__MsUser__IdGender__628FA481">
             <End Role="LtGender" EntitySet="LtGenders" />
             <End Role="MsUser" EntitySet="MsUsers" />
-          </AssociationSet>
-          <AssociationSet Name="FK__MsProduct__IdPro__4CA06362" Association="Self.FK__MsProduct__IdPro__4CA06362">
-            <End Role="LtProductCategory" EntitySet="LtProductCategories" />
-            <End Role="MsProduct" EntitySet="MsProducts" />
-          </AssociationSet>
-          <AssociationSet Name="FK__MsProduct__IdPro__4D94879B" Association="Self.FK__MsProduct__IdPro__4D94879B">
-            <End Role="LtProductType" EntitySet="LtProductTypes" />
-            <End Role="MsProduct" EntitySet="MsProducts" />
           </AssociationSet>
           <AssociationSet Name="FK__MsUser__IdRole__6383C8BA" Association="Self.FK__MsUser__IdRole__6383C8BA">
             <End Role="LtRole" EntitySet="LtRoles" />
             <End Role="MsUser" EntitySet="MsUsers" />
           </AssociationSet>
           <EntitySet Name="TrUserAddresses" EntityType="ArtlyDatabaseModel.TrUserAddress" />
-          <AssociationSet Name="FK__MsProduct__UserI__6E01572D" Association="ArtlyDatabaseModel.FK__MsProduct__UserI__6E01572D">
-            <End Role="MsUser" EntitySet="MsUsers" />
-            <End Role="MsProduct" EntitySet="MsProducts" />
-          </AssociationSet>
           <AssociationSet Name="FK__TrUserAdd__IdUse__75A278F5" Association="ArtlyDatabaseModel.FK__TrUserAdd__IdUse__75A278F5">
             <End Role="MsUser" EntitySet="MsUsers" />
             <End Role="TrUserAddress" EntitySet="TrUserAddresses" />
@@ -541,7 +485,6 @@
           <EntitySet Name="Messages" EntityType="ArtlyDatabaseModel.Message" />
           <EntitySet Name="MsTransactions" EntityType="ArtlyDatabaseModel.MsTransaction" />
           <EntitySet Name="TopUps" EntityType="ArtlyDatabaseModel.TopUp" />
-          <EntitySet Name="TransationDetails" EntityType="ArtlyDatabaseModel.TransationDetail" />
           <AssociationSet Name="FK__MsTransac__IdPay__0D7A0286" Association="ArtlyDatabaseModel.FK__MsTransac__IdPay__0D7A0286">
             <End Role="LtPaymentMethod" EntitySet="LtPaymentMethods" />
             <End Role="MsTransaction" EntitySet="MsTransactions" />
@@ -558,23 +501,37 @@
             <End Role="MsUser" EntitySet="MsUsers" />
             <End Role="Message" EntitySet="Messages" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transatio__IdPro__114A936A" Association="ArtlyDatabaseModel.FK__Transatio__IdPro__114A936A">
-            <End Role="MsProduct" EntitySet="MsProducts" />
-            <End Role="TransationDetail" EntitySet="TransationDetails" />
-          </AssociationSet>
           <AssociationSet Name="FK__MsTransac__IdUse__0B91BA14" Association="ArtlyDatabaseModel.FK__MsTransac__IdUse__0B91BA14">
             <End Role="MsUser" EntitySet="MsUsers" />
             <End Role="MsTransaction" EntitySet="MsTransactions" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Transatio__IdTra__10566F31" Association="ArtlyDatabaseModel.FK__Transatio__IdTra__10566F31">
-            <End Role="MsTransaction" EntitySet="MsTransactions" />
-            <End Role="TransationDetail" EntitySet="TransationDetails" />
           </AssociationSet>
           <AssociationSet Name="FK__TopUps__IdUser__17F790F9" Association="ArtlyDatabaseModel.FK__TopUps__IdUser__17F790F9">
             <End Role="MsUser" EntitySet="MsUsers" />
             <End Role="TopUp" EntitySet="TopUps" />
           </AssociationSet>
-        </EntityContainer>
+          <EntitySet Name="TransactionDetails" EntityType="ArtlyDatabaseModel.TransactionDetail" />
+          <AssociationSet Name="FK__Transacti__IdTra__29221CFB" Association="ArtlyDatabaseModel.FK__Transacti__IdTra__29221CFB">
+            <End Role="MsTransaction" EntitySet="MsTransactions" />
+            <End Role="TransactionDetail" EntitySet="TransactionDetails" />
+          </AssociationSet>
+          <EntitySet Name="MsProducts" EntityType="ArtlyDatabaseModel.MsProduct" />
+          <AssociationSet Name="FK__MsProduct__IdPro__4CA06362" Association="ArtlyDatabaseModel.FK__MsProduct__IdPro__4CA06362">
+            <End Role="LtProductCategory" EntitySet="LtProductCategories" />
+            <End Role="MsProduct" EntitySet="MsProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MsProduct__IdPro__4D94879B" Association="ArtlyDatabaseModel.FK__MsProduct__IdPro__4D94879B">
+            <End Role="LtProductType" EntitySet="LtProductTypes" />
+            <End Role="MsProduct" EntitySet="MsProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MsProduct__UserI__6E01572D" Association="ArtlyDatabaseModel.FK__MsProduct__UserI__6E01572D">
+            <End Role="MsUser" EntitySet="MsUsers" />
+            <End Role="MsProduct" EntitySet="MsProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__IdPro__2A164134" Association="ArtlyDatabaseModel.FK__Transacti__IdPro__2A164134">
+            <End Role="MsProduct" EntitySet="MsProducts" />
+            <End Role="TransactionDetail" EntitySet="TransactionDetails" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="TrUserAddress">
           <Key>
             <PropertyRef Name="IdAddress" />
@@ -585,18 +542,6 @@
           <Property Name="AddressName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="MsUser" Relationship="ArtlyDatabaseModel.FK__TrUserAdd__IdUse__75A278F5" FromRole="TrUserAddress" ToRole="MsUser" />
         </EntityType>
-        <Association Name="FK__MsProduct__UserI__6E01572D">
-          <End Type="ArtlyDatabaseModel.MsUser" Role="MsUser" Multiplicity="1" />
-          <End Type="ArtlyDatabaseModel.MsProduct" Role="MsProduct" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MsUser">
-              <PropertyRef Name="IdUser" />
-            </Principal>
-            <Dependent Role="MsProduct">
-              <PropertyRef Name="UserInput" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__TrUserAdd__IdUse__75A278F5">
           <End Type="ArtlyDatabaseModel.MsUser" Role="MsUser" Multiplicity="1" />
           <End Type="ArtlyDatabaseModel.TrUserAddress" Role="TrUserAddress" Multiplicity="*" />
@@ -653,7 +598,7 @@
           <NavigationProperty Name="LtPaymentMethod" Relationship="ArtlyDatabaseModel.FK__MsTransac__IdPay__0D7A0286" FromRole="MsTransaction" ToRole="LtPaymentMethod" />
           <NavigationProperty Name="LtStatu" Relationship="ArtlyDatabaseModel.FK__MsTransac__IdSta__0C85DE4D" FromRole="MsTransaction" ToRole="LtStatu" />
           <NavigationProperty Name="MsUser" Relationship="ArtlyDatabaseModel.FK__MsTransac__IdUse__0B91BA14" FromRole="MsTransaction" ToRole="MsUser" />
-          <NavigationProperty Name="TransationDetails" Relationship="ArtlyDatabaseModel.FK__Transatio__IdTra__10566F31" FromRole="MsTransaction" ToRole="TransationDetail" />
+          <NavigationProperty Name="TransactionDetails" Relationship="ArtlyDatabaseModel.FK__Transacti__IdTra__29221CFB" FromRole="MsTransaction" ToRole="TransactionDetail" />
         </EntityType>
         <EntityType Name="TopUp">
           <Key>
@@ -664,18 +609,6 @@
           <Property Name="Amount" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="TopUpDate" Type="DateTime" Nullable="false" Precision="7" />
           <NavigationProperty Name="MsUser" Relationship="ArtlyDatabaseModel.FK__TopUps__IdUser__17F790F9" FromRole="TopUp" ToRole="MsUser" />
-        </EntityType>
-        <EntityType Name="TransationDetail">
-          <Key>
-            <PropertyRef Name="IdTransactionDetail" />
-          </Key>
-          <Property Name="IdTransactionDetail" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
-          <Property Name="IdTransaction" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
-          <Property Name="IdProduct" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <NavigationProperty Name="MsProduct" Relationship="ArtlyDatabaseModel.FK__Transatio__IdPro__114A936A" FromRole="TransationDetail" ToRole="MsProduct" />
-          <NavigationProperty Name="MsTransaction" Relationship="ArtlyDatabaseModel.FK__Transatio__IdTra__10566F31" FromRole="TransationDetail" ToRole="MsTransaction" />
         </EntityType>
         <Association Name="FK__MsTransac__IdPay__0D7A0286">
           <End Type="ArtlyDatabaseModel.LtPaymentMethod" Role="LtPaymentMethod" Multiplicity="1" />
@@ -725,18 +658,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transatio__IdPro__114A936A">
-          <End Type="ArtlyDatabaseModel.MsProduct" Role="MsProduct" Multiplicity="1" />
-          <End Type="ArtlyDatabaseModel.TransationDetail" Role="TransationDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MsProduct">
-              <PropertyRef Name="IdProduct" />
-            </Principal>
-            <Dependent Role="TransationDetail">
-              <PropertyRef Name="IdProduct" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__MsTransac__IdUse__0B91BA14">
           <End Type="ArtlyDatabaseModel.MsUser" Role="MsUser" Multiplicity="1" />
           <End Type="ArtlyDatabaseModel.MsTransaction" Role="MsTransaction" Multiplicity="*" />
@@ -746,18 +667,6 @@
             </Principal>
             <Dependent Role="MsTransaction">
               <PropertyRef Name="IdUser" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Transatio__IdTra__10566F31">
-          <End Type="ArtlyDatabaseModel.MsTransaction" Role="MsTransaction" Multiplicity="1" />
-          <End Type="ArtlyDatabaseModel.TransationDetail" Role="TransationDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MsTransaction">
-              <PropertyRef Name="IdTransaction" />
-            </Principal>
-            <Dependent Role="TransationDetail">
-              <PropertyRef Name="IdTransaction" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -773,7 +682,100 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <EntityType Name="TransactionDetail">
+          <Key>
+            <PropertyRef Name="IdTransactionDetail" />
+          </Key>
+          <Property Name="IdTransactionDetail" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="IdTransaction" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="IdProduct" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <NavigationProperty Name="MsTransaction" Relationship="ArtlyDatabaseModel.FK__Transacti__IdTra__29221CFB" FromRole="TransactionDetail" ToRole="MsTransaction" />
+          <NavigationProperty Name="MsProduct" Relationship="ArtlyDatabaseModel.FK__Transacti__IdPro__2A164134" FromRole="TransactionDetail" ToRole="MsProduct" />
+        </EntityType>
+        <Association Name="FK__Transacti__IdTra__29221CFB">
+          <End Type="ArtlyDatabaseModel.MsTransaction" Role="MsTransaction" Multiplicity="1" />
+          <End Type="ArtlyDatabaseModel.TransactionDetail" Role="TransactionDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MsTransaction">
+              <PropertyRef Name="IdTransaction" />
+            </Principal>
+            <Dependent Role="TransactionDetail">
+              <PropertyRef Name="IdTransaction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MsProduct">
+          <Key>
+            <PropertyRef Name="IdProduct" />
+          </Key>
+          <Property Name="IdProduct" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="ProductName" Type="String" Nullable="false" MaxLength="72" FixedLength="false" Unicode="true" />
+          <Property Name="IdProductCategory" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="IdProductType" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Stock" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ProductImage" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UserInput" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="IdProductOwner" Type="String" MaxLength="36" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LtProductCategory" Relationship="ArtlyDatabaseModel.FK__MsProduct__IdPro__4CA06362" FromRole="MsProduct" ToRole="LtProductCategory" />
+          <NavigationProperty Name="LtProductType" Relationship="ArtlyDatabaseModel.FK__MsProduct__IdPro__4D94879B" FromRole="MsProduct" ToRole="LtProductType" />
+          <NavigationProperty Name="MsUser" Relationship="ArtlyDatabaseModel.FK__MsProduct__UserI__6E01572D" FromRole="MsProduct" ToRole="MsUser" />
+          <NavigationProperty Name="TransactionDetails" Relationship="ArtlyDatabaseModel.FK__Transacti__IdPro__2A164134" FromRole="MsProduct" ToRole="TransactionDetail" />
+        </EntityType>
+        <Association Name="FK__MsProduct__IdPro__4CA06362">
+          <End Type="ArtlyDatabaseModel.LtProductCategory" Role="LtProductCategory" Multiplicity="1" />
+          <End Type="ArtlyDatabaseModel.MsProduct" Role="MsProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LtProductCategory">
+              <PropertyRef Name="IdProductCategory" />
+            </Principal>
+            <Dependent Role="MsProduct">
+              <PropertyRef Name="IdProductCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MsProduct__IdPro__4D94879B">
+          <End Type="ArtlyDatabaseModel.LtProductType" Role="LtProductType" Multiplicity="1" />
+          <End Type="ArtlyDatabaseModel.MsProduct" Role="MsProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LtProductType">
+              <PropertyRef Name="IdProductType" />
+            </Principal>
+            <Dependent Role="MsProduct">
+              <PropertyRef Name="IdProductType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MsProduct__UserI__6E01572D">
+          <End Type="ArtlyDatabaseModel.MsUser" Role="MsUser" Multiplicity="1" />
+          <End Type="ArtlyDatabaseModel.MsProduct" Role="MsProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MsUser">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="MsProduct">
+              <PropertyRef Name="UserInput" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__IdPro__2A164134">
+          <End Type="ArtlyDatabaseModel.MsProduct" Role="MsProduct" Multiplicity="1" />
+          <End Type="ArtlyDatabaseModel.TransactionDetail" Role="TransactionDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MsProduct">
+              <PropertyRef Name="IdProduct" />
+            </Principal>
+            <Dependent Role="TransactionDetail">
+              <PropertyRef Name="IdProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -811,23 +813,6 @@
               <MappingFragment StoreEntitySet="LtRole">
                 <ScalarProperty Name="IdRole" ColumnName="IdRole" />
                 <ScalarProperty Name="RoleName" ColumnName="RoleName" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MsProducts">
-            <EntityTypeMapping TypeName="ArtlyDatabaseModel.MsProduct">
-              <MappingFragment StoreEntitySet="MsProduct">
-                <ScalarProperty Name="UserInput" ColumnName="UserInput" />
-                <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-                <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
-                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-                <ScalarProperty Name="IdProductCategory" ColumnName="IdProductCategory" />
-                <ScalarProperty Name="IdProductType" ColumnName="IdProductType" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Stock" ColumnName="Stock" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -910,14 +895,32 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TransationDetails">
-            <EntityTypeMapping TypeName="ArtlyDatabaseModel.TransationDetail">
-              <MappingFragment StoreEntitySet="TransationDetail">
+          <EntitySetMapping Name="TransactionDetails">
+            <EntityTypeMapping TypeName="ArtlyDatabaseModel.TransactionDetail">
+              <MappingFragment StoreEntitySet="TransactionDetail">
                 <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
                 <ScalarProperty Name="IdTransaction" ColumnName="IdTransaction" />
                 <ScalarProperty Name="IdTransactionDetail" ColumnName="IdTransactionDetail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MsProducts">
+            <EntityTypeMapping TypeName="ArtlyDatabaseModel.MsProduct">
+              <MappingFragment StoreEntitySet="MsProduct">
+                <ScalarProperty Name="IdProductOwner" ColumnName="IdProductOwner" />
+                <ScalarProperty Name="UserInput" ColumnName="UserInput" />
+                <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="IdProductType" ColumnName="IdProductType" />
+                <ScalarProperty Name="IdProductCategory" ColumnName="IdProductCategory" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

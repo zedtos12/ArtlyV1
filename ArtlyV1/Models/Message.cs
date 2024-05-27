@@ -23,5 +23,10 @@ namespace ArtlyV1.Models
     
         public virtual MsUser MsUser { get; set; }
         public virtual MsUser MsUser1 { get; set; }
+
+        public static implicit operator string(Message v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

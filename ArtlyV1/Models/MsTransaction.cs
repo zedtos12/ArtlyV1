@@ -17,7 +17,7 @@ namespace ArtlyV1.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MsTransaction()
         {
-            this.TransationDetails = new HashSet<TransationDetail>();
+            this.TransactionDetails = new HashSet<TransactionDetail>();
         }
     
         public string IdTransaction { get; set; }
@@ -31,6 +31,6 @@ namespace ArtlyV1.Models
         public virtual LtStatu LtStatu { get; set; }
         public virtual MsUser MsUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TransationDetail> TransationDetails { get; set; }
+        public virtual ICollection<TransactionDetail> TransactionDetails { get; set; }
     }
 }

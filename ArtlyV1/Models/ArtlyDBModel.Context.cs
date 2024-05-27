@@ -29,7 +29,6 @@ namespace ArtlyV1.Models
         public virtual DbSet<LtProductCategory> LtProductCategories { get; set; }
         public virtual DbSet<LtProductType> LtProductTypes { get; set; }
         public virtual DbSet<LtRole> LtRoles { get; set; }
-        public virtual DbSet<MsProduct> MsProducts { get; set; }
         public virtual DbSet<MsUser> MsUsers { get; set; }
         public virtual DbSet<TrUserAddress> TrUserAddresses { get; set; }
         public virtual DbSet<LtPaymentMethod> LtPaymentMethods { get; set; }
@@ -37,6 +36,7 @@ namespace ArtlyV1.Models
         public virtual DbSet<Message> Messages { get; set; }
         public virtual DbSet<MsTransaction> MsTransactions { get; set; }
         public virtual DbSet<TopUp> TopUps { get; set; }
-        public virtual DbSet<TransationDetail> TransationDetails { get; set; }
+        public virtual DbSet<TransactionDetail> TransactionDetails { get; set; }
+        public virtual DbSet<MsProduct> MsProducts { get; set; }
     }
 }
