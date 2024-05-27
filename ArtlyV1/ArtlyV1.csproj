@@ -194,6 +194,9 @@
     <Compile Include="Models\LtGender.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LtPaymentMethod.cs">
+      <DependentUpon>ArtlyDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LtProductCategory.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
@@ -203,10 +206,25 @@
     <Compile Include="Models\LtRole.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LtStatu.cs">
+      <DependentUpon>ArtlyDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Message.cs">
+      <DependentUpon>ArtlyDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\MsProduct.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MsTransaction.cs">
+      <DependentUpon>ArtlyDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\MsUser.cs">
+      <DependentUpon>ArtlyDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TopUp.cs">
+      <DependentUpon>ArtlyDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TransationDetail.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TrUserAddress.cs">

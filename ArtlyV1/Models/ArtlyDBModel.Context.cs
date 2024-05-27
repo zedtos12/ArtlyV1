@@ -32,5 +32,11 @@ namespace ArtlyV1.Models
         public virtual DbSet<MsProduct> MsProducts { get; set; }
         public virtual DbSet<MsUser> MsUsers { get; set; }
         public virtual DbSet<TrUserAddress> TrUserAddresses { get; set; }
+        public virtual DbSet<LtPaymentMethod> LtPaymentMethods { get; set; }
+        public virtual DbSet<LtStatu> LtStatus { get; set; }
+        public virtual DbSet<Message> Messages { get; set; }
+        public virtual DbSet<MsTransaction> MsTransactions { get; set; }
+        public virtual DbSet<TopUp> TopUps { get; set; }
+        public virtual DbSet<TransationDetail> TransationDetails { get; set; }
     }
 }
