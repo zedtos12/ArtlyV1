@@ -27,7 +27,7 @@
         <AssociationConnector Association="ArtlyDatabaseModel.FK__TopUps__IdUser__17F790F9" />
         <EntityTypeShape EntityType="ArtlyDatabaseModel.TransactionDetail" Width="1.5" PointX="13.125" PointY="3.5" />
         <AssociationConnector Association="ArtlyDatabaseModel.FK__Transacti__IdTra__29221CFB" />
-        <EntityTypeShape EntityType="ArtlyDatabaseModel.MsProduct" Width="1.5" PointX="10.875" PointY="0.75" />
+        <EntityTypeShape EntityType="ArtlyDatabaseModel.MsProduct" Width="1.5" PointX="14.875" PointY="0.625" />
         <AssociationConnector Association="ArtlyDatabaseModel.FK__MsProduct__IdPro__4CA06362" />
         <AssociationConnector Association="ArtlyDatabaseModel.FK__MsProduct__IdPro__4D94879B" />
         <AssociationConnector Association="ArtlyDatabaseModel.FK__MsProduct__UserI__6E01572D" />

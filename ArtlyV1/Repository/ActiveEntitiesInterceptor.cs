@@ -1,25 +1,30 @@
-﻿using System.Data.Entity.Infrastructure.Interception;
+using System;
+using System.Collections.Generic;
 using System.Data.Common;
+using System.Data.Entity.Infrastructure.Interception;
 using System.Linq;
-using System.Reflection;
+using System.Web;
 
-public class ActiveEntitiesInterceptor : IDbCommandInterceptor
+namespace ArtlyV1.Repository
 {
-    public void NonQueryExecuting(DbCommand command, DbCommandInterceptionContext<int> interceptionContext) { }
-    public void NonQueryExecuted(DbCommand command, DbCommandInterceptionContext<int> interceptionContext) { }
-    public void ReaderExecuting(DbCommand command, DbCommandInterceptionContext<DbDataReader> interceptionContext)
+    public class ActiveEntitiesInterceptor : IDbCommandInterceptor
     {
-        ModifyCommand(command);
-    }
-    public void ReaderExecuted(DbCommand command, DbCommandInterceptionContext<DbDataReader> interceptionContext) { }
-    public void ScalarExecuting(DbCommand command, DbCommandInterceptionContext<object> interceptionContext) { }
-    public void ScalarExecuted(DbCommand command, DbCommandInterceptionContext<object> interceptionContext) { }
-
-    private void ModifyCommand(DbCommand command)
-    {
-        if (command.CommandText.Contains("FROM") && !command.CommandText.Contains("IsActive"))
+        public void NonQueryExecuting(DbCommand command, DbCommandInterceptionContext<int> interceptionContext) { }
+        public void NonQueryExecuted(DbCommand command, DbCommandInterceptionContext<int> interceptionContext) { }
+        public void ReaderExecuting(DbCommand command, DbCommandInterceptionContext<DbDataReader> interceptionContext)
         {
-            command.CommandText = command.CommandText.Replace("FROM", "WHERE IsActive = 1 AND FROM");
+            ModifyCommand(command);
+        }
+        public void ReaderExecuted(DbCommand command, DbCommandInterceptionContext<DbDataReader> interceptionContext) { }
+        public void ScalarExecuting(DbCommand command, DbCommandInterceptionContext<object> interceptionContext) { }
+        public void ScalarExecuted(DbCommand command, DbCommandInterceptionContext<object> interceptionContext) { }
+
+        private void ModifyCommand(DbCommand command)
+        {
+            if (command.CommandText.Contains("FROM") && !command.CommandText.Contains("IsActive"))
+            {
+                command.CommandText = command.CommandText.Replace("FROM", "WHERE IsActive = 1 AND FROM");
+            }
         }
     }
 }
