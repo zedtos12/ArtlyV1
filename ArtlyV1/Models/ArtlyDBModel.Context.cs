@@ -28,7 +28,6 @@ namespace ArtlyV1.Models
         {
             throw new UnintentionalCodeFirstException();
         }
-    
         public virtual DbSet<LtGender> LtGenders { get; set; }
         public virtual DbSet<LtProductCategory> LtProductCategories { get; set; }
         public virtual DbSet<LtProductType> LtProductTypes { get; set; }
