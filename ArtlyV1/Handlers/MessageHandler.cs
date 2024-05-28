@@ -25,10 +25,12 @@ namespace ArtlyV1.Handlers
             db.SaveChanges();
         }
 
-        public List<Message> GetMessagesByUserId(string IdUser)
+        public List<Message> GetMessagesByUserId(string IdUser, string IdRecipient)
         {
-            // TODO UPDATE TO GET ONLY ACTIVE MESSAGES WITH ACTIVEENTITIES
-            List<Message> messages = (from x in db.Messages where x.IdReceiver == IdUser && x.IsActive == true select x).ToList();
+            List<Message> messages = (from x in db.Messages 
+                                      where (x.IdSender == IdUser && x.IdReceiver == IdRecipient) 
+                                      || (x.IdSender == IdRecipient && x.IdReceiver == IdUser) 
+                                      select x).ToList();
             return messages;
         }
     }

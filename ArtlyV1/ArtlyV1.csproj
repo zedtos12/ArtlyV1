@@ -94,6 +94,7 @@
     <Content Include="Views\CSS\BecomSellerStyle.css" />
     <Content Include="Views\CSS\bootstrap.min.css" />
     <Content Include="Views\CSS\HomePageStyle.css" />
+    <Content Include="Views\CSS\MessagePageStyle.css" />
     <Content Include="Views\CSS\NavbarStyle.css" />
     <Content Include="Views\CSS\owl.carousel.min.css" />
     <Content Include="Views\CSS\LoginRegisterPageStyle.css" />
