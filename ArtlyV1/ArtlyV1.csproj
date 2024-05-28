@@ -158,6 +158,7 @@
     <Content Include="Views\ProductPage.aspx" />
     <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
+    <Content Include="Views\SellerDashboard.aspx" />
     <Content Include="Views\ShoppingCartPage.aspx" />
     <Content Include="Views\TopUpHistoryPage.aspx" />
     <Content Include="Web.config" />
@@ -236,6 +237,8 @@
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ActiveEntitiesInterceptor.cs" />
+    <Compile Include="Repository\ArtlyDatabaseConfiguration.cs" />
     <Compile Include="Repository\DatabaseSingleton.cs" />
     <Compile Include="TestEncrypte.cs" />
     <Compile Include="Views\BecomeSeller.aspx.cs">
@@ -314,6 +317,13 @@
     </Compile>
     <Compile Include="Views\RegisterPage.aspx.designer.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SellerDashboard.aspx.cs">
+      <DependentUpon>SellerDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SellerDashboard.aspx.designer.cs">
+      <DependentUpon>SellerDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ShoppingCartPage.aspx.cs">
       <DependentUpon>ShoppingCartPage.aspx</DependentUpon>
