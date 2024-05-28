@@ -31,7 +31,6 @@ namespace ArtlyV1.Models
         public string Description { get; set; }
         public string ProductImage { get; set; }
         public string UserInput { get; set; }
-        public string IdProductOwner { get; set; }
     
         public virtual LtProductCategory LtProductCategory { get; set; }
         public virtual LtProductType LtProductType { get; set; }

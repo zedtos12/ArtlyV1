@@ -79,7 +79,6 @@
           <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="ProductImage" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="UserInput" Type="nvarchar" MaxLength="36" Nullable="false" />
-          <Property Name="IdProductOwner" Type="nvarchar" MaxLength="36" />
         </EntityType>
         <EntityType Name="MsTransaction">
           <Key>
@@ -721,7 +720,6 @@
           <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="ProductImage" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="UserInput" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
-          <Property Name="IdProductOwner" Type="String" MaxLength="36" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="LtProductCategory" Relationship="ArtlyDatabaseModel.FK__MsProduct__IdPro__4CA06362" FromRole="MsProduct" ToRole="LtProductCategory" />
           <NavigationProperty Name="LtProductType" Relationship="ArtlyDatabaseModel.FK__MsProduct__IdPro__4D94879B" FromRole="MsProduct" ToRole="LtProductType" />
           <NavigationProperty Name="MsUser" Relationship="ArtlyDatabaseModel.FK__MsProduct__UserI__6E01572D" FromRole="MsProduct" ToRole="MsUser" />
@@ -909,7 +907,6 @@
           <EntitySetMapping Name="MsProducts">
             <EntityTypeMapping TypeName="ArtlyDatabaseModel.MsProduct">
               <MappingFragment StoreEntitySet="MsProduct">
-                <ScalarProperty Name="IdProductOwner" ColumnName="IdProductOwner" />
                 <ScalarProperty Name="UserInput" ColumnName="UserInput" />
                 <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
                 <ScalarProperty Name="Description" ColumnName="Description" />

@@ -2,6 +2,7 @@
 using ArtlyV1.Repository;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -51,7 +52,7 @@ namespace ArtlyV1.Handlers
 
         public List<MsProduct> getProductByFilter(string search, List<string> idProductCategory, List<string> idProductType)
         {
-            List<MsProduct> results = db.MsProducts.Include("MsUser").ToList();
+            List<MsProduct> results = db.ActiveEntities<MsProduct>().Include(x => x.MsUser).ToList();
 
             if (!String.IsNullOrEmpty(search))
                 results = results.Where(x => x.ProductName.ToLower().Contains(search.ToLower())).ToList();
