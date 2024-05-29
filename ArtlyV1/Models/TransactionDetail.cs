@@ -20,7 +20,7 @@ namespace ArtlyV1.Models
         public int Quantity { get; set; }
         public decimal UnitPrice { get; set; }
     
-        public virtual MsTransaction MsTransaction { get; set; }
         public virtual MsProduct MsProduct { get; set; }
+        public virtual MsTransaction MsTransaction { get; set; }
     }
 }

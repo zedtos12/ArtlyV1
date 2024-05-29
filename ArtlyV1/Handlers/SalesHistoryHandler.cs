@@ -15,7 +15,7 @@ namespace ArtlyV1.Handlers
         {
             List<TransactionDetail> lst = (from td in db.TransactionDetails
                                            join p in db.MsProducts on td.IdProduct equals p.IdProduct
-                                           where p.IdProductOwner == UserID
+                                           where p.UserInput == UserID
                                            select td).ToList();
             return lst;
         }

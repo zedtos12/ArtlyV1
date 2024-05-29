@@ -4,35 +4,35 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d103f16a3338442bb9b4a677278134c1" Name="Diagram1" ZoomLevel="65">
-        <EntityTypeShape EntityType="ArtlyDatabaseModel.LtGender" Width="1.5" PointX="2.375" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArtlyDatabaseModel.LtProductCategory" Width="1.5" PointX="8.625" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArtlyDatabaseModel.LtProductType" Width="1.5" PointX="8.625" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArtlyDatabaseModel.LtRole" Width="1.5" PointX="2.375" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ArtlyDatabaseModel.MsUser" Width="1.5" PointX="4.625" PointY="2.375" IsExpanded="true" />
+      <Diagram DiagramId="8658983dea8e4dc99a358c888b6e1da1" Name="Diagram1">
+        <EntityTypeShape EntityType="ArtlyDatabaseModel.LtGender" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtlyDatabaseModel.LtPaymentMethod" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtlyDatabaseModel.LtProductCategory" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtlyDatabaseModel.LtProductType" Width="1.5" PointX="3" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtlyDatabaseModel.LtRole" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtlyDatabaseModel.LtStatu" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtlyDatabaseModel.Message" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtlyDatabaseModel.MsProduct" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtlyDatabaseModel.MsTransaction" Width="1.5" PointX="8.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtlyDatabaseModel.MsUser" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtlyDatabaseModel.TopUp" Width="1.5" PointX="5.25" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtlyDatabaseModel.TransactionDetail" Width="1.5" PointX="10.5" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtlyDatabaseModel.TrUserAddress" Width="1.5" PointX="5.25" PointY="21.75" IsExpanded="true" />
         <AssociationConnector Association="ArtlyDatabaseModel.FK__MsUser__IdGender__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtlyDatabaseModel.FK__MsTransac__IdPay__0D7A0286" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtlyDatabaseModel.FK__MsProduct__IdPro__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtlyDatabaseModel.FK__MsProduct__IdPro__4D94879B" ManuallyRouted="false" />
         <AssociationConnector Association="ArtlyDatabaseModel.FK__MsUser__IdRole__6383C8BA" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="ArtlyDatabaseModel.TrUserAddress" Width="1.5" PointX="4.125" PointY="7.625" />
-        <AssociationConnector Association="ArtlyDatabaseModel.FK__TrUserAdd__IdUse__75A278F5" />
-        <EntityTypeShape EntityType="ArtlyDatabaseModel.LtPaymentMethod" Width="1.5" PointX="11.125" PointY="7.25" />
-        <EntityTypeShape EntityType="ArtlyDatabaseModel.LtStatu" Width="1.5" PointX="13" PointY="7" />
-        <EntityTypeShape EntityType="ArtlyDatabaseModel.Message" Width="1.5" PointX="6.25" PointY="7.625" />
-        <EntityTypeShape EntityType="ArtlyDatabaseModel.MsTransaction" Width="1.5" PointX="10.875" PointY="3.125" />
-        <EntityTypeShape EntityType="ArtlyDatabaseModel.TopUp" Width="1.5" PointX="2.375" PointY="7.625" />
-        <AssociationConnector Association="ArtlyDatabaseModel.FK__MsTransac__IdPay__0D7A0286" />
-        <AssociationConnector Association="ArtlyDatabaseModel.FK__MsTransac__IdSta__0C85DE4D" />
-        <AssociationConnector Association="ArtlyDatabaseModel.FK__Messages__IdRece__151B244E" />
-        <AssociationConnector Association="ArtlyDatabaseModel.FK__Messages__IdSend__14270015" />
-        <AssociationConnector Association="ArtlyDatabaseModel.FK__MsTransac__IdUse__0B91BA14" />
-        <AssociationConnector Association="ArtlyDatabaseModel.FK__TopUps__IdUser__17F790F9" />
-        <EntityTypeShape EntityType="ArtlyDatabaseModel.TransactionDetail" Width="1.5" PointX="13.125" PointY="3.5" />
-        <AssociationConnector Association="ArtlyDatabaseModel.FK__Transacti__IdTra__29221CFB" />
-        <EntityTypeShape EntityType="ArtlyDatabaseModel.MsProduct" Width="1.5" PointX="10.875" PointY="0.75" />
-        <AssociationConnector Association="ArtlyDatabaseModel.FK__MsProduct__IdPro__4CA06362" />
-        <AssociationConnector Association="ArtlyDatabaseModel.FK__MsProduct__IdPro__4D94879B" />
-        <AssociationConnector Association="ArtlyDatabaseModel.FK__MsProduct__UserI__6E01572D" />
-        <AssociationConnector Association="ArtlyDatabaseModel.FK__Transacti__IdPro__2A164134" />
-        </Diagram>
+        <AssociationConnector Association="ArtlyDatabaseModel.FK__MsTransac__IdSta__2CF2ADDF" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtlyDatabaseModel.FK__Messages__IdRece__151B244E" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtlyDatabaseModel.FK__Messages__IdSend__14270015" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtlyDatabaseModel.FK__MsProduct__UserI__6E01572D" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtlyDatabaseModel.FK__Transacti__IdPro__2BFE89A6" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtlyDatabaseModel.FK__MsTransac__IdUse__0B91BA14" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtlyDatabaseModel.FK__Transacti__IdTra__2B0A656D" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtlyDatabaseModel.FK__TopUps__IdUser__17F790F9" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtlyDatabaseModel.FK__TrUserAdd__IdUse__75A278F5" ManuallyRouted="false" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
