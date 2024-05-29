@@ -11,7 +11,7 @@ namespace ArtlyV1.Repository
     {
         public ArtlyDatabaseConfiguration()
         {
-            DbInterception.Add(new ActiveEntitiesInterceptor());
+            //DbInterception.Add(new ActiveEntitiesInterceptor());
         }
     }
 }
