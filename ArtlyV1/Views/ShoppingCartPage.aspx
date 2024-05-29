@@ -41,16 +41,16 @@
                     <div class="summarySubtotal d-flex justify-content-between"> Subtotal <span class="summaryPriceHighlight">IDR <%=subtotalPrice.ToString("#,##0.00")%></span></div>
                     <div class="summaryTax d-flex justify-content-between"> Sales Tax (10%) <span class="summaryPriceHighlight">IDR <%=tax.ToString("#,##0.00")%></span></div>
                     <div class="summarySeparator mt-2 mb-2"></div>
-                    <div class="summaryTotal d-flex justify-content-between mb-5"> Total Price <span class="summaryPriceHighlight">IDR <%=totalPrice.ToString("#,##0.00")%></span></div>
-                    <%if (decimal.Parse(Session["balance"].ToString()) > totalPrice)
+                    <div class="summaryTotal d-flex justify-content-between"> Total Price <span class="summaryPriceHighlight">IDR <%=totalPrice.ToString("#,##0.00")%></span></div>
+                    <% if (itemQty <= 0)
                     { %>
-                        <asp:Button ID="paymentBtn" runat="server" class="btn btn-outline-light" Width="100%" Text="Checkout" />
-                    <% } else if(itemQty <= 0)
+                        <div class="noItems non-functional-btn btn mt-5"> No items in cart </div>
+                    <% } else if (currentBalance >= totalPrice)
                     { %>
-                        <div class="noItems non-functional-btn btn"> No items in cart </div>
-                    <% } else
+                        <asp:Button ID="paymentBtn" runat="server" class="btn btn-outline-light mt-5" Width="100%" Text="Checkout" OnClick="paymentBtn_Click" />
+                    <% } else 
                     { %>
-                        <div class="notEnoughBalance non-functional-btn btn"> Not enough balance! </div>
+                        <div class="notEnoughBalance non-functional-btn btn mt-5"> Not enough balance </div>
                     <% } %>
                 </div>
             </div>

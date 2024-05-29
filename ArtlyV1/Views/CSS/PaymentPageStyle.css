@@ -1,0 +1,61 @@
+﻿body {
+    background: linear-gradient(black, #151515 20%, #252525 60%, #2F2F2F);
+}
+
+.paymentWrapper {
+    width: 100%;
+    min-height: 90vh;
+    font-family: "Inder", sans-serif;
+    color: white;
+}
+
+.paymentContainer {
+    width: 50%;
+    background-color: #323232;
+    border-radius: 10px;
+}
+
+.paymentTitle {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.paymentMethodImage {
+    width: 75px;
+    height: auto;
+}
+
+.paymentHighlight {
+    color: #FCBF49;
+}
+
+.paymentSeparator {
+    border: 1px solid rgba(255,255,255,.25);
+    width: 100%;
+}
+
+.shippingContent {
+    border-radius: 10px;
+    border: 1px solid #efefef;
+}
+
+.shippingInputWrapper {
+    width: 95%;
+}
+
+.shippingInputTB {
+    background-color: transparent;
+    border: 0;
+    color: white;
+}
+
+.shippingInputTB:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.btn-outline-light:hover {
+    background-color: #FCBF49;
+    border-color: #FCBF49;
+}

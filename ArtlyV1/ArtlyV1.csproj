@@ -97,10 +97,12 @@
     <Content Include="Views\CSS\NavbarStyle.css" />
     <Content Include="Views\CSS\owl.carousel.min.css" />
     <Content Include="Views\CSS\LoginRegisterPageStyle.css" />
+    <Content Include="Views\CSS\PaymentPageStyle.css" />
     <Content Include="Views\CSS\ProductDetailPageStyle.css" />
     <Content Include="Views\CSS\ProductPageStyle.css" />
     <Content Include="Views\CSS\ProfileStyle.css" />
     <Content Include="Views\CSS\ShoppingCartPageStyle.css" />
+    <Content Include="Views\CSS\TopUpPageStyle.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
@@ -134,6 +136,8 @@
     <Content Include="Views\Images\Navbar\AccountDefaultIcon.png" />
     <Content Include="Views\Images\Navbar\UploadIcon.png" />
     <Content Include="Views\Images\Navbar\CartIcon.png" />
+    <Content Include="Views\Images\Payment\BCALogo.png" />
+    <Content Include="Views\Images\Payment\GoPayLogo.png" />
     <Content Include="Views\Images\Product\Product1.png" />
     <Content Include="Views\Images\Product\Product2.png" />
     <Content Include="Views\Images\Product\Product3.png" />
@@ -151,15 +155,18 @@
     <Content Include="Views\JS\LoginRegisterPageMain.js" />
     <Content Include="Views\JS\owl.carousel.min.js" />
     <Content Include="Views\LoginPage.aspx" />
+    <Content Include="Views\PaymentPage.aspx" />
     <Content Include="Views\ProductDetail.aspx" />
     <Content Include="Views\ProductPage.aspx" />
     <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
     <Content Include="Views\ShoppingCartPage.aspx" />
+    <Content Include="Views\TopUpPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Controllers\ProductPageController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
@@ -167,10 +174,12 @@
     <Compile Include="Factories\UserFactory.cs" />
     <Compile Include="Handlers\LoginHandler.cs" />
     <Compile Include="Handlers\NavbarHandler.cs" />
+    <Compile Include="Handlers\PaymentHandler.cs" />
     <Compile Include="Handlers\ProductDetailHandler.cs" />
     <Compile Include="Handlers\ProductPageHandler.cs" />
     <Compile Include="Handlers\ProfileHandler.cs" />
     <Compile Include="Handlers\RegisterHandler.cs" />
+    <Compile Include="Handlers\TopUpHandler.cs" />
     <Compile Include="Models\ArtlyDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -239,6 +248,13 @@
     <Compile Include="Views\Navbar.Master.designer.cs">
       <DependentUpon>Navbar.Master</DependentUpon>
     </Compile>
+    <Compile Include="Views\PaymentPage.aspx.cs">
+      <DependentUpon>PaymentPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\PaymentPage.aspx.designer.cs">
+      <DependentUpon>PaymentPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProductDetail.aspx.cs">
       <DependentUpon>ProductDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -273,6 +289,13 @@
     </Compile>
     <Compile Include="Views\ShoppingCartPage.aspx.designer.cs">
       <DependentUpon>ShoppingCartPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TopUpPage.aspx.cs">
+      <DependentUpon>TopUpPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TopUpPage.aspx.designer.cs">
+      <DependentUpon>TopUpPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

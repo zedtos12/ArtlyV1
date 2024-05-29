@@ -120,7 +120,11 @@
 }
 
 .summaryTotal {
-    font-size: 20px;
+    font-size: 18px;
+}
+
+.summaryResultingBalance {
+    font-size: 18px;
 }
 
 .removeBtn {
@@ -187,7 +191,6 @@
     .cartItemWrapper {
         flex-direction: column;
         align-items: center;
-        height: 300px;
         justify-content: space-between;
     }
 
