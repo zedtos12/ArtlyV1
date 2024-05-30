@@ -21,7 +21,6 @@ namespace ArtlyV1.Models
         public ArtlyDatabaseEntities()
             : base("name=ArtlyDatabaseEntities")
         {
-            DbConfiguration.SetConfiguration(new ArtlyDatabaseConfiguration());
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

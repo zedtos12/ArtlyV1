@@ -101,6 +101,7 @@
     <Content Include="Views\CSS\ProductDetailPageStyle.css" />
     <Content Include="Views\CSS\ProductPageStyle.css" />
     <Content Include="Views\CSS\ProfileStyle.css" />
+    <Content Include="Views\CSS\SellerDashboardStyle.css" />
     <Content Include="Views\CSS\ShoppingCartPageStyle.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
@@ -144,6 +145,7 @@
     <Content Include="Views\Images\Product\Product7.png" />
     <Content Include="Views\Images\Product\Product8.png" />
     <Content Include="Views\Images\RegisterPageImage.jpg" />
+    <Content Include="Views\Images\SellerDashboard\user-1.jpg" />
     <Content Include="Views\JS\BecomeSellerJs.js" />
     <Content Include="Views\JS\bootstrap.min.js" />
     <Content Include="Views\JS\HomePageMain.js" />
@@ -159,7 +161,7 @@
     <Content Include="Views\ProductPage.aspx" />
     <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
-    <Content Include="Views\SellerDashboard.aspx.aspx" />
+    <Content Include="Views\SellerDashboard.aspx" />
     <Content Include="Views\ShoppingCartPage.aspx" />
     <Content Include="Views\TopUpHistoryPage.aspx" />
     <Content Include="Web.config" />
@@ -238,7 +240,6 @@
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\ActiveEntitiesInterceptor.cs" />
     <Compile Include="Repository\DatabaseSingleton.cs" />
     <Compile Include="TestEncrypte.cs" />
     <Compile Include="Views\BecomeSeller.aspx.cs">
@@ -254,6 +255,13 @@
     </Compile>
     <Compile Include="Views\HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SellerDashboard.Master.cs">
+      <DependentUpon>SellerDashboard.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SellerDashboard.Master.designer.cs">
+      <DependentUpon>SellerDashboard.Master</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
@@ -318,12 +326,12 @@
     <Compile Include="Views\RegisterPage.aspx.designer.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\SellerDashboard.aspx.aspx.cs">
-      <DependentUpon>SellerDashboard.aspx.aspx</DependentUpon>
+    <Compile Include="Views\SellerDashboard.aspx.cs">
+      <DependentUpon>SellerDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\SellerDashboard.aspx.aspx.designer.cs">
-      <DependentUpon>SellerDashboard.aspx.aspx</DependentUpon>
+    <Compile Include="Views\SellerDashboard.aspx.designer.cs">
+      <DependentUpon>SellerDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ShoppingCartPage.aspx.cs">
       <DependentUpon>ShoppingCartPage.aspx</DependentUpon>
@@ -391,6 +399,7 @@
     <Content Include="Views\Fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.ttf" />
     <Content Include="Views\Fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff" />
     <Content Include="Views\Fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff2" />
+    <Content Include="Views\SellerDashboard.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
