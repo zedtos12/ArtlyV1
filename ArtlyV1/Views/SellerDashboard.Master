@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="CSS/NavbarStyle.css" />
     <link rel="stylesheet" href="Fonts/Inria-Serif/inria-serif.css">
     <link rel="stylesheet" href="Fonts/Inder/inder.css">
-    <link rel="stylesheet" href="CSS/SellerDashboardStyle.css"/>
+    <link rel="stylesheet" href="CSS/SellerDashboardsStyle.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -102,19 +102,19 @@
                           <span class="hide-menu">Home</span>
                         </li>
                         <li class="sidebar-item">
-                          <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                          <a class="sidebar-link dashboard" href="SellerDashboard.aspx" aria-expanded="false">
                             <span>
                               <i class="bi bi-grid-fill"></i>
                             </span>
                             <span class="hide-menu">Dashboard</span>
                           </a>
-                            <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                            <a class="sidebar-link trans-history" href="./index.html" aria-expanded="false">
                               <span>
                                 <i class="bi bi-reception-4"></i>
                               </span>
                               <span class="hide-menu">Transaction History</span>
                             </a>
-                            <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                            <a class="sidebar-link trans-detail" href="./index.html" aria-expanded="false">
                               <span>
                                 <i class="bi bi-reception-4"></i>
                               </span>
@@ -130,9 +130,9 @@
                             <span>
                               <i class="bi bi-bag-fill"></i>
                             </span>
-                            <span class="hide-menu">Products</span>
+                            <span class="hide-menu products">Products</span>
                           </a>
-                            <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                            <a class="sidebar-link addProduct" href="./index.html" aria-expanded="false">
                               <span>
                                 <i class="bi bi-bag-plus"></i>
                               </span>
@@ -145,7 +145,7 @@
                   </div>
                   <!-- End Sidebar scroll-->
                 </aside>
-                 <aside class="right-side" style="width:82vw">
+                 <aside class="right-side container-fluid">
                      <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
                     </asp:ContentPlaceHolder>
                  </aside>
