@@ -1,0 +1,98 @@
+﻿@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(black, #151515 20%, #252525 60%, #2F2F2F);
+}
+
+.left-sidebar {
+    width: 280px;
+    background-color: transparent;
+    -webkit-transition: 0.2s ease-in;
+    transition: 0.2s ease-in;
+    height: 90vh;
+    border-right: 1px solid #252525;
+}
+
+.nav-small-cap {
+    margin-top: 24px;
+    color: #FCBF49;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 12px;
+    line-height: 26px;
+    text-transform: uppercase
+}
+
+    .nav-small-cap .nav-small-cap-icon {
+        display: none
+    }
+
+ul {
+    list-style-type: none
+}
+
+.sidebar-nav ul .sidebar-item .sidebar-link {
+    color: #F8F8F8;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 14px;
+    white-space: nowrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    line-height: 25px;
+    position: relative;
+    margin: 0px 0px 2px;
+    padding: 10px;
+    border-radius: 7px;
+    gap: 15px;
+    font-weight: 400;
+    transition-delay: 0.1s;
+    width: 90%
+}
+
+    .sidebar-nav ul .sidebar-item .sidebar-link span:first-child {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex
+    }
+
+    .sidebar-nav ul .sidebar-item .sidebar-link .ti {
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        font-size: 21px
+    }
+
+    .sidebar-nav ul .sidebar-item .sidebar-link:hover {
+        background-color: #929292;
+        color: #090C0C;
+        text-decoration: none
+    }
+
+        .sidebar-nav ul .sidebar-item .sidebar-link:hover.has-arrow:after {
+            border-color: #5D87FF
+        }
+
+    .sidebar-nav ul .sidebar-item .sidebar-link.active:hover.has-arrow:after {
+        border-color: #fff
+    }
+
+.sidebar-nav ul .sidebar-item .link-disabled {
+    opacity: 0.38
+}
+
+.sidebar-nav ul .sidebar-item.selected > .sidebar-link,
+.sidebar-nav ul .sidebar-item.selected > .sidebar-link.active,
+.sidebar-nav ul .sidebar-item > .sidebar-link.active {
+    background-color: #5D87FF;
+    color: #fff
+}
+
+.sidebar-nav .sidebar-list .sidebar-list-item {
+    padding: 8px 0
+}

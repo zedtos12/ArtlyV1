@@ -93,6 +93,7 @@
     <Content Include="Views\BecomeSeller.aspx" />
     <Content Include="Views\CSS\BecomSellerStyle.css" />
     <Content Include="Views\CSS\bootstrap.min.css" />
+    <Content Include="Views\CSS\Dashboards.css" />
     <Content Include="Views\CSS\HomePageStyle.css" />
     <Content Include="Views\CSS\MessagePageStyle.css" />
     <Content Include="Views\CSS\NavbarStyle.css" />
@@ -101,7 +102,7 @@
     <Content Include="Views\CSS\ProductDetailPageStyle.css" />
     <Content Include="Views\CSS\ProductPageStyle.css" />
     <Content Include="Views\CSS\ProfileStyle.css" />
-    <Content Include="Views\CSS\SellerDashboardStyle.css" />
+    <Content Include="Views\CSS\SellerDashboardsStyle.css" />
     <Content Include="Views\CSS\ShoppingCartPageStyle.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
@@ -171,6 +172,7 @@
     <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Controllers\ProductPageController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\SellerDashboardController.cs" />
     <Compile Include="Factories\AddressFactory.cs" />
     <Compile Include="Factories\MessageFactory.cs" />
     <Compile Include="Factories\UserFactory.cs" />
@@ -183,6 +185,7 @@
     <Compile Include="Handlers\ProfilePageHandler.cs" />
     <Compile Include="Handlers\RegisterHandler.cs" />
     <Compile Include="Handlers\SalesHistoryHandler.cs" />
+    <Compile Include="Handlers\SellerDashboardHandler.cs" />
     <Compile Include="Handlers\TopUpHandler.cs" />
     <Compile Include="Models\ArtlyDBModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -230,6 +233,7 @@
     <Compile Include="Models\MsUser.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SellerDashboardResult.cs" />
     <Compile Include="Models\TopUp.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
