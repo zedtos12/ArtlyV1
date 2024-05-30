@@ -239,7 +239,6 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ActiveEntitiesInterceptor.cs" />
-    <Compile Include="Repository\ArtlyDatabaseConfiguration.cs" />
     <Compile Include="Repository\DatabaseSingleton.cs" />
     <Compile Include="TestEncrypte.cs" />
     <Compile Include="Views\BecomeSeller.aspx.cs">
