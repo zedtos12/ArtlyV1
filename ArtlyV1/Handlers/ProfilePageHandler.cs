@@ -38,5 +38,10 @@ namespace ArtlyV1.Handlers
 
             return "Success";
         }
+
+        public MsUser GetUserById(string userID)
+        {
+            return (from x in db.MsUsers where x.IdUser == userID select x).FirstOrDefault();
+        }
     }
 }

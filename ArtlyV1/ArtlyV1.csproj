@@ -94,6 +94,7 @@
     <Content Include="Views\CSS\BecomSellerStyle.css" />
     <Content Include="Views\CSS\bootstrap.min.css" />
     <Content Include="Views\CSS\HomePageStyle.css" />
+    <Content Include="Views\CSS\MessagePageStyle.css" />
     <Content Include="Views\CSS\NavbarStyle.css" />
     <Content Include="Views\CSS\owl.carousel.min.css" />
     <Content Include="Views\CSS\LoginRegisterPageStyle.css" />
@@ -179,7 +180,7 @@
     <Compile Include="Handlers\OrderHistoryHandler.cs" />
     <Compile Include="Handlers\ProductDetailHandler.cs" />
     <Compile Include="Handlers\ProductPageHandler.cs" />
-    <Compile Include="Handlers\ProfileHandler.cs" />
+    <Compile Include="Handlers\ProfilePageHandler.cs" />
     <Compile Include="Handlers\RegisterHandler.cs" />
     <Compile Include="Handlers\SalesHistoryHandler.cs" />
     <Compile Include="Handlers\TopUpHandler.cs" />
