@@ -178,7 +178,7 @@
     <Compile Include="Handlers\OrderHistoryHandler.cs" />
     <Compile Include="Handlers\ProductDetailHandler.cs" />
     <Compile Include="Handlers\ProductPageHandler.cs" />
-    <Compile Include="Handlers\ProfileHandler.cs" />
+    <Compile Include="Handlers\ProfilePageHandler.cs" />
     <Compile Include="Handlers\RegisterHandler.cs" />
     <Compile Include="Handlers\SalesHistoryHandler.cs" />
     <Compile Include="Handlers\TopUpHandler.cs" />

@@ -12,13 +12,13 @@ namespace ArtlyV1.Views
 {
     public partial class ProfilePage : System.Web.UI.Page
     {
-        ProfilePageHandler profilePageHandler = new ProfilePageHandler();
+        ProfilePageHandler profileHandler = new ProfilePageHandler();
         string userId;
         MsUser User;
         protected void Page_Load(object sender, EventArgs e)
         {
             userId = Session["user"].ToString();
-            User = profilePageHandler.GetUser(userId);
+            User = profileHandler.GetUserById(userId);
 
             UsernameLabel.InnerText = User.FullName;
             EmailLabel.InnerText = User.Email;
