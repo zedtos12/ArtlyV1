@@ -20,8 +20,10 @@ namespace ArtlyV1.Views
             userId = Session["user"].ToString();
             User = profileHandler.GetUserById(userId);
 
-            UsernameLabel.InnerText = User.FullName;
+            UsernameLabel.InnerText = User.UserName;
             EmailLabel.InnerText = User.Email;
+
+            NameInput.Value = User.FullName;
         }
     }
 }

@@ -16,5 +16,21 @@ namespace ArtlyV1.Handlers
             List<MsTransaction> orders = (from x in db.MsTransactions where x.IdUser == UserID select x).ToList();
             return orders;
         }
+
+        public List<TransactionDetail> findOrderDetailByTransactionID(String TransactionID)
+        {
+            List<TransactionDetail> orderDetails = (from x in db.TransactionDetails where x.IdTransaction == TransactionID select x).ToList();
+            return orderDetails;
+        }
+
+        public bool verifyUserTransaction(String UserID, String TransactionID)
+        {
+            MsTransaction order = (from x in db.MsTransactions where x.IdUser == UserID && x.IdTransaction == TransactionID select x).FirstOrDefault();
+            if (order == null)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

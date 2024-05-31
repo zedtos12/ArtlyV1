@@ -21,7 +21,7 @@
             <div class="col-md-3 border-right">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                     <img class="rounded-circle mt-5" width="150" height="150" src="https://simplyilm.com/wp-content/uploads/2017/08/temporary-profile-placeholder-1.jpg">
-                    <span id="UsernameLabel" runat="server" class="font-weight-bold" >Edogaru</span>
+                    <span id="UsernameLabel" runat="server" class="font-weight-bold">Edogaru</span>
                     <span id="EmailLabel" runat="server" class="text-black-50">edogaru@mail.com.my</span>
                     <span></span>
                 </div>
@@ -33,17 +33,21 @@
                     </div>
                     <div class="row mt-2">
                         <div class="col-md-6">
-                            <label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value="">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname">
+                            <label class="labels">Full name</label><input id="NameInput" runat="server" type="text" class="form-control" placeholder="first name" value="">
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-12">
-                            <label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value="">
+                            <label class="labels">Email</label><input id="EmailInput" runat="server" type="text" class="form-control" placeholder="enter phone number" value="">
                         </div>
                         <div class="col-md-12">
+                            <!-- create a dropdown list -->
+                             
+
+
+
+
+
                             <label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter postcode" value="">
                         </div>
                         <div class="col-md-12">
@@ -87,8 +91,8 @@
                         <label class="labels">Address Details</label><input type="text" class="form-control" placeholder="insert address details" value="">
                     </div>
                     <div class="mt-5 text-center">
-                        <button class="btn btn-primary address-button" type="button">Save Address</button>
-                    </div>
+                                <button class="btn btn-primary address-button" type="button">Save Address</button>
+                    </div>      
                 </div>
                 <div>
                     <div class="scrollable-column mt-3">
