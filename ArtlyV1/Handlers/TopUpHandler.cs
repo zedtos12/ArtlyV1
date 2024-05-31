@@ -11,18 +11,10 @@ namespace ArtlyV1.Handlers
     {
         ArtlyDatabaseEntities db = DatabaseSingleton.getInstance();
 
-        public String findUserID(String username)
+        public List<TopUp> GetTopUpsByUserID(string userID)
         {
-            String userID = (from x in db.MsUsers where x.UserName == username select x.IdUser).FirstOrDefault();
-            return userID;
-        }
-
-        public void topUpUserBalance(String userID, decimal topUpBalance)
-        {
-            MsUser user = (from x in db.MsUsers where x.IdUser == userID select x).FirstOrDefault();
-            user.Balance = user.Balance + topUpBalance;
-
-            db.SaveChanges();
+            List<TopUp> topUps = (from x in db.TopUps where x.IdUser == userID select x).ToList();
+            return topUps;
         }
     }
 }

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="CSS/NavbarStyle.css" />
     <link rel="stylesheet" href="Fonts/Inria-Serif/inria-serif.css">
     <link rel="stylesheet" href="Fonts/Inder/inder.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -70,6 +71,17 @@
                             else
                             { %>
                             <ul class="navbar-nav me-auto mb-1 ml-auto">
+                                 <%if (Session["userrole"] as string != "" && Session["userrole"] as string == "Seller")
+                                   {%>
+                                     <li style="display:flex; align-items:center">
+                                         <a href="SellerDashboard.aspx">
+                                             <i class="bi bi-shop-window" style="color:white;font-size:25px"></i>
+                                         </a>
+                                     </li>
+                                 <%}
+                                 else if(Session["userrole"] != null && Session["userrole"] as string == "User") { %>
+
+                                 <%}%>
                                 <li class="nav-item ml-4 d-flex">
                                     <a class="d-flex align-items-center" href="ShoppingCartPage.aspx">
                                         <img class="cartImg" src="Images/Navbar/CartIcon.png" />
