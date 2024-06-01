@@ -491,8 +491,12 @@ Messages
     overflow: hidden;
     position: relative;
     width: 100%;
-    & .messages-content
+    height: 300px; /* Adjust as needed */
+    overflow-y: auto;
+    padding-right: 15px; /* Optional for scrollbar spacing */
+}
 
+& .messages-content
 {
     position: absolute;
     top: 0;
@@ -501,22 +505,54 @@ Messages
     width: 100%;
 }
 
-
+/* Message Containers */
 .message {
-    clear: both;
-    float: left;
-    padding: 6px 10px 7px;
-    border-radius: 10px 10px 10px 0;
-    background: rgba(0, 0, 0, .3);
-    margin: 8px 0;
-    font-size: 11px;
-    line-height: 1.4;
-    margin-left: 35px;
-    position: relative;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
-    .timestamp
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
 
-{
+/* User (Sender) Messages */
+.user-message {
+    align-self: flex-end;
+    margin-right: 10px; /* Add this line */
+    background-color: #dcf8c6;
+    border-radius: 10px 10px 0 10px;
+    padding: 10px;
+}
+
+    .user-message .message-content {
+        word-wrap: break-word;
+    }
+
+    .user-message .message-timestamp {
+        font-size: 12px;
+        color: #666;
+        text-align: right;
+        margin-top: 5px;
+    }
+
+/* Other (Receiver) Messages */
+.other-message {
+    align-self: flex-start;
+    margin-left: 10px; /* Add this line */
+    background-color: #e5e5ea;
+    border-radius: 10px 10px 10px 0;
+    padding: 10px;
+}
+
+    .other-message .message-content {
+        word-wrap: break-word;
+    }
+
+    .other-message .message-timestamp {
+        font-size: 12px;
+        color: #666;
+        text-align: left;
+        margin-top: 5px;
+    }
+
+.timestamp {
     position: absolute;
     bottom: -15px;
     font-size: 9px;

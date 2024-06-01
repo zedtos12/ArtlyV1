@@ -151,6 +151,7 @@
     <Content Include="Views\JS\bootstrap.min.js" />
     <Content Include="Views\JS\HomePageMain.js" />
     <Content Include="Views\JS\jquery-3.3.1.min.js" />
+    <Content Include="Views\JS\Message.js" />
     <Content Include="Views\JS\popper.min.js" />
     <Content Include="Views\JS\LoginRegisterPageMain.js" />
     <Content Include="Views\JS\owl.carousel.min.js" />
