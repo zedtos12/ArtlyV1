@@ -20,10 +20,10 @@ namespace ArtlyV1.Views
         protected void Page_Load(object sender, EventArgs e)
         {
             // userID = Session["user"].ToString();
-            userID = "1f6a9ad8-520a-4e75-9e71-e086697d563c";
+            userID = "24f5f8f0-dc1c-4785-a4ed-8947a3efa32a";
 
             // string username = Request.QueryString["recieverUsername"];
-            string username = "admin";
+            string username = "bonif";
             receiverID = messageHandler.GetUserID(username);
             if (receiverID == null)
             {
@@ -31,6 +31,10 @@ namespace ArtlyV1.Views
             }
 
             messages = messageHandler.GetMessagesByUserId(userID, receiverID);
+            foreach (Message message in messages)
+            {
+                message.Content = message.Content.Replace("\n", "<br />");
+            }
 
             if (!IsPostBack)
             {
@@ -56,7 +60,7 @@ namespace ArtlyV1.Views
                 string currentClasses = messageContainer.Attributes["class"] ?? string.Empty;
                 if (IsUserMessage(message))
                 {
-                    messageContainer.Attributes["class"] = currentClasses + " message message-personal";
+                    messageContainer.Attributes["class"] = currentClasses + " user-message";
                     System.Diagnostics.Debug.WriteLine("user-message");
                 }
                 else
@@ -67,7 +71,7 @@ namespace ArtlyV1.Views
             }
         }
 
-        private bool IsUserMessage(Message message)
+        public bool IsUserMessage(Message message)
         {           
             return message.IdSender == userID;
         }
