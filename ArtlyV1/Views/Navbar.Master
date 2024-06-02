@@ -20,92 +20,92 @@
 <body>
     <form runat="server">
      <div>
-            <nav class="navbar navbar-dark navbar-expand-xl bg-transparent">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="HomePage.aspx">
-                        <img src="Images/ArtlyBrandImage.png" /> 
-                        Artly
-                    </a>
+        <nav class="navbar navbar-dark navbar-expand-xl bg-transparent">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="HomePage.aspx">
+                    <img src="Images/ArtlyBrandImage.png" /> 
+                    Artly
+                </a>
 
-                    <div class="navbar-line ml-3"></div>
+                <div class="navbar-line ml-3"></div>
 
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto ml-4">
-                            <li class="nav-item mr-4">
-                                <a class="nav-link" href="ProductPage.aspx"> Gallery </a>
-                            </li>
-                            <%if (userRole != null && userRole == "Seller")
-                              {%>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto ml-4">
+                        <li class="nav-item mr-4">
+                            <a class="nav-link" href="ProductPage.aspx"> Gallery </a>
+                        </li>
+                        <%if (userRole != null && userRole == "Seller")
+                            {%>
                                 
-                            <%}
-                            else if(userRole != null && userRole == "User") { %>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="BecomeSeller.aspx"> Open a Shop </a>
-                                </li>
-                            <%}%>
+                        <%}
+                        else if(userRole != null && userRole == "User") { %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="BecomeSeller.aspx"> Open a Shop </a>
+                            </li>
+                        <%}%>
 
-                            <%if (userRole != null && userRole == "Admin")
-                            { %>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="TopUpPage.aspx"> Top Up </a>
-                                </li>
-                            <% } %>
+                        <%if (userRole != null && userRole == "Admin")
+                        { %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="TopUpPage.aspx"> Top Up </a>
+                            </li>
+                        <% } %>
+                    </ul>
+
+                    <%if (Session["user"] == null && Request.Cookies["user"] == null)
+                    { %>
+                        <ul class="navbar-nav me-auto mb-1 ml-auto">
+                            <li class="nav-item ml-4 d-flex">
+                                <a class="nav-link active d-flex align-items-center" href="LoginPage.aspx"> Login </a>
+                            </li>
+                            <li class="nav-item ml-4 d-flex">
+                                <a class="nav-link active d-flex align-items-center" href="RegisterPage.aspx"> Register </a>
+                            </li>
                         </ul>
 
-                        <%if (Session["user"] == null && Request.Cookies["user"] == null)
+                    <%   }
+                        else
                         { %>
-                            <ul class="navbar-nav me-auto mb-1 ml-auto">
-                                <li class="nav-item ml-4 d-flex">
-                                    <a class="nav-link active d-flex align-items-center" href="LoginPage.aspx"> Login </a>
-                                </li>
-                                <li class="nav-item ml-4 d-flex">
-                                    <a class="nav-link active d-flex align-items-center" href="RegisterPage.aspx"> Register </a>
-                                </li>
-                            </ul>
+                        <ul class="navbar-nav me-auto mb-1 ml-auto">
+                                <%if (Session["userrole"] as string != "" && Session["userrole"] as string == "Seller")
+                                {%>
+                                    <li style="display:flex; align-items:center">
+                                        <a href="SellerDashboard.aspx">
+                                            <i class="bi bi-shop-window" style="color:white;font-size:25px"></i>
+                                        </a>
+                                    </li>
+                                <%}
+                                else if(Session["userrole"] != null && Session["userrole"] as string == "User") { %>
 
-                        <%   }
-                            else
-                            { %>
-                            <ul class="navbar-nav me-auto mb-1 ml-auto">
-                                 <%if (Session["userrole"] as string != "" && Session["userrole"] as string == "Seller")
-                                   {%>
-                                     <li style="display:flex; align-items:center">
-                                         <a href="SellerDashboard.aspx">
-                                             <i class="bi bi-shop-window" style="color:white;font-size:25px"></i>
-                                         </a>
-                                     </li>
-                                 <%}
-                                 else if(Session["userrole"] != null && Session["userrole"] as string == "User") { %>
-
-                                 <%}%>
-                                <li class="nav-item ml-4 d-flex">
-                                    <a class="d-flex align-items-center" href="ShoppingCartPage.aspx">
-                                        <img class="cartImg" src="Images/Navbar/CartIcon.png" />
-                                    </a>
-                                </li>
-                                <li class="nav-item ml-4 d-flex align-items-center">
-                                    <a class="nav-link active d-flex align-items-center justify-content-center mr-2" href="#">
-                                        <img class="accountImg" src="Images/Navbar/AccountDefaultIcon.png" />
-                                    </a>
-                                </li>
-                                <li class="nav-item ml-4 mr-2 d-flex">
-                                    <asp:Button ID="logoutBtn" runat="server" CssClass="btn" Text="Logout" OnClick="logoutBtn_Click" />
-                                </li>
-                                <li class="nav-item ml-4 d-flex">
-                                    <button id="uploadBtn" class="btn d-flex align-items-center" runat="server">
-                                        <img class="uploadImg mr-3" src="Images/Navbar/UploadIcon.png"/>
-                                        Upload
-                                    </button>
-                                </li>
-                            </ul>
-                        <%  } %>
-                    </div>
+                                <%}%>
+                            <li class="nav-item ml-4 d-flex">
+                                <a class="d-flex align-items-center" href="ShoppingCartPage.aspx">
+                                    <img class="cartImg" src="Images/Navbar/CartIcon.png" />
+                                </a>
+                            </li>
+                            <li class="nav-item ml-4 d-flex align-items-center">
+                                <a class="nav-link active d-flex align-items-center justify-content-center mr-2" href="ProfilePage.aspx">
+                                    <img class="accountImg" src="Images/Navbar/AccountDefaultIcon.png" />
+                                </a>
+                            </li>
+                            <li class="nav-item ml-4 mr-2 d-flex">
+                                <asp:Button ID="logoutBtn" runat="server" CssClass="btn" Text="Logout" OnClick="logoutBtn_Click" />
+                            </li>
+                            <li class="nav-item ml-4 d-flex">
+                                <button id="uploadBtn" class="btn d-flex align-items-center" runat="server">
+                                    <img class="uploadImg mr-3" src="Images/Navbar/UploadIcon.png"/>
+                                    Upload
+                                </button>
+                            </li>
+                        </ul>
+                    <%  } %>
                 </div>
-            </nav>
+            </div>
+        </nav>
          <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
          </asp:ContentPlaceHolder>
          <footer class="footer d-flex align-items-center justify-content-center">

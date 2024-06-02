@@ -26,11 +26,13 @@ namespace ArtlyV1.Models
         public string IdStatus { get; set; }
         public string IdPaymentMethod { get; set; }
         public string TrackingId { get; set; }
+        public string IdAddress { get; set; }
     
         public virtual LtPaymentMethod LtPaymentMethod { get; set; }
         public virtual LtStatu LtStatu { get; set; }
         public virtual MsUser MsUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TransactionDetail> TransactionDetails { get; set; }
+        public virtual TrUserAddress TrUserAddress { get; set; }
     }
 }

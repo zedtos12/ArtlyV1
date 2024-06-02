@@ -15,13 +15,13 @@ namespace ArtlyV1.Handlers
 
         public bool findDuplicateAddressName(String userID, String addressName)
         {
-            TrUserAddress userAddress = (from x in db.TrUserAddresses where x.IdUser == userID && x.AddressName == addressName select x).FirstOrDefault();
+            TrUserAddress userAddress = (from x in db.ActiveEntities<TrUserAddress>() where x.IdUser == userID && x.AddressName == addressName select x).FirstOrDefault();
             return userAddress != null;
         }
 
         public List<TrUserAddress> getTrUserAddresses(String userID)
         {
-            List<TrUserAddress> userAddresses = (from x in db.TrUserAddresses where x.IdUser == userID select x).ToList();
+            List<TrUserAddress> userAddresses = (from x in db.ActiveEntities<TrUserAddress>() where x.IdUser == userID select x).ToList();
             return userAddresses;
         }
 
@@ -41,7 +41,13 @@ namespace ArtlyV1.Handlers
 
         public MsUser GetUserById(string userID)
         {
-            return (from x in db.MsUsers where x.IdUser == userID select x).FirstOrDefault();
+            return (from x in db.ActiveEntities<MsUser>() where x.IdUser == userID select x).FirstOrDefault();
+        }
+
+        public List<MsProduct> getProductList(string userID)
+        {
+            List<MsProduct> productList = (from x in db.ActiveEntities<MsProduct>() where x.UserInput == userID select x).ToList();
+            return productList;
         }
     }
 }

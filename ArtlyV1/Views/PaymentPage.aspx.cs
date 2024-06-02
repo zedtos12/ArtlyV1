@@ -3,6 +3,7 @@ using ArtlyV1.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -13,6 +14,8 @@ namespace ArtlyV1.Views
     {
         PaymentController controller = new PaymentController();
         List<CartItem> cartList;
+        List<TrUserAddress> addressList;
+        String userID;
         public decimal total = 0;
         public decimal currentBalance = 0;
         public decimal resultingBalance;
@@ -39,43 +42,63 @@ namespace ArtlyV1.Views
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["cartTotal"] != null)
+            if (Session["cart"] == null || Session["cartTotal"] == null)
             {
-                total = decimal.Parse(Session["cartTotal"].ToString());
+                Response.Redirect("~/Views/ShoppingCartPage.aspx");
             }
 
-            if (Session["balance"] != null)
+            if (Session["balance"] == null || Session["user"] == null)
             {
-                currentBalance = decimal.Parse(Session["balance"].ToString());
+                Response.Redirect("~/Views/LoginPage.aspx");
             }
+
+            total = decimal.Parse(Session["cartTotal"].ToString());
+            currentBalance = decimal.Parse(Session["balance"].ToString());
+            userID = Session["user"].ToString();
 
             resultingBalance = currentBalance - total;
+
+            addressList = controller.getAddressList(userID);
+            addressRepeater.DataSource = addressList;
+            addressRepeater.DataBind();
         }
 
         protected void paymentBtn_Click(object sender, EventArgs e)
         {
-            String userID = Session["user"].ToString();
+            String msg;
+            cartList = (List<CartItem>)Session["cart"];
 
-            if(isAllItemDigital())
+            if (isAllItemDigital())
             {
-                String msg = controller.doPaymentWithoutShipping(userID, resultingBalance);
-
-                if(msg != "Successful")
-                {
-                    alertBox.Visible = true;
-                    errorLabel.Text = msg;
-                    return;
-                }
+                msg = controller.doPaymentWithoutShipping(userID, resultingBalance, cartList);
             }
             else
             {
-                String shippingAddress = shippingAddressTB.Text;
-                String shippingCity = shippingCityTB.Text;
-                String shippingCountry = shippingCountryTB.Text;
-                String shippingZip = shippingZipTB.Text;
+                RadioButton addressRB = this.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.GroupName == "Address" && rb.Checked);
+                String addressName = null;
+                
+                if(addressRB != null)
+                {
+                    addressName = addressRB.Attributes["Value"];
+                }
 
-                String msg = controller.doPaymentWithShipping(userID, resultingBalance, shippingAddress, shippingCountry, shippingCity, shippingZip);
+                msg = controller.doPaymentWithShipping(userID, resultingBalance, cartList, addressName);
             }
+
+            if (msg != "Successful")
+            {
+                alertBox.Visible = true;
+                errorLabel.Text = msg;
+                return;
+            }
+
+            alertBox.Visible = false;
+            successBox.Visible = true;
+            successLabel.Text = "Your payment has been successfully completed.";
+
+            int delay = 3000;
+            Thread.Sleep(delay);
+            Response.Redirect("~/Views/HomePage.aspx");
         }
     }
 }

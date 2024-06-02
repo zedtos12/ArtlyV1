@@ -26,24 +26,14 @@
             <div class="paymentMethodContent d-flex flex-column">
                 <%if(!isAllItemDigital())
                 { %>
-                    <div class="paymentTitle"> Shipping Details </div>
+                    <div class="paymentTitle"> Shipping Address </div>
                     <div class="shippingContent d-flex flex-column align-items-center pt-3 pb-3 mt-3 mb-3">
-                        <div class="shippingInputWrapper d-flex flex-column mb-2">
-                            <asp:Label ID="shippingAddressLabel" runat="server" Text="Address" class="shippingInputLabel"></asp:Label>
-                            <asp:TextBox ID="shippingAddressTB" runat="server" placeholder="address" class="shippingInputTB"></asp:TextBox>
-                        </div>
-                        <div class="shippingInputWrapper d-flex flex-column mb-2">
-                            <asp:Label ID="shippingCountryLabel" runat="server" Text="Country" class="shippingInputLabel"></asp:Label>
-                            <asp:TextBox ID="shippingCountryTB" runat="server" placeholder="city" class="shippingInputTB"></asp:TextBox>
-                        </div>
-                        <div class="shippingInputWrapper d-flex flex-column mb-2">
-                            <asp:Label ID="shippingCityLabel" runat="server" Text="City" class="shippingInputLabel"></asp:Label>
-                            <asp:TextBox ID="shippingCityTB" runat="server" placeholder="city" class="shippingInputTB"></asp:TextBox>
-                        </div>
-                        <div class="shippingInputWrapper d-flex flex-column">
-                            <asp:Label ID="shippingZipLabel" runat="server" Text="Zip Code" class="shippingInputLabel"></asp:Label>
-                            <asp:TextBox ID="shippingZipTB" runat="server" placeholder="zip code" class="shippingInputTB"></asp:TextBox>
-                        </div>
+                        <asp:Repeater ID="addressRepeater" runat="server">
+                            <ItemTemplate>
+                                <asp:RadioButton ID="addressRadioBtn" GroupName="Address" CssClass="addressRadioBtn" runat="server" />
+                                <span class="addressName ml-2"><%#Eval("AddressName")%></span>
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </div>
                 <% } %>
 
@@ -71,6 +61,10 @@
 
                 <div id="alertBox" class="alert alert-danger" role="alert" runat="server" visible="false">
                      <asp:Label ID="errorLabel" runat="server"></asp:Label>
+                </div>
+
+                <div id="successBox" class="alert alert-success mt-3" role="alert" runat="server" visible="false">
+                    <asp:Label ID="successLabel" runat="server"></asp:Label>
                 </div>
 
                 <asp:Button ID="paymentBtn" runat="server" Text="Proceed with Payment" class="btn btn-outline-light" OnClick="paymentBtn_Click" />

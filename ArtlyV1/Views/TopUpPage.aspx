@@ -21,7 +21,7 @@
                 <div class="topUpInputWrapper d-flex flex-column mt-3">
                     <asp:Label ID="topUpBalanceLabel" runat="server" Text="Top Up Balance" class="topUpLabel mr-3"></asp:Label>
                     <div class="topUpBalanceWrapper d-flex align-items-center">
-                        <div style="margin-top: 1.5px;"> IDR </div>
+                        IDR
                         <asp:TextBox ID="topUpBalanceTB" runat="server" placeholder="Top up balance here..." class="topUpTB ml-2"></asp:TextBox>
                     </div>
                 </div>

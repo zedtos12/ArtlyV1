@@ -18,6 +18,7 @@ namespace ArtlyV1.Views
         private MsProduct product;
         public String productName;
         public String sellerName;
+        public String sellerID;
         public String productImage;
         public String productDescription;
         public decimal productPrice;
@@ -43,10 +44,13 @@ namespace ArtlyV1.Views
 
             productName = product.ProductName;
             sellerName = detailHandler.getSellerName(productID);
+            sellerID = product.UserInput;
             productImage = product.ProductImage;
             productDescription = product.Description;
             productPrice = product.Price;
             productStock = product.Stock;
+
+            sellerHyperlink.NavigateUrl = "~/Views/ProfilePage.aspx?ID=" + product.UserInput;
 
             cartList = (List<CartItem>)Session["cart"];
         }

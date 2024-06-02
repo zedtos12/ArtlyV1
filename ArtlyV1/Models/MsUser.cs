@@ -35,6 +35,9 @@ namespace ArtlyV1.Models
         public Nullable<System.DateTime> DOB { get; set; }
         public Nullable<bool> IsActive { get; set; }
         public decimal Balance { get; set; }
+        public string ProfilePicture { get; set; }
+        public string PhoneNumber { get; set; }
+        public string UserDescription { get; set; }
     
         public virtual LtGender LtGender { get; set; }
         public virtual LtRole LtRole { get; set; }

@@ -8,7 +8,7 @@ namespace ArtlyV1.Factories
 {
     public class TransactionFactory
     {
-        public static MsTransaction create(String transactionID, String userID, DateTime orderDate, String statusID, String paymentMethodID, String trackingID)
+        public static MsTransaction create(String transactionID, String userID, DateTime orderDate, String statusID, String paymentMethodID, String trackingID, String addressID)
         {
             MsTransaction transaction = new MsTransaction()
             {
@@ -17,7 +17,8 @@ namespace ArtlyV1.Factories
                 OrderDate = orderDate,
                 IdStatus = statusID,
                 IdPaymentMethod = paymentMethodID,
-                TrackingId = trackingID
+                TrackingId = trackingID,
+                IdAddress = addressID
             };
 
             return transaction;

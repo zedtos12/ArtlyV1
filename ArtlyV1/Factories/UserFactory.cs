@@ -9,7 +9,7 @@ namespace ArtlyV1.Factories
 {
     public class UserFactory
     {
-        public static MsUser create(String userID, String username, String fullname, String email, String password, Boolean isActive, String genderID, String roleID, DateTime? dob, decimal balance)
+        public static MsUser create(String userID, String username, String fullname, String email, String password, Boolean isActive, String genderID, String roleID, DateTime? dob, decimal balance, String profilePicture, String phoneNumber, String userDescription)
         {
             MsUser user = new MsUser()
             {
@@ -22,7 +22,10 @@ namespace ArtlyV1.Factories
                 IdGender = genderID,
                 IdRole = roleID,
                 DOB = dob,
-                Balance = balance
+                Balance = balance,
+                ProfilePicture = profilePicture,
+                PhoneNumber = phoneNumber,
+                UserDescription = userDescription
             };
 
             return user;

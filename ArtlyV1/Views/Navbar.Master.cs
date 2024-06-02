@@ -13,7 +13,7 @@ namespace ArtlyV1.Views
         NavbarHandler navbarHandler = new NavbarHandler();
         public String userRole;
 
-        protected void Page_Load(object sender, EventArgs e)
+        private void refresh()
         {
             decimal balance = 0;
 
@@ -30,6 +30,16 @@ namespace ArtlyV1.Views
 
             Session["balance"] = balance;
             Session["userrole"] = userRole;
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            refresh();
+        }
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            refresh();
         }
 
         protected void logoutBtn_Click(object sender, EventArgs e)

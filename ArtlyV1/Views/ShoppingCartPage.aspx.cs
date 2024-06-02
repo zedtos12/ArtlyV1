@@ -16,7 +16,6 @@ namespace ArtlyV1.Views
         public decimal tax = 0;
         public decimal totalPrice = 0;
         public decimal currentBalance = 0;
-        public decimal resultingBalance = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,7 +27,13 @@ namespace ArtlyV1.Views
 
         private void refreshPage()
         {
+            if (Session["balance"] == null)
+            {
+                Response.Redirect("~/Views/LoginPage.aspx");
+            }
+
             cartList = (List<CartItem>)Session["cart"];
+            currentBalance = decimal.Parse(Session["balance"].ToString());
             itemQty = 0;
             subtotalPrice = 0;
 
@@ -44,11 +49,7 @@ namespace ArtlyV1.Views
             }
 
             tax = subtotalPrice * 10 / 100;
-
             totalPrice = tax + subtotalPrice;
-
-            currentBalance = decimal.Parse(Session["balance"].ToString());
-            resultingBalance = currentBalance - totalPrice;
 
             cartItemRepeater.DataSource = cartList;
             cartItemRepeater.DataBind();

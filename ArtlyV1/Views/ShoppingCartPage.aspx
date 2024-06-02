@@ -42,6 +42,8 @@
                     <div class="summaryTax d-flex justify-content-between"> Sales Tax (10%) <span class="summaryPriceHighlight">IDR <%=tax.ToString("#,##0.00")%></span></div>
                     <div class="summarySeparator mt-2 mb-2"></div>
                     <div class="summaryTotal d-flex justify-content-between"> Total Price <span class="summaryPriceHighlight">IDR <%=totalPrice.ToString("#,##0.00")%></span></div>
+                    <div class="summaryCurrentBalance d-flex justify-content-between"> Current Balance <span class="summaryPriceHighlight">IDR <%=currentBalance.ToString("#,##0.00")%></span></div>
+                    
                     <% if (itemQty <= 0)
                     { %>
                         <div class="noItems non-functional-btn btn mt-5"> No items in cart </div>
@@ -52,6 +54,7 @@
                     { %>
                         <div class="notEnoughBalance non-functional-btn btn mt-5"> Not enough balance </div>
                     <% } %>
+
                 </div>
             </div>
         </div>

@@ -13,15 +13,82 @@ namespace ArtlyV1.Views
     public partial class ProfilePage : System.Web.UI.Page
     {
         ProfilePageHandler profileHandler = new ProfilePageHandler();
-        string userId;
-        MsUser User;
+        String accessingUserID;
+        MsUser accessingUser;
+        String shownUserID;
+        MsUser shownUser;
+        public String username;
+        public String profilePicPath;
+        public String userDescription;
+        public String userDOB;
+        public String phoneNumber;
+        List<MsProduct> productList;
+
+        public Boolean isShownUserSeller()
+        {
+            if(shownUser.LtRole.RoleName == "Seller")
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public Boolean isOwnerAccessing()
+        {
+            if (Request["ID"] == null)
+            {
+                return true;
+            }
+            return false;
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            userId = Session["user"].ToString();
-            User = profileHandler.GetUserById(userId);
+            if (Session["user"] == null)
+            {
+                Response.Redirect("~/Views/HomePage.aspx");
+            }
 
-            UsernameLabel.InnerText = User.FullName;
-            EmailLabel.InnerText = User.Email;
+            accessingUserID = Session["user"].ToString();
+            accessingUser = profileHandler.GetUserById(accessingUserID);
+
+            if (isOwnerAccessing())
+            {
+                shownUserID = accessingUserID;
+                shownUser = accessingUser;
+            }
+            else
+            {
+                shownUserID = Request["ID"].ToString();
+                shownUser = profileHandler.GetUserById(shownUserID);
+            }
+
+            username = shownUser.UserName;
+            profilePicPath = shownUser.ProfilePicture;
+            userDescription = shownUser.UserDescription;
+            userDOB = shownUser.DOB.ToString();
+            phoneNumber = shownUser.PhoneNumber;
+
+            Title = username + "'s Profile";
+
+            if(profilePicPath == null)
+            {
+                profilePicPath = "Images/Profile/DefaultProfilePicture.png";
+            }
+
+            if(userDescription == null)
+            {
+                userDescription = "User has no user description.";
+            }
+
+            productList = profileHandler.getProductList(shownUserID);
+            profileProductRepeater.DataSource = productList;
+            profileProductRepeater.DataBind();
+        }
+
+        protected void updateBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/UpdateProfilePage.aspx");
         }
     }
 }

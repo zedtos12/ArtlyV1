@@ -42,76 +42,13 @@ namespace ArtlyV1.Views
         protected global::System.Web.UI.WebControls.RadioButton GoPayRadioBtn;
 
         /// <summary>
-        /// shippingAddressLabel control.
+        /// addressRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label shippingAddressLabel;
-
-        /// <summary>
-        /// shippingAddressTB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox shippingAddressTB;
-
-        /// <summary>
-        /// shippingCountryLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label shippingCountryLabel;
-
-        /// <summary>
-        /// shippingCountryTB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox shippingCountryTB;
-
-        /// <summary>
-        /// shippingCityLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label shippingCityLabel;
-
-        /// <summary>
-        /// shippingCityTB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox shippingCityTB;
-
-        /// <summary>
-        /// shippingZipLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label shippingZipLabel;
-
-        /// <summary>
-        /// shippingZipTB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox shippingZipTB;
+        protected global::System.Web.UI.WebControls.Repeater addressRepeater;
 
         /// <summary>
         /// alertBox control.
@@ -130,6 +67,24 @@ namespace ArtlyV1.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label errorLabel;
+
+        /// <summary>
+        /// successBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl successBox;
+
+        /// <summary>
+        /// successLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label successLabel;
 
         /// <summary>
         /// paymentBtn control.
