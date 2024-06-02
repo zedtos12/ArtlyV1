@@ -49,5 +49,35 @@ namespace ArtlyV1.Handlers
             List<MsProduct> productList = (from x in db.ActiveEntities<MsProduct>() where x.UserInput == userID select x).ToList();
             return productList;
         }
+
+        public void updateProfilePicture(String userID, String imageFilePath)
+        {
+            MsUser user = GetUserById(userID);
+
+            if(user == null)
+            {
+                return;
+            }
+
+            user.ProfilePicture = imageFilePath;
+            db.SaveChanges();
+        }
+
+        public String updateProfile(String userID, String newUserDescription, DateTime newUserDOB, String newPhoneNumber)
+        {
+            MsUser user = GetUserById(userID);
+            
+            if(user == null)
+            {
+                return "User not found!";
+            }
+
+            user.UserDescription = newUserDescription;
+            user.DOB = newUserDOB;
+            user.PhoneNumber = newPhoneNumber;
+            db.SaveChanges();
+
+            return "Successful";
+        }
     }
 }

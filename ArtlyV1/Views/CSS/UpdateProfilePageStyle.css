@@ -17,16 +17,29 @@
     position: relative;
 }
 
-.updateProfileImage {
+.profilePictureImage {
     width: 250px;
-    height: auto;
+    height: 250px;
+    border-radius: 50%;
 }
 
 .uploadImageIcon {
     position: absolute;
-    right: 0;
+    right: -20px;
     height: 50px;
     bottom: 0;
+}
+
+.file-upload {
+    cursor: pointer;
+}
+
+.file-upload input {
+    top: 0;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    display: none;
 }
 
 .updateProfileContent {
@@ -68,6 +81,10 @@
 .updateProfileTB:-webkit-autofill {
     -webkit-box-shadow: none;
     background-color: transparent;
+}
+
+.updateProfileBtn {
+    width: 100px;
 }
 
 .btn-outline-light:hover {

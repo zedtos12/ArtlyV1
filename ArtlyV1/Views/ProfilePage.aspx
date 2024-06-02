@@ -9,7 +9,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="profileWrapper d-flex align-items-center justify-content-center flex-column pt-5 pb-5">
         <div class="profileTitle mb-3"><%=username%>'s Profile</div>
-        <img class="profilePicture mb-2" src="<%=profilePicPath%>"/>
+        <img class="profilePicture mb-4" src="<%=profilePicPath%>"/>
         <div class="profileUsername mb-2"><%=username%></div>
         <div class="profileUserDescription mb-2"><%=userDescription%></div>
 

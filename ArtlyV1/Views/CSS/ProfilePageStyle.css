@@ -15,7 +15,8 @@
 
 .profilePicture {
     width: 250px;
-    height: auto;
+    height: 250px;
+    border-radius: 50%;
 }
 
 .profileUsername {

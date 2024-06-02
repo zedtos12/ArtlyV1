@@ -162,6 +162,7 @@
     <Content Include="Views\JS\popper.min.js" />
     <Content Include="Views\JS\LoginRegisterPageMain.js" />
     <Content Include="Views\JS\owl.carousel.min.js" />
+    <Content Include="Views\JS\UpdateProfilePage.js" />
     <Content Include="Views\LoginPage.aspx" />
     <Content Include="Views\MessagePage.aspx" />
     <Content Include="Views\OrderDetailPage.aspx" />
