@@ -14,8 +14,9 @@
     <div class="chat-container">
         <div class="chat">
             <div class="chat-title">
-                <h1>Fabio Ottaviani</h1>
-                <h2>Supah</h2>
+                <h1 id="fullnameLabel" runat="server">Fabio Ottaviani</h1>
+                <h2 id="usernameLabel" runat="server">Supah</h2>
+                 
                 <figure class="avatar">
                     <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg" />
                 </figure>

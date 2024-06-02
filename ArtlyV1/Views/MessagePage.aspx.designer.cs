@@ -15,6 +15,24 @@ namespace ArtlyV1.Views
     {
 
         /// <summary>
+        /// fullnameLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl fullnameLabel;
+
+        /// <summary>
+        /// usernameLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl usernameLabel;
+
+        /// <summary>
         /// rptMessages control.
         /// </summary>
         /// <remarks>

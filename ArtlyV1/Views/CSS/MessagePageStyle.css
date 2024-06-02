@@ -271,7 +271,7 @@ body {
 }
 
 body {
-    background: linear-gradient(135deg, #044f48, #2a7561);
+    background: linear-gradient(black, #151515 20%, #252525 60%, #2F2F2F);
     background-size: cover;
     font-family: 'Open Sans', sans-serif;
     font-size: 12px;
@@ -405,7 +405,8 @@ Messages
 /* User (Sender) Messages */
 .user-message {
     align-self: flex-end;
-    margin-right: 10px; /* Add this line */
+    margin-right: 10px;  
+    margin-left: 10px;
     background-color: #dcf8c6;
     border-radius: 10px 10px 0 10px;
     padding: 10px;
@@ -413,6 +414,7 @@ Messages
 
 .user-message .message-content {
     word-wrap: break-word;
+    text-align: right;
 }
 
 .user-message .message-timestamp {
@@ -425,7 +427,8 @@ Messages
 /* Other (Receiver) Messages */
 .other-message {
     align-self: flex-start;
-    margin-left: 10px; /* Add this line */
+    margin-right: 10px;
+    margin-left: 10px;
     background-color: #e5e5ea;
     border-radius: 10px 10px 10px 0;
     padding: 10px;
@@ -433,6 +436,7 @@ Messages
 
 .other-message .message-content {
     word-wrap: break-word;
+    
 }
 
 .other-message .message-timestamp {
@@ -440,52 +444,6 @@ Messages
     color: #666;
     text-align: left;
     margin-top: 5px;
-}
-
-.avatar {
-    position: absolute;
-    z-index: 1;
-    bottom: -15px;
-    left: -35px;
-    border-radius: 30px;
-    width: 30px;
-    height: 30px;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    border: 2px solid rgba(255, 255, 255, 0.24);
-}
-
-    .avatar img {
-        width: 100%;
-        height: auto;
-    }
-
-.other-message.message-personal {
-    float: right;
-    color: #fff;
-    text-align: right;
-    background: linear-gradient(120deg, #248A52, #257287);
-    border-radius: 10px 10px 0 10px;
-}
-
-.other-message.message-personal::before {
-    left: auto;
-    right: 0;
-    border-right: none;
-    border-left: 5px solid transparent;
-    border-top: 4px solid #257287;
-    bottom: -4px;
-}
-
-.other-message:last-child {
-    margin-bottom: 30px;
-}
-
-.other-message.new {
-    transform: scale(0);
-    transform-origin: 0 0;
-    animation: bounce 500ms linear both;
 }
 
 /*--------------------
@@ -499,20 +457,20 @@ Message Box
     position: relative;
 }
 
-    .message-box .message-input {
-        background: none;
-        border: none;
-        outline: none !important;
-        resize: none;
-        color: rgba(255, 255, 255, .7);
-        font-size: 11px;
-        height: auto;
-        margin: 0;
-        padding-right: 20px;
-        width: 265px;
-        min-height: 3em; 
-        resize: vertical;
-    }
+.message-box .message-input {
+    background: none;
+    border: none;
+    outline: none !important;
+    resize: none;
+    color: rgba(255, 255, 255, .7);
+    font-size: 11px;
+    height: auto;
+    margin: 0;
+    padding-right: 20px;
+    width: 265px;
+    min-height: 3em; 
+    resize: vertical;
+}
  
 
 /* T Y P E */
@@ -536,8 +494,8 @@ input.textarea {
 
 .chat-container {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    height: 80vh; /* Ensure container takes full viewport height */
+    justify-content: center; 
+    align-items: center; 
+    height: 80vh; 
     padding: 10%;
 }

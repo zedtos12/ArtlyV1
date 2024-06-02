@@ -19,12 +19,17 @@ namespace ArtlyV1.Views
         String userID, receiverID;
         protected void Page_Load(object sender, EventArgs e)
         {
-            // userID = Session["user"].ToString();
-            userID = "24f5f8f0-dc1c-4785-a4ed-8947a3efa32a";
-
-            // string username = Request.QueryString["recieverUsername"];
-            string username = "bonif";
-            receiverID = messageHandler.GetUserID(username);
+            userID = Session["user"].ToString();
+            //userID = "24f5f8f0-dc1c-4785-a4ed-8947a3efa32a";
+            //userID = "1f6a9ad8-520a-4e75-9e71-e086697d563c";
+            string receiveruUsername = Request.QueryString["recieverUsername"];
+            // username = "bonif";
+            // username = "admin";
+            receiverID = messageHandler.GetUserID(receiveruUsername);
+            string receiverFullName = messageHandler.GetFullName(receiverID);
+            fullnameLabel.InnerText = receiverFullName;
+  
+            usernameLabel.InnerText = receiveruUsername;
             if (receiverID == null)
             {
                 Response.Redirect("HomePage.aspx");
@@ -61,12 +66,10 @@ namespace ArtlyV1.Views
                 if (IsUserMessage(message))
                 {
                     messageContainer.Attributes["class"] = currentClasses + " user-message";
-                    System.Diagnostics.Debug.WriteLine("user-message");
                 }
                 else
                 {
                     messageContainer.Attributes["class"] = currentClasses + " other-message";
-                    System.Diagnostics.Debug.WriteLine("other-message");
                 }
             }
         }

@@ -43,5 +43,11 @@ namespace ArtlyV1.Handlers
             string userID = (from x in db.MsUsers where x.UserName == username select x.IdUser).FirstOrDefault();
             return userID;
         }
+
+        public string GetFullName(string IdUser)
+        {
+            string fullName = (from x in db.MsUsers where x.IdUser == IdUser select x.FullName).FirstOrDefault();
+            return fullName;
+        }
     }
 }
