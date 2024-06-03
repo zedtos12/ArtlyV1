@@ -103,6 +103,22 @@ namespace ArtlyV1.Handlers
                     .Take(5)    
                     .ToList();
 
+            foreach (var sale in result)
+            {
+                if (sale.status == "Complete")
+                {
+                    sale.status = "<td><label class=\"badge badge-success\">Completed</label></td>";
+                }
+                else if (sale.status == "On-Delivery")
+                {
+                    sale.status = "<td><label class=\"badge badge-warning\">On Delivery</label></td>";
+                }
+                else if (sale.status == "On-Process")
+                {
+                    sale.status = "<td><label class=\"badge badge-info\">On Process</label></td>";
+                }
+            }
+
             return result;
         }
 
