@@ -177,12 +177,15 @@
     <Compile Include="Controllers\SellerDashboardController.cs" />
     <Compile Include="Factories\AddressFactory.cs" />
     <Compile Include="Factories\MessageFactory.cs" />
+    <Compile Include="Factories\ProductFactory.cs" />
     <Compile Include="Factories\UserFactory.cs" />
     <Compile Include="Handlers\LoginHandler.cs" />
     <Compile Include="Handlers\MessageHandler.cs" />
     <Compile Include="Handlers\NavbarHandler.cs" />
     <Compile Include="Handlers\OrderHistoryHandler.cs" />
+    <Compile Include="Handlers\PendingHandler.cs" />
     <Compile Include="Handlers\ProductDetailHandler.cs" />
+    <Compile Include="Handlers\ProductHandler.cs" />
     <Compile Include="Handlers\ProductPageHandler.cs" />
     <Compile Include="Handlers\ProfilePageHandler.cs" />
     <Compile Include="Handlers\RegisterHandler.cs" />
@@ -233,6 +236,9 @@
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MsUser.cs">
+      <DependentUpon>ArtlyDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PendingProduct.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SellerDashboardResult.cs" />
