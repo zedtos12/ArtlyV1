@@ -22,12 +22,13 @@ namespace ArtlyV1.Views
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["user"] == null)
-            {
-                Response.Redirect("loginpage.aspx");
-            }
+            //if (Session["user"] == null)
+            //{
+            //    Response.Redirect("loginpage.aspx");
+            //}
 
-            userId = Session["user"].ToString();
+            //userId = Session["user"].ToString();
+            userId = "1f6a9ad8-520a-4e75-9e71-e086697d563c";
             User = profileHandler.GetUserById(userId);
 
             UsernameLabel.InnerText = User.UserName;
@@ -42,7 +43,6 @@ namespace ArtlyV1.Views
             {
                 GenderDDL.DataSource = genderNames;
                 GenderDDL.DataBind();
-                LoadAddressList();
             }
 
             if (User.IdGender != null)
@@ -63,6 +63,7 @@ namespace ArtlyV1.Views
             string genderID = profileHandler.GetGenderIDByName(genderName);
 
             profileHandler.UpdateUser(userId, fullName, dob, genderID);
+            
         }     
 
         protected void btnSaveAddress_Click(object sender, EventArgs e)
@@ -82,6 +83,7 @@ namespace ArtlyV1.Views
             {
                 Response.Write("<script>alert('Address name and detail must not be empty')</script>");
             }
+            LoadAddressList();
         }
 
         public void LoadAddressList()
@@ -95,6 +97,8 @@ namespace ArtlyV1.Views
                 addressListHTML.Append($"<div class='address-name font-weight-bold'>{address.AddressName}</div>");
                 addressListHTML.Append($"<p class='address-details'>{address.Address}</p>");
                 addressListHTML.Append("</div>");
+
+                System.Diagnostics.Debug.WriteLine(address.AddressName);
             }
 
             litAddressList.Text = addressListHTML.ToString();

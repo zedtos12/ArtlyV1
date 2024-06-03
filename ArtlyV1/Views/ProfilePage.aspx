@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="CSS/ProfileStyle.css" />
+    <link rel="stylesheet" href="CSS/ProfileStyles.css" />
     <style>
         .container {
             background: linear-gradient(135deg, #2F2F2F, #252525, #1C1C1C);
@@ -43,17 +43,19 @@
                         </div>
                         <div class="col-md-12">
                             <label class="labels" style="color: white;">Genders</label>
-                            <asp:DropDownList ID="GenderDDL" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="GenderDDL" runat="server" CssClass="dropdown"></asp:DropDownList>
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <asp:TextBox ID="txtBirthdate" runat="server"
-                            TextMode="Date"
-                            ToolTip="Please enter your birthdate in MM/dd/yyyy format."
-                            Width="150px"
-                            CssClass="form-control">
-                        </asp:TextBox>
-
+                        <div class="col-md-12">
+                            <label class="labels" style="color: white;">Date of Birth</label>
+                            <asp:TextBox ID="txtBirthdate" runat="server"
+                                TextMode="Date"
+                                ToolTip="Please enter your birthdate in MM/dd/yyyy format."
+                                Width="150px"
+                                CssClass="form-control">
+                            </asp:TextBox>
+                        </div>
                     </div>
                     <div class="mt-5 text-center">
                         <asp:Button ID="SaveButton" runat="server" Text="Save Profile" CssClass="btn btn-primary profile-button" OnClick="SaveProfile_Click" />
