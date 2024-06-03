@@ -106,6 +106,7 @@
     <Content Include="Views\CSS\SellerDashboardsStyle.css" />
     <Content Include="Views\CSS\ShoppingCartPageStyle.css" />
     <Content Include="Views\CSS\TopUpPageStyle.css" />
+    <Content Include="Views\CSS\TransactionDetailPageStyle.css" />
     <Content Include="Views\CSS\UpdateProfilePageStyle.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
@@ -177,6 +178,7 @@
     <Content Include="Views\PaymentPage.aspx" />
     <Content Include="Views\TopUpPage.aspx" />
     <Content Include="Views\TopUpHistoryPage.aspx" />
+    <Content Include="Views\TransactionDetailPage.aspx" />
     <Content Include="Views\UpdateProfilePage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -206,6 +208,7 @@
     <Compile Include="Handlers\SalesHistoryHandler.cs" />
     <Compile Include="Handlers\SellerDashboardHandler.cs" />
     <Compile Include="Handlers\TopUpHandler.cs" />
+    <Compile Include="Handlers\TransactionDetailHandler.cs" />
     <Compile Include="Models\ArtlyDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -383,6 +386,13 @@
     </Compile>
     <Compile Include="Views\TopUpHistoryPage.aspx.designer.cs">
       <DependentUpon>TopUpHistoryPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransactionDetailPage.aspx.cs">
+      <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TransactionDetailPage.aspx.designer.cs">
+      <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\UpdateProfilePage.aspx.cs">
       <DependentUpon>UpdateProfilePage.aspx</DependentUpon>

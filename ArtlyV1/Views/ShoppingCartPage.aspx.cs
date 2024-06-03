@@ -1,6 +1,7 @@
 ﻿using ArtlyV1.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -142,6 +143,21 @@ namespace ArtlyV1.Views
             refreshPage();
             Session["cartTotal"] = totalPrice;
             Response.Redirect("PaymentPage.aspx");
+        }
+
+        protected void cartItemRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if(e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                if (((CartItem)e.Item.DataItem).product.LtProductType.ProductTypeName == "Digital")
+                {
+                    Button decrementBtn = (Button)e.Item.FindControl("decrementQtyBtn");
+                    Button incrementBtn = (Button)e.Item.FindControl("incrementQtyBtn");
+
+                    decrementBtn.CssClass = "d-none";
+                    incrementBtn.CssClass = "d-none";
+                }
+            }
         }
     }
 }

@@ -17,6 +17,7 @@
 
 .topUpContent {
     width: 30%;
+    min-width: 500px;
     border-radius: 10px;
     border: 1px solid #efefef;
 }

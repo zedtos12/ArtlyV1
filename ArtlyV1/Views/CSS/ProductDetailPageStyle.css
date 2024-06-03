@@ -42,6 +42,17 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
+.non-functional-btn {
+    background-color: #212529;
+    border-radius: 10px;
+    border: 1px solid #878787;
+    color: white;
+}
+
+.non-functional-btn:hover {
+    color: white;
+}
+
 @media (max-width: 768px) {
     .productText {
         justify-content: center;

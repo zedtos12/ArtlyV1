@@ -23,6 +23,7 @@ namespace ArtlyV1.Views
         public String userDOB;
         public String phoneNumber;
         List<MsProduct> productList;
+        List<MsTransaction> transactionList;
 
         public Boolean isShownUserSeller()
         {
@@ -88,9 +89,16 @@ namespace ArtlyV1.Views
 
             profilePicture.ImageUrl = profilePicPath + "?" + DateTime.Now;
 
-            productList = profileHandler.getProductList(shownUserID);
-            profileProductRepeater.DataSource = productList;
-            profileProductRepeater.DataBind();
+            if(!IsPostBack)
+            {
+                transactionList = profileHandler.getTransactionList(accessingUserID);
+                userTransactionRepeater.DataSource = transactionList;
+                userTransactionRepeater.DataBind();
+
+                productList = profileHandler.getProductList(shownUserID);
+                profileProductRepeater.DataSource = productList;
+                profileProductRepeater.DataBind();
+            }
         }
 
         protected void updateBtn_Click(object sender, EventArgs e)

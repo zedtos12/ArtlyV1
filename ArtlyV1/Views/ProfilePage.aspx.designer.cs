@@ -33,6 +33,15 @@ namespace ArtlyV1.Views
         protected global::System.Web.UI.WebControls.Button updateBtn;
 
         /// <summary>
+        /// userTransactionRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater userTransactionRepeater;
+
+        /// <summary>
         /// profileProductRepeater control.
         /// </summary>
         /// <remarks>

@@ -11,7 +11,12 @@
                         <h1 class="display-5 fw-bolder"><%=productName %></h1>
                         <div class="small mb-1">Seller: <asp:HyperLink runat="server" ID="sellerHyperlink" class="sellerLink"><%=sellerName %></asp:HyperLink></div>
                         <div class="fs-5 mb-2">IDR <%=productPrice.ToString("#,##0.00") %></div>
-                        <div class="fs-5 mb-2">Stock: <%=productStock%></div>
+
+                        <% if(isProductNonDigital())
+                        { %>
+                            <div class="fs-5 mb-2">Stock: <%=productStock%></div>
+                        <% } %>
+
                         <p class="lead"><%=productDescription %></p>
                         <div id="errorBox" class="alert alert-danger" role="alert" runat="server" visible="false">
                             <asp:Label ID="errorLabel" runat="server"></asp:Label>
@@ -20,16 +25,27 @@
                             <asp:Label ID="successLabel" runat="server"></asp:Label>
                         </div>
                         <div class="d-flex">
+                            <% if(isProductNonDigital())
+                            { %>
+                                <input class="form-control text-center me-3 mr-3" id="inputQuantity" runat="server" type="number" value="1" onkeypress="if(this.value.length == 3) return false;" onkeydown="return event.key != 'Enter';" style="max-width: 3rem" />
+                            <% } %>
 
-                            <input class="form-control text-center me-3 mr-3" id="inputQuantity" runat="server" type="number" value="1" onkeypress="if(this.value.length == 3) return false;" onkeydown="return event.key != 'Enter';" style="max-width: 3rem" />
-                            <% if(!isProductInCart())
+                            <% if (Session["user"] == null)
+                            { %>
+                                <div class="userNotLoggedIn non-functional-btn btn"> You are not logged in. </div>
+                            <% } %>
+                            <% else if(!isProductInCart())
                             { %>
                                 <asp:button ID="addCartButton" runat="server" class="btn btn-outline-light" Text="Add to cart" OnClick="addCartButton_Click"></asp:button>
-                            <% } else
+                            <% } %>
+                            <% else if(isProductNonDigital())
                             { %>
                                 <asp:Button ID="updateCartButton" runat="server" class="btn btn-outline-light" Text="Update cart" OnClick="updateCartButton_Click" />
                             <% } %>
-                            
+                            <% else
+                            { %>
+                                <div class="itemInCart non-functional-btn btn"> Item is already in cart. </div>
+                            <% } %>
                         </div>
                     </div>
                 </div>

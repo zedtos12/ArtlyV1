@@ -1,0 +1,146 @@
+﻿body {
+    background: linear-gradient(black, #151515 20%, #252525 60%, #2F2F2F);
+    color: white;
+    font-family: "Inder", sans-serif;
+}
+
+.transactionDetailContainer {
+    width: 100%;
+    min-height: 90vh;
+}
+
+.transactionDetailTitle {
+    font-size: 28px;
+    font-weight: 600;
+    width: 100%;
+}
+
+.transactionDetailSubtitle {
+    width: 100%;
+}
+
+.transactionDetailSubtitleHighlight {
+    color: #FCBF49;
+}
+
+.transactionDetailListWrapper {
+    width: 850px;
+    background-color: #323232;
+    border-radius: 10px;
+}
+
+.transactionDetailListTitle {
+    width: 100%;
+    padding: 15px 30px;
+}
+
+.productTitle {
+    width: 300px;
+    text-align: center;
+}
+
+.priceTitle {
+    width: 200px;
+    text-align: center;
+}
+
+.quantityTitle {
+    width: 150px;
+    text-align: center;
+}
+
+.totalPriceTitle {
+    width: 200px;
+    text-align: center;
+}
+
+.transactionDetailWrapper {
+    padding: 15px 30px;
+}
+
+.transactionDetailImage {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.transactionDetailDescription {
+    width: 175px;
+}
+
+.transactionDetailSellerName {
+    color: #FCBF49;
+    font-size: 14px;
+}
+
+.transactionDetailPrice {
+    width: 200px;
+    text-align: center;
+}
+
+.transactionDetailQuantity {
+    width: 150px;
+    text-align: center;
+}
+
+.transactionDetailTotalPrice {
+    width: 200px;
+    color: #FCBF49;
+    text-align: center;
+}
+
+.transactionDetailSeparator {
+    width: 800px;
+    border: 1px solid rgba(255,255,255,.25);
+    align-self: center;
+}
+
+.transactionTotalSummary {
+    width: 850px;
+    background-color: #323232;
+    border-radius: 10px;
+}
+
+.transactionPriceHighlight {
+    color: #FCBF49;
+    text-align: right;
+    padding-left: 10px;
+}
+
+@media (max-width: 900px) {
+    .transactionDetailWrapper {
+        padding: 0 10px;
+    }
+
+    .transactionDetailListWrapper {
+        width: 90%;
+    }
+
+    .transactionTotalSummary {
+        width: 90%;
+    }
+
+    .transactionDetailImage {
+        margin: 0;
+    }
+
+    .transactionDetailSeparator {
+        width: 300px;
+    }
+
+    .transactionDetailListTitle {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .transactionDetailWrapper {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .transactionDetailDescription {
+        align-items: center;
+        width: 100%;
+        text-align: center;
+    }
+}

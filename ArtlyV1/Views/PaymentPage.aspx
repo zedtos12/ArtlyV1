@@ -28,7 +28,7 @@
                 { %>
                     <div class="paymentTitle"> Shipping Address </div>
                     <div class="shippingContent d-flex flex-column align-items-center pt-3 pb-3 mt-3 mb-3">
-                        <asp:RadioButtonList ID="userAddressRBList" runat="server"></asp:RadioButtonList>
+                        <asp:RadioButtonList ID="userAddressRBList" runat="server" CssClass="userAddressRBList"></asp:RadioButtonList>
                     </div>
                 <% } %>
 
@@ -62,7 +62,7 @@
                     <asp:Label ID="successLabel" runat="server"></asp:Label>
                 </div>
 
-                <asp:Button ID="paymentBtn" runat="server" Text="Proceed with Payment" class="btn btn-outline-light" OnClick="paymentBtn_Click" />
+                <asp:Button ID="paymentBtn" runat="server" Text="Proceed with Payment" class="btn btn-outline-light mt-2" OnClick="paymentBtn_Click" />
             </div>
         </div>
     </div>

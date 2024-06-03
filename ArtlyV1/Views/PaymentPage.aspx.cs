@@ -69,7 +69,7 @@ namespace ArtlyV1.Views
                     ListItem RB = new ListItem()
                     {
                         Value = address.IdAddress,
-                        Text = address.AddressName
+                        Text = "<div class='d-flex justify-content-center align-items-center'><img src='Images/Profile/AddressIcon.png' class='addressIcon ml-2' /><div class='d-flex flex-column ml-2'><span class='addressName'>" + address.AddressName + "</span>" + address.Address + "</div></div>"
                     };
 
                     RBList.Add(RB);
@@ -107,6 +107,8 @@ namespace ArtlyV1.Views
             alertBox.Visible = false;
             successBox.Visible = true;
             successLabel.Text = "Your payment has been successfully completed.";
+
+            Session["cart"] = null;
 
             int delay = 3000;
             Thread.Sleep(delay);

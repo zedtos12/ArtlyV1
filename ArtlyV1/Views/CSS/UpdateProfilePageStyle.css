@@ -51,6 +51,7 @@
 
 .updateProfileContent {
     width: 40%;
+    min-width: 400px;
 }
 
 .updateProfileInputWrapper {
@@ -104,6 +105,7 @@
 
 .addressContent {
     width: 40%;
+    min-width: 400px;
 }
 
 .addressTitle {
@@ -111,7 +113,8 @@
 }
 
 .addressWrapper {
-    min-width: 70%;
+    width: 70%;
+    min-width: 400px;
     background-color: #323232;
     border-radius: 10px;
     height: 60px;
@@ -129,6 +132,9 @@
 
 .userAddress {
     font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .removeUserAddressBtn {

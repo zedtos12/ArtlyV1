@@ -45,7 +45,7 @@ namespace ArtlyV1.Controllers
 
         public String doPaymentWithShipping(String userID, decimal resultingBalance, List<CartItem> cart, String addressID)
         {
-            if(addressID == null)
+            if(addressID == "")
             {
                 return "Address not selected!";
             }

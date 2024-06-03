@@ -51,6 +51,108 @@
     color: inherit;
 }
 
+.userTransactionHistoryWrapper {
+    width: 100%;
+}
+
+.userTransactionHistoryTitle {
+    font-size: 24px;
+}
+
+.userTransactionHistoryContent {
+    width: 900px;
+    border-radius: 10px;
+    border: 1px solid #878787;
+}
+
+.userTransactionListTitle {
+    width: 100%;
+    padding: 15px 30px;
+    color: #FCBF49;
+}
+
+.transactionDateTitle {
+    width: 150px;
+    text-align: center;
+}
+
+.transactionStatusTitle {
+    width: 150px;
+    text-align: center;
+}
+
+.transactionPaymentMethodTitle {
+    width: 200px;
+    text-align: center;
+}
+
+.transactionAddressNameTitle {
+    width: 200px;
+    text-align: center;
+}
+
+.transactionDetailTitle {
+    width: 150px;
+    text-align: center;
+}
+
+.userTransactionListWrapper {
+    width: 98%;
+    max-height: 215px;
+    overflow-y: scroll;
+}
+
+.userTransactionListWrapper::-webkit-scrollbar {
+    background: #1C1C1C;
+    width: 2px;
+}
+
+.userTransactionListWrapper::-webkit-scrollbar-thumb {
+    background-color: #FCBF49;
+}
+
+.userTransactionWrapper {
+    padding: 15px 30px;
+    padding-right: 10px;
+}
+
+.userTransactionDate {
+    width: 150px;
+    text-align: center;
+}
+
+.userTransactionStatus {
+    width: 150px;
+    text-align: center;
+}
+
+.userTransactionPaymentMethod {
+    width: 200px;
+    text-align: center;
+}
+
+.userTransactionAddressName {
+    width: 200px;
+    text-align: center;
+}
+
+.userTransactionDetail {
+    width: 150px;
+    text-align: center;
+}
+
+.userTransactionDetailHyperlink {
+    color: white;
+    text-decoration: underline;
+    transition: 0.2s ease-in-out;
+}
+
+.userTransactionDetailHyperlink:hover {
+    color: #FCBF49;
+    text-decoration: underline;
+    transition: 0.2s ease-in-out;
+}
+
 .single-product:hover {
     border-radius: 0 0 5px 5px;
     cursor: pointer;
@@ -158,4 +260,23 @@ label {
 .single-product .part-1 .labelSellerName {
     color: #FCBF49;
     margin-bottom: 5px;
+}
+
+@media (max-width: 950px) {
+    .userTransactionListTitle {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .userTransactionWrapper {
+        flex-direction: column;
+    }
+
+    .userTransactionHistoryContent {
+        width: 90%;
+    }
+
+    .userTransactionListWrapper {
+        max-height: 300px;
+    }
 }

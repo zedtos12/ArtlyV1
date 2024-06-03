@@ -93,5 +93,11 @@ namespace ArtlyV1.Handlers
             List<LtGender> genderList = (from x in db.LtGenders select x).ToList();
             return genderList;
         }
+
+        public List<MsTransaction> getTransactionList(String userID)
+        {
+            List<MsTransaction> transactionList = (from x in db.MsTransactions where x.IdUser == userID select x).ToList();
+            return transactionList;
+        }
     }
 }

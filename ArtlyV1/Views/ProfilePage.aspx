@@ -30,6 +30,36 @@
         <%if (isOwnerAccessing())
         { %>
             <asp:Button ID="updateBtn" CssClass="btn btn-outline-light mt-2" runat="server" Text="Update Profile" OnClick="updateBtn_Click"/>
+
+            <div class="userTransactionHistoryWrapper mt-5 align-items-center justify-content-center d-flex flex-column">
+                <div class="userTransactionHistoryTitle"> Your Transaction History </div>
+                <div class="userTransactionHistoryContent d-flex flex-column mt-3 pb-4 pl-2">
+                    <div class="userTransactionListTitle d-flex">
+                        <div class="transactionDateTitle"> Date </div>
+                        <div class="transactionStatusTitle"> Status </div>
+                        <div class="transactionPaymentMethodTitle"> Payment Method </div>
+                        <div class="transactionAddressNameTitle"> Address Name </div>
+                        <div class="transactionDetailTitle"> Details </div>
+                    </div>
+                    <div class="userTransactionListWrapper d-flex flex-column">
+                        <asp:Repeater ID="userTransactionRepeater" runat="server">
+                            <ItemTemplate>
+                                <div class="userTransactionWrapper d-flex align-items-center">
+                                    <div class="userTransactionDate"><%#Eval("OrderDate", "{0:dd-MM-yyyy}")%></div>
+                                    <div class="userTransactionStatus"><%#Eval("LtStatu.StatusName")%></div>
+                                    <div class="userTransactionPaymentMethod"><%#Eval("LtPaymentMethod.PaymentMethodName")%></div>
+                                    <div class="userTransactionAddressName"><%#(Eval("TrUserAddress.AddressName") == null) ? "No Shipping (Digital)" : Eval("TrUserAddress.AddressName")%></div>
+                                    <div class="userTransactionDetail">
+                                        <asp:HyperLink ID="userTransactionDetailHyperlink" runat="server" CssClass="userTransactionDetailHyperlink" NavigateUrl='<%#String.Format("~/Views/TransactionDetailPage.aspx?ID={0}", Eval("IdTransaction"))%>'> Detail </asp:HyperLink>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
+                    
+                </div>
+                
+            </div>
         <% } %>
 
         <%if (isShownUserSeller())

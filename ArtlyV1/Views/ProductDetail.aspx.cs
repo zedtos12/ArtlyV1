@@ -27,7 +27,6 @@ namespace ArtlyV1.Views
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //productID = Request["productID"];
             productID = Request.QueryString["ID"];
 
             if (productID == null)
@@ -80,6 +79,15 @@ namespace ArtlyV1.Views
                 return true;
             }
 
+            return false;
+        }
+
+        public Boolean isProductNonDigital()
+        {
+            if(product.LtProductType.ProductTypeName != "Digital")
+            {
+                return true;
+            }
             return false;
         }
 

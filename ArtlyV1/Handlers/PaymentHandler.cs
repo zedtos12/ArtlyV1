@@ -50,6 +50,11 @@ namespace ArtlyV1.Handlers
 
                 MsUser seller = findUserByID(item.product.UserInput);
                 seller.Balance = seller.Balance + (item.qty * item.product.Price);
+
+                if(item.product.LtProductType.ProductTypeName != "Digital")
+                {
+                    item.product.Stock = item.product.Stock - item.qty;
+                }
             }
 
             db.SaveChanges();
