@@ -150,6 +150,7 @@
     <Content Include="Views\Images\Product\Product6.png" />
     <Content Include="Views\Images\Product\Product7.png" />
     <Content Include="Views\Images\Product\Product8.png" />
+    <Content Include="Views\Images\Profile\AddressIcon.png" />
     <Content Include="Views\Images\Profile\DefaultProfilePicture.png" />
     <Content Include="Views\Images\Profile\PhoneIcon.png" />
     <Content Include="Views\Images\Profile\UploadIcon.png" />

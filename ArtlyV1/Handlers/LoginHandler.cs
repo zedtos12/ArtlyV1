@@ -13,7 +13,7 @@ namespace ArtlyV1.Handlers
 
         private MsUser findUser(String username)
         {
-            MsUser user = (from x in db.MsUsers where x.UserName == username && x.IsActive == true select x).FirstOrDefault();
+            MsUser user = (from x in db.ActiveEntities<MsUser>() where x.UserName == username select x).FirstOrDefault();
             return user;
         }
 

@@ -21,16 +21,22 @@ namespace ArtlyV1.Controllers
             handler.updateProfilePicture(userID, imageFilePath);
         }
 
-        public String updateProfile(String userID, String newUserDescription, DateTime newUserDOB, String newPhoneNumber)
+        public String updateProfile(String userID, String newUserDescription, String newUserDOBString, String newPhoneNumber)
         {
-            if(newUserDescription.Length > 250)
+            DateTime? newUserDOB;
+
+            if (newUserDOBString == "")
             {
-                return "User description has a max length of 250 characters!";
+                newUserDOB = null;
+            }
+            else
+            {
+                newUserDOB = DateTime.Parse(newUserDOBString);
             }
 
-            if (newUserDOB > DateTime.Now.Date)
+            if (newUserDescription.Length > 250)
             {
-                return "Date of birth is invalid!";
+                return "User description has a max length of 250 characters!";
             }
 
             if (newPhoneNumber.Length > 15)
@@ -57,6 +63,36 @@ namespace ArtlyV1.Controllers
             }
 
             return handler.updateProfile(userID, newUserDescription, newUserDOB, newPhoneNumber);
+        }
+
+        public List<TrUserAddress> getUserAddressList(String userID)
+        {
+            return handler.getTrUserAddresses(userID);
+        }
+
+        public String addAddress(String userID, String addressName, String address)
+        {
+            if (addressName == "" || address == "")
+            {
+                return "One or more fields are missing!";
+            }
+
+            return handler.insertAddress(userID, addressName, address);
+        }
+
+        public void removeAddress(String addressID)
+        {
+            if(addressID == null)
+            {
+                return;
+            }
+
+            handler.removeAddress(addressID);
+        }
+
+        public List<LtGender> getGenderList()
+        {
+            return handler.getGenderList();
         }
     }
 }

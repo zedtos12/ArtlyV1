@@ -9,7 +9,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="profileWrapper d-flex align-items-center justify-content-center flex-column pt-5 pb-5">
         <div class="profileTitle mb-3"><%=username%>'s Profile</div>
-        <img class="profilePicture mb-4" src="<%=profilePicPath%>"/>
+        <div class="profilePictureContainer d-flex justify-content-center align-items-center mb-4">
+            <asp:Image ID="profilePicture" CssClass="profilePicture" runat="server" />
+        </div>
         <div class="profileUsername mb-2"><%=username%></div>
         <div class="profileUserDescription mb-2"><%=userDescription%></div>
 
@@ -46,7 +48,7 @@
                                                     <ul>
                                                         <label class="labelProductName"><%#Eval("ProductName") %></label>
                                                         <label class="labelSellerName"><%#Eval("MsUser.UserName") %></label>
-                                                        <label class="labelPrice">Rp <%#String.Format("{0:N2}", Eval("Price"))%></label>
+                                                        <label class="labelPrice">IDR <%#String.Format("{0:N2}", Eval("Price"))%></label>
                                                     </ul>
                                                 </div>
                                             </div>

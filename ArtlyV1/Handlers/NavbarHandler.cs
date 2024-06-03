@@ -22,5 +22,17 @@ namespace ArtlyV1.Handlers
             String userRole = (from x in db.MsUsers where x.IdUser == userID select x.LtRole.RoleName).FirstOrDefault();
             return userRole;
         }
+
+        public String getUserName(String userID)
+        {
+            String username = (from x in db.MsUsers where x.IdUser == userID select x.UserName).FirstOrDefault();
+            return username;
+        }
+
+        public String getProfilePicturePath(String userID)
+        {
+            String profilePicturePath = (from x in db.MsUsers where x.IdUser == userID select x.ProfilePicture).FirstOrDefault();
+            return profilePicturePath;
+        }
     }
 }

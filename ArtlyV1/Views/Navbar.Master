@@ -86,25 +86,35 @@
                                 else if(Session["userrole"] != null && Session["userrole"] as string == "User") { %>
 
                                 <%}%>
-                            <li class="nav-item ml-4 d-flex">
+                            
+                            <li class="nav-item ml-4 d-flex align-items-center">
+                                <a class="nav-link active d-flex align-items-center justify-content-center" href="ProfilePage.aspx">
+                                    <div class="accountImageContainer mr-1 d-flex justify-content-center align-items-center">
+                                        <asp:Image ID="accountImage" CssClass="accountImage" runat="server" />
+                                    </div>
+                                    <span class="accountUsername ml-2"><%=username%></span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item ml-4 mr-2 d-flex">
                                 <a class="d-flex align-items-center" href="ShoppingCartPage.aspx">
                                     <img class="cartImg" src="Images/Navbar/CartIcon.png" />
                                 </a>
                             </li>
-                            <li class="nav-item ml-4 d-flex align-items-center">
-                                <a class="nav-link active d-flex align-items-center justify-content-center mr-2" href="ProfilePage.aspx">
-                                    <img class="accountImg" src="Images/Navbar/AccountDefaultIcon.png" />
-                                </a>
-                            </li>
+                            
                             <li class="nav-item ml-4 mr-2 d-flex">
                                 <asp:Button ID="logoutBtn" runat="server" CssClass="btn" Text="Logout" OnClick="logoutBtn_Click" />
                             </li>
-                            <li class="nav-item ml-4 d-flex">
-                                <button id="uploadBtn" class="btn d-flex align-items-center" runat="server">
-                                    <img class="uploadImg mr-3" src="Images/Navbar/UploadIcon.png"/>
-                                    Upload
-                                </button>
-                            </li>
+
+                            <%if (userRole != null && userRole == "Seller")
+                            { %>
+                                <li class="nav-item ml-4 d-flex">
+                                    <button id="uploadBtn" class="btn d-flex align-items-center" runat="server">
+                                        <img class="uploadImg mr-3" src="Images/Navbar/UploadIcon.png"/>
+                                        Upload
+                                    </button>
+                                </li>
+                            <% } %>
                         </ul>
                     <%  } %>
                 </div>

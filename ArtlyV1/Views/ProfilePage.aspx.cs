@@ -66,7 +66,12 @@ namespace ArtlyV1.Views
             username = shownUser.UserName;
             profilePicPath = shownUser.ProfilePicture;
             userDescription = shownUser.UserDescription;
-            userDOB = shownUser.DOB.ToString();
+
+            if(shownUser.DOB != null)
+            {
+                userDOB = shownUser.DOB.Value.ToString("dd-MM-yyyy");
+            }
+
             phoneNumber = shownUser.PhoneNumber;
 
             Title = username + "'s Profile";
@@ -80,6 +85,8 @@ namespace ArtlyV1.Views
             {
                 userDescription = "User has no user description.";
             }
+
+            profilePicture.ImageUrl = profilePicPath + "?" + DateTime.Now;
 
             productList = profileHandler.getProductList(shownUserID);
             profileProductRepeater.DataSource = productList;

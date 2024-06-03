@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace ArtlyV1.Views
@@ -19,7 +20,9 @@ namespace ArtlyV1.Views
         public String profilePicPath;
         DateTime? oldUserDOB;
         String oldPhoneNumber;
-
+        List<LtGender> genderList;
+        List<TrUserAddress> addressList;
+ 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["user"] == null)
@@ -42,59 +45,116 @@ namespace ArtlyV1.Views
 
             profilePictureImage.ImageUrl = profilePicPath + "?" + DateTime.Now;
 
-            if (oldUserDOB != null)
-            {
-                userDOBCalendar.SelectedDate = (DateTime)oldUserDOB;
-            }
-
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 userDescriptionTB.Text = oldUserDescription;
                 userPhoneNumberTB.Text = oldPhoneNumber;
+
+                if(oldUserDOB != null)
+                {
+                    userDOBTB.Text = oldUserDOB.Value.ToString("yyyy-MM-dd");
+                }
+
+                genderList = controller.getGenderList();
+
+                List<ListItem> RBList = new List<ListItem>();
+
+                foreach (LtGender gender in genderList)
+                {
+                    ListItem RB = new ListItem()
+                    {
+                        Value = gender.IdGender,
+                        Text = gender.GenderName
+                    };
+
+                    RBList.Add(RB);
+                }
+
+                userGenderRBList.DataSource = RBList;
+                userGenderRBList.DataBind();
+
+                refreshAddressRepeater();
             }
+
+            if (IsPostBack && profilePictureImageUpload.HasFile)
+            {
+                String oldImageFilePath = user.ProfilePicture;
+                String uploadImageFileExtension = Path.GetExtension(profilePictureImageUpload.FileName);
+
+                if (oldImageFilePath != null)
+                {
+                    if (File.Exists(oldImageFilePath))
+                    {
+                        File.Delete(oldImageFilePath);
+                    }
+                }
+
+                String imageFilePath = "Images/Profile/ProfilePictures/ProfilePicture-" + userID + uploadImageFileExtension;
+
+                profilePictureImageUpload.SaveAs(Server.MapPath("~/Views/Images/Profile/ProfilePictures/") + "ProfilePicture-" + userID + uploadImageFileExtension);
+            }
+        }
+
+        private void refreshAddressRepeater()
+        {
+            addressList = controller.getUserAddressList(userID);
+            addressRepeater.DataSource = addressList;
+            addressRepeater.DataBind();
         }
 
         protected void updateProfileBtn_Click(object sender, EventArgs e)
         {
-            if (profilePictureImageUpload.PostedFile != null)
-            {
-                if (profilePictureImageUpload.PostedFile.FileName.Length > 0)
-                {
-                    String oldImageFilePath = user.ProfilePicture;
-                    String uploadImageFileExtension = Path.GetExtension(profilePictureImageUpload.FileName);
-
-                    if (oldImageFilePath != null)
-                    {
-                        if (File.Exists(oldImageFilePath))
-                        {
-                            File.Delete(oldImageFilePath);
-                        }
-                    }
-
-                    String imageFilePath = "Images/Profile/ProfilePictures/ProfilePicture-" + userID + uploadImageFileExtension;
-
-                    profilePictureImageUpload.SaveAs(Server.MapPath("~/Views/Images/Profile/ProfilePictures/") + "ProfilePicture-" + userID + uploadImageFileExtension);
-                    controller.updateProfilePicture(userID, imageFilePath);
-                }
-            }
-
+            
             String newUserDescription = userDescriptionTB.Text;
-            DateTime newUserDOB = userDOBCalendar.SelectedDate;
+            String newUserGender = userGenderRBList.SelectedItem.Value;
             String newPhoneNumber = userPhoneNumberTB.Text;
+            String newUserDOB = userDOBTB.Text;
+
+            userGenderLabel.Text = newUserGender;
 
             String msg = controller.updateProfile(userID, newUserDescription, newUserDOB, newPhoneNumber);
 
             if (msg != "Successful")
             {
-                successBox.Visible = false;
-                alertBox.Visible = true;
-                errorLabel.Text = msg;
+                updateProfileSuccessBox.Visible = false;
+                updateProfileAlertBox.Visible = true;
+                updateProfileErrorLabel.Text = msg;
                 return;
             }
 
-            alertBox.Visible = false;
-            successBox.Visible = true;
-            successLabel.Text = "Profile successfully updated.";
+            updateProfileAlertBox.Visible = false;
+            updateProfileSuccessBox.Visible = true;
+            updateProfileSuccessLabel.Text = "Profile successfully updated.";
+        }
+
+        protected void addUserAddressBtn_Click(object sender, EventArgs e)
+        {
+            String addressName = userAddressNameTB.Text;
+            String address = userAddressTB.Text;
+
+            String msg = controller.addAddress(userID, addressName, address);
+
+            if(msg != "Successful")
+            {
+                addAddressSuccessBox.Visible = false;
+                addAddressAlertBox.Visible = true;
+                addAddressErrorLabel.Text = msg;
+                return;
+            }
+
+            addAddressAlertBox.Visible = false;
+            addAddressSuccessBox.Visible = true;
+            addAddressSuccessLabel.Text = String.Format("Address '{0}' successfully added.", addressName);
+            refreshAddressRepeater();
+        }
+
+        protected void removeUserAddressBtn_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            String addressID = btn.CommandArgument.ToString();
+
+            controller.removeAddress(addressID);
+            refreshAddressRepeater();
         }
     }
 }

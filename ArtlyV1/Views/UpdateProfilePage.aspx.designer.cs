@@ -51,13 +51,40 @@ namespace ArtlyV1.Views
         protected global::System.Web.UI.WebControls.TextBox userDescriptionTB;
 
         /// <summary>
-        /// userDOBCalendar control.
+        /// userGenderLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar userDOBCalendar;
+        protected global::System.Web.UI.WebControls.Label userGenderLabel;
+
+        /// <summary>
+        /// userGenderRBList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList userGenderRBList;
+
+        /// <summary>
+        /// userDOBLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label userDOBLabel;
+
+        /// <summary>
+        /// userDOBTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox userDOBTB;
 
         /// <summary>
         /// userPhoneNumberLabel control.
@@ -78,40 +105,40 @@ namespace ArtlyV1.Views
         protected global::System.Web.UI.WebControls.TextBox userPhoneNumberTB;
 
         /// <summary>
-        /// alertBox control.
+        /// updateProfileAlertBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertBox;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl updateProfileAlertBox;
 
         /// <summary>
-        /// errorLabel control.
+        /// updateProfileErrorLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label errorLabel;
+        protected global::System.Web.UI.WebControls.Label updateProfileErrorLabel;
 
         /// <summary>
-        /// successBox control.
+        /// updateProfileSuccessBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl successBox;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl updateProfileSuccessBox;
 
         /// <summary>
-        /// successLabel control.
+        /// updateProfileSuccessLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label successLabel;
+        protected global::System.Web.UI.WebControls.Label updateProfileSuccessLabel;
 
         /// <summary>
         /// updateProfileBtn control.
@@ -121,5 +148,95 @@ namespace ArtlyV1.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button updateProfileBtn;
+
+        /// <summary>
+        /// addressRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater addressRepeater;
+
+        /// <summary>
+        /// userAddressNameLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label userAddressNameLabel;
+
+        /// <summary>
+        /// userAddressNameTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox userAddressNameTB;
+
+        /// <summary>
+        /// userAddressLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label userAddressLabel;
+
+        /// <summary>
+        /// userAddressTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox userAddressTB;
+
+        /// <summary>
+        /// addAddressAlertBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl addAddressAlertBox;
+
+        /// <summary>
+        /// addAddressErrorLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label addAddressErrorLabel;
+
+        /// <summary>
+        /// addAddressSuccessBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl addAddressSuccessBox;
+
+        /// <summary>
+        /// addAddressSuccessLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label addAddressSuccessLabel;
+
+        /// <summary>
+        /// addUserAddressBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button addUserAddressBtn;
     }
 }

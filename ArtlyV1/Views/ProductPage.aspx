@@ -67,7 +67,7 @@
                                             <ul>
                                                 <label class="labelProductName"><%#Eval("ProductName") %></label>
                                                 <label class="labelSellerName"><%#Eval("MsUser.UserName") %></label>
-                                                <label class="labelPrice">Rp <%#String.Format("{0:N2}", Eval("Price"))%></label>
+                                                <label class="labelPrice">IDR <%#String.Format("{0:N2}", Eval("Price"))%></label>
                                             </ul>
                                         </div>
                                     </div>

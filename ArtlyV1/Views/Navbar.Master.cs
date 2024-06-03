@@ -12,10 +12,12 @@ namespace ArtlyV1.Views
     {
         NavbarHandler navbarHandler = new NavbarHandler();
         public String userRole;
+        public String username;
 
         private void refresh()
         {
             decimal balance = 0;
+            String profilePicturePath = null;
 
             if (Session["user"] == null && Request.Cookies["user"] != null)
             {
@@ -24,12 +26,22 @@ namespace ArtlyV1.Views
 
             if (Session["user"] != null)
             {
-                balance = navbarHandler.getUserBalance(Session["user"].ToString());
-                userRole = navbarHandler.getUserRole(Session["user"].ToString());
+                String userID = Session["user"].ToString();
+                balance = navbarHandler.getUserBalance(userID);
+                userRole = navbarHandler.getUserRole(userID);
+                username = navbarHandler.getUserName(userID);
+                profilePicturePath = navbarHandler.getProfilePicturePath(userID);
             }
 
             Session["balance"] = balance;
             Session["userrole"] = userRole;
+
+            if(profilePicturePath == null)
+            {
+                profilePicturePath = "Images/Navbar/AccountDefaultIcon.png";
+            }
+
+            accountImage.ImageUrl = profilePicturePath + "?" + DateTime.Now;
         }
 
         protected void Page_Load(object sender, EventArgs e)
