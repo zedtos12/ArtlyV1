@@ -17,4 +17,11 @@ namespace ArtlyV1.Models
         public decimal Price { get; set; }
         public string status { get; set; }
     }
+    public class SellerDashboardResult_TransactionHistory
+    {
+        public string Buyer { get; set; }
+        public string ProductName { get; set; }
+        public decimal Price { get; set; }
+        public string status { get; set; }
+    }
 }

@@ -102,6 +102,7 @@
     <Content Include="Views\CSS\ProductDetailPageStyle.css" />
     <Content Include="Views\CSS\ProductPageStyle.css" />
     <Content Include="Views\CSS\ProfileStyle.css" />
+    <Content Include="Views\CSS\Seller-trans.css" />
     <Content Include="Views\CSS\SellerDashboardsStyle.css" />
     <Content Include="Views\CSS\ShoppingCartPageStyle.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\css\font-awesome.css" />
@@ -163,6 +164,7 @@
     <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
     <Content Include="Views\SellerDashboard.aspx" />
+    <Content Include="Views\SellerTransactionHistory.aspx" />
     <Content Include="Views\ShoppingCartPage.aspx" />
     <Content Include="Views\TopUpHistoryPage.aspx" />
     <Content Include="Web.config" />
@@ -186,6 +188,7 @@
     <Compile Include="Handlers\RegisterHandler.cs" />
     <Compile Include="Handlers\SalesHistoryHandler.cs" />
     <Compile Include="Handlers\SellerDashboardHandler.cs" />
+    <Compile Include="Handlers\SellerTransactionHistoryHandler.cs" />
     <Compile Include="Handlers\TopUpHandler.cs" />
     <Compile Include="Models\ArtlyDBModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -240,6 +243,7 @@
     <Compile Include="Models\TransactionDetail.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TransactionHistoryRequest.cs" />
     <Compile Include="Models\TrUserAddress.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
@@ -337,6 +341,13 @@
     <Compile Include="Views\SellerDashboard.aspx.designer.cs">
       <DependentUpon>SellerDashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\SellerTransactionHistory.aspx.cs">
+      <DependentUpon>SellerTransactionHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SellerTransactionHistory.aspx.designer.cs">
+      <DependentUpon>SellerTransactionHistory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\ShoppingCartPage.aspx.cs">
       <DependentUpon>ShoppingCartPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -430,11 +441,10 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57493</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44384/</IISUrl>
+          <IISUrl>http://localhost:44384/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl>https://localhost:44384/</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
