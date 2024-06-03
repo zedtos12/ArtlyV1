@@ -58,15 +58,35 @@ namespace ArtlyV1.Views
 
             resultingBalance = currentBalance - total;
 
-            addressList = controller.getAddressList(userID);
-            addressRepeater.DataSource = addressList;
-            addressRepeater.DataBind();
+            if(!IsPostBack)
+            {
+                addressList = controller.getAddressList(userID);
+
+                List<ListItem> RBList = new List<ListItem>();
+
+                foreach (TrUserAddress address in addressList)
+                {
+                    ListItem RB = new ListItem()
+                    {
+                        Value = address.IdAddress,
+                        Text = address.AddressName
+                    };
+
+                    RBList.Add(RB);
+                }
+
+                userAddressRBList.DataValueField = "Value";
+                userAddressRBList.DataTextField = "Text";
+                userAddressRBList.DataSource = RBList;
+                userAddressRBList.DataBind();
+            }
         }
 
         protected void paymentBtn_Click(object sender, EventArgs e)
         {
             String msg;
             cartList = (List<CartItem>)Session["cart"];
+            String addressID = userAddressRBList.SelectedValue;
 
             if (isAllItemDigital())
             {
@@ -74,15 +94,7 @@ namespace ArtlyV1.Views
             }
             else
             {
-                RadioButton addressRB = this.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.GroupName == "Address" && rb.Checked);
-                String addressName = null;
-                
-                if(addressRB != null)
-                {
-                    addressName = addressRB.Attributes["Value"];
-                }
-
-                msg = controller.doPaymentWithShipping(userID, resultingBalance, cartList, addressName);
+                msg = controller.doPaymentWithShipping(userID, resultingBalance, cartList, addressID);
             }
 
             if (msg != "Successful")

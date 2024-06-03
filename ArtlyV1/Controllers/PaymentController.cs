@@ -43,9 +43,9 @@ namespace ArtlyV1.Controllers
             return handler.doPaymentWithoutShipping(userID, resultingBalance, cart);
         }
 
-        public String doPaymentWithShipping(String userID, decimal resultingBalance, List<CartItem> cart, String addressName)
+        public String doPaymentWithShipping(String userID, decimal resultingBalance, List<CartItem> cart, String addressID)
         {
-            if(addressName == null)
+            if(addressID == null)
             {
                 return "Address not selected!";
             }
@@ -55,13 +55,6 @@ namespace ArtlyV1.Controllers
             if (usualValidationMsg != "Successful")
             {
                 return usualValidationMsg;
-            }
-
-            String addressID = handler.findAddressID(addressName, userID);
-
-            if(addressID == null)
-            {
-                return "Address not found!";
             }
 
             return handler.doPaymentWithShipping(userID, resultingBalance, cart, addressID);

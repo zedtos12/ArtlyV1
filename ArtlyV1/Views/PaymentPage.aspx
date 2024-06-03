@@ -28,12 +28,7 @@
                 { %>
                     <div class="paymentTitle"> Shipping Address </div>
                     <div class="shippingContent d-flex flex-column align-items-center pt-3 pb-3 mt-3 mb-3">
-                        <asp:Repeater ID="addressRepeater" runat="server">
-                            <ItemTemplate>
-                                <asp:RadioButton ID="addressRadioBtn" GroupName="Address" CssClass="addressRadioBtn" runat="server" />
-                                <span class="addressName ml-2"><%#Eval("AddressName")%></span>
-                            </ItemTemplate>
-                        </asp:Repeater>
+                        <asp:RadioButtonList ID="userAddressRBList" runat="server"></asp:RadioButtonList>
                     </div>
                 <% } %>
 

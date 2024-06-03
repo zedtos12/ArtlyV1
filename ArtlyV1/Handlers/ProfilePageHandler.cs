@@ -63,7 +63,7 @@ namespace ArtlyV1.Handlers
             db.SaveChanges();
         }
 
-        public String updateProfile(String userID, String newUserDescription, DateTime? newUserDOB, String newPhoneNumber)
+        public String updateProfile(String userID, String newUserDescription, String newUserGenderID, DateTime? newUserDOB, String newPhoneNumber)
         {
             MsUser user = GetUserById(userID);
             
@@ -73,6 +73,7 @@ namespace ArtlyV1.Handlers
             }
 
             user.UserDescription = newUserDescription;
+            user.IdGender = newUserGenderID;
             user.DOB = newUserDOB;
             user.PhoneNumber = newPhoneNumber;
             db.SaveChanges();

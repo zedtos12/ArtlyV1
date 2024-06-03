@@ -21,7 +21,7 @@ namespace ArtlyV1.Controllers
             handler.updateProfilePicture(userID, imageFilePath);
         }
 
-        public String updateProfile(String userID, String newUserDescription, String newUserDOBString, String newPhoneNumber)
+        public String updateProfile(String userID, String newUserDescription, String newUserGenderID, String newUserDOBString, String newPhoneNumber)
         {
             DateTime? newUserDOB;
 
@@ -57,12 +57,17 @@ namespace ArtlyV1.Controllers
                 newUserDescription = null;
             }
 
+            if(newUserGenderID == "")
+            {
+                newUserGenderID = null;
+            }
+
             if(newPhoneNumber == "")
             {
                 newPhoneNumber = null;
             }
 
-            return handler.updateProfile(userID, newUserDescription, newUserDOB, newPhoneNumber);
+            return handler.updateProfile(userID, newUserDescription, newUserGenderID, newUserDOB, newPhoneNumber);
         }
 
         public List<TrUserAddress> getUserAddressList(String userID)

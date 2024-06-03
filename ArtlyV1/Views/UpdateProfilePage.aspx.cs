@@ -17,6 +17,7 @@ namespace ArtlyV1.Views
         String userID;
         MsUser user;
         String oldUserDescription;
+        String oldGenderID;
         public String profilePicPath;
         DateTime? oldUserDOB;
         String oldPhoneNumber;
@@ -35,6 +36,7 @@ namespace ArtlyV1.Views
 
             oldUserDescription = user.UserDescription;
             profilePicPath = user.ProfilePicture;
+            oldGenderID = user.IdGender;
             oldUserDOB = user.DOB;
             oldPhoneNumber = user.PhoneNumber;
 
@@ -70,10 +72,17 @@ namespace ArtlyV1.Views
                     RBList.Add(RB);
                 }
 
+                userGenderRBList.DataValueField = "Value";
+                userGenderRBList.DataTextField = "Text";
                 userGenderRBList.DataSource = RBList;
                 userGenderRBList.DataBind();
 
                 refreshAddressRepeater();
+            }
+
+            if(oldGenderID != null)
+            {
+                userGenderRBList.Items.FindByValue(oldGenderID).Selected = true;
             }
 
             if (IsPostBack && profilePictureImageUpload.HasFile)
@@ -106,13 +115,11 @@ namespace ArtlyV1.Views
         {
             
             String newUserDescription = userDescriptionTB.Text;
-            String newUserGender = userGenderRBList.SelectedItem.Value;
+            String newUserGenderID = userGenderRBList.SelectedValue;
             String newPhoneNumber = userPhoneNumberTB.Text;
             String newUserDOB = userDOBTB.Text;
 
-            userGenderLabel.Text = newUserGender;
-
-            String msg = controller.updateProfile(userID, newUserDescription, newUserDOB, newPhoneNumber);
+            String msg = controller.updateProfile(userID, newUserDescription, newUserGenderID, newUserDOB, newPhoneNumber);
 
             if (msg != "Successful")
             {

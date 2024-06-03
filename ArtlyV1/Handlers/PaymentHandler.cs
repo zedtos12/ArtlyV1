@@ -12,6 +12,11 @@ namespace ArtlyV1.Handlers
     {
         ArtlyDatabaseEntities db = DatabaseSingleton.getInstance();
 
+        // Status ID = On-Process
+        static String statusID = "663E16D6-FDFA-4A68-9446-0A404B99BF29";
+
+        // Payment Method ID = Artly Payment
+        static String paymentMethodID = "8449E499-F9CE-44C1-98AD-8DC8C9903EC2";
         private MsUser findUserByID(String userID)
         {
             MsUser user = (from x in db.ActiveEntities<MsUser>() where x.IdUser == userID select x).FirstOrDefault();
@@ -35,13 +40,16 @@ namespace ArtlyV1.Handlers
             user.Balance = resultingBalance;
             String transactionID = Guid.NewGuid().ToString();
 
-            MsTransaction transaction = TransactionFactory.create(transactionID, user.IdUser, DateTime.Now, "663E16D6-FDFA-4A68-9446-0A404B99BF29", "8449E499-F9CE-44C1-98AD-8DC8C9903EC2", Guid.NewGuid().ToString(), addressID);
+            MsTransaction transaction = TransactionFactory.create(transactionID, user.IdUser, DateTime.Now, statusID, paymentMethodID, Guid.NewGuid().ToString(), addressID);
             db.MsTransactions.Add(transaction);
 
             foreach(CartItem item in cart)
             {
                 TransactionDetail transactionDetail = TransactionDetailFactory.create(Guid.NewGuid().ToString(), transactionID, item.product.IdProduct, item.qty, item.product.Price);
                 db.TransactionDetails.Add(transactionDetail);
+
+                MsUser seller = findUserByID(item.product.UserInput);
+                seller.Balance = seller.Balance + (item.qty * item.product.Price);
             }
 
             db.SaveChanges();

@@ -58,7 +58,7 @@
             <asp:Repeater ID="addressRepeater" runat="server">
                 <ItemTemplate>
                     <div class="addressWrapper d-flex mb-3 justify-content-between align-items-center pl-2 pr-3">
-                        <div class="userAddressContent d-flex">
+                        <div class="userAddressContent d-flex align-items-center">
                             <img src="Images/Profile/AddressIcon.png" class="addressIcon" />
 
                             <div class="userAddressText ml-2">
