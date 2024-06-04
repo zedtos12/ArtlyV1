@@ -103,6 +103,7 @@
     <Content Include="Views\CSS\ProductPageStyle.css" />
     <Content Include="Views\CSS\ProfileStyle.css" />
     <Content Include="Views\CSS\Seller-trans.css" />
+    <Content Include="Views\CSS\ProfileStyles.css" />
     <Content Include="Views\CSS\SellerDashboardsStyle.css" />
     <Content Include="Views\CSS\ShoppingCartPageStyle.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\css\font-awesome.css" />
@@ -152,6 +153,7 @@
     <Content Include="Views\JS\bootstrap.min.js" />
     <Content Include="Views\JS\HomePageMain.js" />
     <Content Include="Views\JS\jquery-3.3.1.min.js" />
+    <Content Include="Views\JS\Message.js" />
     <Content Include="Views\JS\popper.min.js" />
     <Content Include="Views\JS\LoginRegisterPageMain.js" />
     <Content Include="Views\JS\owl.carousel.min.js" />
@@ -177,12 +179,15 @@
     <Compile Include="Controllers\SellerDashboardController.cs" />
     <Compile Include="Factories\AddressFactory.cs" />
     <Compile Include="Factories\MessageFactory.cs" />
+    <Compile Include="Factories\ProductFactory.cs" />
     <Compile Include="Factories\UserFactory.cs" />
     <Compile Include="Handlers\LoginHandler.cs" />
     <Compile Include="Handlers\MessageHandler.cs" />
     <Compile Include="Handlers\NavbarHandler.cs" />
     <Compile Include="Handlers\OrderHistoryHandler.cs" />
+    <Compile Include="Handlers\PendingHandler.cs" />
     <Compile Include="Handlers\ProductDetailHandler.cs" />
+    <Compile Include="Handlers\ProductHandler.cs" />
     <Compile Include="Handlers\ProductPageHandler.cs" />
     <Compile Include="Handlers\ProfilePageHandler.cs" />
     <Compile Include="Handlers\RegisterHandler.cs" />
@@ -234,6 +239,9 @@
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MsUser.cs">
+      <DependentUpon>ArtlyDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PendingProduct.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SellerDashboardResult.cs" />

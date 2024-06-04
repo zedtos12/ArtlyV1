@@ -14,6 +14,8 @@ namespace ArtlyV1.Handlers
         public void SendMessage(String IdSender, String IdReceiver, String content, DateTime timeSent)
         {
             Message message = MessageFactory.Create(Guid.NewGuid().ToString(), IdSender, IdReceiver, content, timeSent);
+            System.Diagnostics.Debug.WriteLine("MessageHandler.SendMessage: " + message.IdMessage);
+            System.Diagnostics.Debug.WriteLine("MessageHandler.Id: " + message.IdSender + " " + message.IdReceiver);
             db.Messages.Add(message);
             db.SaveChanges();
         }
@@ -31,7 +33,21 @@ namespace ArtlyV1.Handlers
                                       where (x.IdSender == IdUser && x.IdReceiver == IdRecipient) 
                                       || (x.IdSender == IdRecipient && x.IdReceiver == IdUser) 
                                       select x).ToList();
+            messages.Sort((x, y) => DateTime.Compare(x.timestamp, y.timestamp));
+
             return messages;
+        }
+
+        public string GetUserID(string username)
+        {
+            string userID = (from x in db.MsUsers where x.UserName == username select x.IdUser).FirstOrDefault();
+            return userID;
+        }
+
+        public string GetFullName(string IdUser)
+        {
+            string fullName = (from x in db.MsUsers where x.IdUser == IdUser select x.FullName).FirstOrDefault();
+            return fullName;
         }
     }
 }
