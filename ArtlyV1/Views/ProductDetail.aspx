@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Navbar.Master" AutoEventWireup="true" CodeBehind="ProductDetail.aspx.cs" Inherits="ArtlyV1.Views.ProductDetail" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Views/Navbar.Master" AutoEventWireup="true" CodeBehind="ProductDetail.aspx.cs" Inherits="ArtlyV1.Views.ProductDetail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="CSS/ProductDetailPageStyle.css" />
 </asp:Content>

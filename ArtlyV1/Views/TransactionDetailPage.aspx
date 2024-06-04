@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Navbar.Master" AutoEventWireup="true" CodeBehind="TransactionDetailPage.aspx.cs" Inherits="ArtlyV1.Views.TransactionDetailPage" %>
+﻿<%@ Page Title="Artly | Transaction Details" Language="C#" MasterPageFile="~/Views/Navbar.Master" AutoEventWireup="true" CodeBehind="TransactionDetailPage.aspx.cs" Inherits="ArtlyV1.Views.TransactionDetailPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
         <link rel="stylesheet" href="CSS/TransactionDetailPageStyle.css" />
 </asp:Content>
@@ -16,7 +16,6 @@
                 </div>
                 <asp:Repeater ID="transactionDetailRepeater" runat="server">
                     <ItemTemplate>
-                        <div class="transactionDetailSeparator mt-2"></div>
                         <div class="transactionDetailWrapper d-flex align-items-center mt-2">
                             <img class="transactionDetailImage" src="<%#Eval("MsProduct.ProductImage")%>" />
                             <div class="transactionDetailDescription">
@@ -27,6 +26,7 @@
                             <div class="transactionDetailQuantity"><%#Eval("Quantity")%></div>
                             <div class="transactionDetailTotalPrice">IDR <%#String.Format("{0:N2}", (int.Parse(Eval("Quantity").ToString()) * decimal.Parse(Eval("MsProduct.Price").ToString())))%></div>
                         </div>
+                        <div class="transactionDetailSeparator mt-2"></div>
                     </ItemTemplate>
                 </asp:Repeater>
             </div>

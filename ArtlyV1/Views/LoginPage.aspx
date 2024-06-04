@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Navbar.Master" AutoEventWireup="true" CodeBehind="LoginPage.aspx.cs" Inherits="ArtlyV1.Views.LoginPage" %>
+﻿<%@ Page Title="Artly | Login" Language="C#" MasterPageFile="~/Views/Navbar.Master" AutoEventWireup="true" CodeBehind="LoginPage.aspx.cs" Inherits="ArtlyV1.Views.LoginPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title> Artly Login Page </title>
 <meta charset="utf-8">

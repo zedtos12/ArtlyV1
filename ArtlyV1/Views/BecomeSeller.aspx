@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Navbar.Master" AutoEventWireup="true" CodeBehind="BecomeSeller.aspx.cs" Inherits="ArtlyV1.Views.BecomeSeller" %>
+﻿<%@ Page Title="Artly | Become a Seller" Language="C#" MasterPageFile="~/Views/Navbar.Master" AutoEventWireup="true" CodeBehind="BecomeSeller.aspx.cs" Inherits="ArtlyV1.Views.BecomeSeller" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
         <link rel="stylesheet" href="CSS/BecomSellerStyle.css">

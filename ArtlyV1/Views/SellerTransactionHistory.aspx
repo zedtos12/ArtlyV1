@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/SellerDashboard.Master" AutoEventWireup="true" CodeBehind="SellerTransactionHistory.aspx.cs" Inherits="ArtlyV1.Views.SellerTransactionHistory" %>
+﻿<%@ Page Title="Artly | Your Transaction History" Language="C#" MasterPageFile="~/Views/SellerDashboard.Master" AutoEventWireup="true" CodeBehind="SellerTransactionHistory.aspx.cs" Inherits="ArtlyV1.Views.SellerTransactionHistory" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="CSS/Seller-trans.css"/>
 </asp:Content>

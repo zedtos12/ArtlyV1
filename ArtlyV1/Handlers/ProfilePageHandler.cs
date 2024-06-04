@@ -100,6 +100,12 @@ namespace ArtlyV1.Handlers
             return transactionList;
         }
 
+        public List<TrUserAddress> getAddressList(String userID)
+        {
+            List<TrUserAddress> addressList = (from x in db.TrUserAddresses where x.IdUser == userID select x).ToList();
+            return addressList;
+        }
+
         public void UpdateUser(string userID, string fullName, DateTime dateTime, string GenderID)
         {
             MsUser user = (from x in db.MsUsers where x.IdUser == userID select x).FirstOrDefault();

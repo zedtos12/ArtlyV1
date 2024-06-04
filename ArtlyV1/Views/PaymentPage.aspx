@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Navbar.Master" AutoEventWireup="true" CodeBehind="PaymentPage.aspx.cs" Inherits="ArtlyV1.Views.PaymentPage" %>
+﻿<%@ Page Title="Artly | Payment" Language="C#" MasterPageFile="~/Views/Navbar.Master" AutoEventWireup="true" CodeBehind="PaymentPage.aspx.cs" Inherits="ArtlyV1.Views.PaymentPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="CSS/PaymentPageStyle.css" />
 </asp:Content>

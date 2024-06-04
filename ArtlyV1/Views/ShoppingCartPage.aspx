@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Navbar.Master" AutoEventWireup="true" CodeBehind="ShoppingCartPage.aspx.cs" Inherits="ArtlyV1.Views.ShoppingCartPage" %>
+﻿<%@ Page Title="Artly | Your Cart" Language="C#" MasterPageFile="~/Views/Navbar.Master" AutoEventWireup="true" CodeBehind="ShoppingCartPage.aspx.cs" Inherits="ArtlyV1.Views.ShoppingCartPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="CSS/ShoppingCartPageStyle.css" />
 </asp:Content>

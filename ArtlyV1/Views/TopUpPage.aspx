@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Navbar.Master" AutoEventWireup="true" CodeBehind="TopUpPage.aspx.cs" Inherits="ArtlyV1.Views.TopUpPage" %>
+﻿<%@ Page Title="Artly | Top Up User" Language="C#" MasterPageFile="~/Views/Navbar.Master" AutoEventWireup="true" CodeBehind="TopUpPage.aspx.cs" Inherits="ArtlyV1.Views.TopUpPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="CSS/TopUpPageStyle.css" />
 </asp:Content>
