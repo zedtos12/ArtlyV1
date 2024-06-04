@@ -102,6 +102,9 @@
     <Content Include="Views\CSS\PaymentPageStyle.css" />
     <Content Include="Views\CSS\ProductDetailPageStyle.css" />
     <Content Include="Views\CSS\ProductPageStyle.css" />
+    <Content Include="Views\CSS\ProfileStyle.css" />
+    <Content Include="Views\CSS\Seller-trans.css" />
+    <Content Include="Views\CSS\ProfileStyles.css" />
     <Content Include="Views\CSS\ProfilePageStyle.css" />
     <Content Include="Views\CSS\SellerDashboardsStyle.css" />
     <Content Include="Views\CSS\ShoppingCartPageStyle.css" />
@@ -161,6 +164,7 @@
     <Content Include="Views\JS\bootstrap.min.js" />
     <Content Include="Views\JS\HomePageMain.js" />
     <Content Include="Views\JS\jquery-3.3.1.min.js" />
+    <Content Include="Views\JS\Message.js" />
     <Content Include="Views\JS\popper.min.js" />
     <Content Include="Views\JS\LoginRegisterPageMain.js" />
     <Content Include="Views\JS\owl.carousel.min.js" />
@@ -174,6 +178,7 @@
     <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
     <Content Include="Views\SellerDashboard.aspx" />
+    <Content Include="Views\SellerTransactionHistory.aspx" />
     <Content Include="Views\ShoppingCartPage.aspx" />
     <Content Include="Views\PaymentPage.aspx" />
     <Content Include="Views\TopUpPage.aspx" />
@@ -192,6 +197,7 @@
     <Compile Include="Controllers\UpdateProfilePageController.cs" />
     <Compile Include="Factories\AddressFactory.cs" />
     <Compile Include="Factories\MessageFactory.cs" />
+    <Compile Include="Factories\ProductFactory.cs" />
     <Compile Include="Factories\TopUpFactory.cs" />
     <Compile Include="Factories\TransactionDetailFactory.cs" />
     <Compile Include="Factories\TransactionFactory.cs" />
@@ -200,13 +206,16 @@
     <Compile Include="Handlers\MessageHandler.cs" />
     <Compile Include="Handlers\NavbarHandler.cs" />
     <Compile Include="Handlers\OrderHistoryHandler.cs" />
+    <Compile Include="Handlers\PendingHandler.cs" />
     <Compile Include="Handlers\ProductDetailHandler.cs" />
+    <Compile Include="Handlers\ProductHandler.cs" />
     <Compile Include="Handlers\ProductPageHandler.cs" />
     <Compile Include="Handlers\ProfilePageHandler.cs" />
     <Compile Include="Handlers\RegisterHandler.cs" />
     <Compile Include="Handlers\PaymentHandler.cs" />
     <Compile Include="Handlers\SalesHistoryHandler.cs" />
     <Compile Include="Handlers\SellerDashboardHandler.cs" />
+    <Compile Include="Handlers\SellerTransactionHistoryHandler.cs" />
     <Compile Include="Handlers\TopUpHandler.cs" />
     <Compile Include="Handlers\TransactionDetailHandler.cs" />
     <Compile Include="Models\ArtlyDBModel.Context.cs">
@@ -255,6 +264,9 @@
     <Compile Include="Models\MsUser.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PendingProduct.cs">
+      <DependentUpon>ArtlyDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SellerDashboardResult.cs" />
     <Compile Include="Models\TopUp.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
@@ -262,6 +274,7 @@
     <Compile Include="Models\TransactionDetail.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TransactionHistoryRequest.cs" />
     <Compile Include="Models\TrUserAddress.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
@@ -358,6 +371,13 @@
     </Compile>
     <Compile Include="Views\SellerDashboard.aspx.designer.cs">
       <DependentUpon>SellerDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SellerTransactionHistory.aspx.cs">
+      <DependentUpon>SellerTransactionHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SellerTransactionHistory.aspx.designer.cs">
+      <DependentUpon>SellerTransactionHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ShoppingCartPage.aspx.cs">
       <DependentUpon>ShoppingCartPage.aspx</DependentUpon>
@@ -485,8 +505,7 @@
           <IISUrl>https://localhost:44384/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl>https://localhost:44384/</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

@@ -108,12 +108,11 @@
                             </span>
                             <span class="hide-menu">Dashboard</span>
                           </a>
-                            <a class="sidebar-link trans-history" href="./index.html" aria-expanded="false">
-                              <span>
-                                <i class="bi bi-reception-4"></i>
-                              </span>
-                              <span class="hide-menu">Transaction History</span>
-                            </a>
+                            <asp:HyperLink runat="server" CssClass="sidebar-link trans-history" ID="TransactionHistory" NavigateUrl="~/Views/SellerTransactionHistory.aspx?Type=1">                                <span>
+                                  <i class="bi bi-reception-4"></i>
+                                </span>
+                                <span class="hide-menu">Transaction History</span>
+                            </asp:HyperLink>
                             <a class="sidebar-link trans-detail" href="./index.html" aria-expanded="false">
                               <span>
                                 <i class="bi bi-reception-4"></i>

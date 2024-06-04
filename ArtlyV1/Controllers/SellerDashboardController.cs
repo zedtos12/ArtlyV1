@@ -10,6 +10,7 @@ namespace ArtlyV1.Controllers
     public class SellerDashboardController
     {
         SellerDashboardHandler SellerDashboardHandler = new SellerDashboardHandler();
+        SellerTransactionHistoryHandler SellerTransactionHistoryHandler = new SellerTransactionHistoryHandler();
 
         public int getSellerSales(string sellerId)
         {
@@ -39,6 +40,11 @@ namespace ArtlyV1.Controllers
         public List<SellerDashboardResult_RecentSales> sellerDashboardResult_RecentSales(string sellerId)
         {
             return SellerDashboardHandler.GetRecentSales(sellerId);
+        }
+
+        public List<SellerDashboardResult_TransactionHistory> GetTransactionHistories(TransactionHistoryRequest param)
+        {
+            return SellerTransactionHistoryHandler.getSellerTransactionHistory(param);
         }
     }
 }

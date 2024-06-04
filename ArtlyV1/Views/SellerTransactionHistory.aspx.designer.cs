@@ -11,44 +11,61 @@ namespace ArtlyV1.Views
 {
 
 
-    public partial class ProfilePage
+    public partial class SellerTransactionHistory
     {
 
         /// <summary>
-        /// profilePicture control.
+        /// DititalBTN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image profilePicture;
+        protected global::System.Web.UI.WebControls.Button DititalBTN;
 
         /// <summary>
-        /// updateBtn control.
+        /// NonDigitalBTN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button updateBtn;
+        protected global::System.Web.UI.WebControls.Button NonDigitalBTN;
 
         /// <summary>
-        /// userTransactionRepeater control.
+        /// HlOnProcess control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater userTransactionRepeater;
+        protected global::System.Web.UI.WebControls.HyperLink HlOnProcess;
 
         /// <summary>
-        /// profileProductRepeater control.
+        /// HlOnDelivery control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HlOnDelivery;
 
-        protected global::System.Web.UI.WebControls.Repeater profileProductRepeater;
+        /// <summary>
+        /// HlComplete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HlComplete;
+
+        /// <summary>
+        /// TransactionHistoryRPT control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater TransactionHistoryRPT;
     }
 }

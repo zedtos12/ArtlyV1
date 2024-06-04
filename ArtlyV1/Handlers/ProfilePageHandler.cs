@@ -19,7 +19,7 @@ namespace ArtlyV1.Handlers
             return userAddress != null;
         }
 
-        public List<TrUserAddress> getTrUserAddresses(String userID)
+        public List<TrUserAddress> GetAddressByUserId(String userID)
         {
             List<TrUserAddress> userAddresses = (from x in db.TrUserAddresses where x.IdUser == userID select x).ToList();
             return userAddresses;
@@ -98,6 +98,30 @@ namespace ArtlyV1.Handlers
         {
             List<MsTransaction> transactionList = (from x in db.MsTransactions where x.IdUser == userID select x).ToList();
             return transactionList;
+        }
+
+        public void UpdateUser(string userID, string fullName, DateTime dateTime, string GenderID)
+        {
+            MsUser user = (from x in db.MsUsers where x.IdUser == userID select x).FirstOrDefault();
+            user.FullName = fullName;
+            user.DOB = dateTime;
+            user.IdGender = GenderID;
+            db.SaveChanges();
+        }
+
+        public List<string> GetGenderName()
+        {
+            return (from x in db.LtGenders select x.GenderName).ToList();
+        }
+
+        public List<LtGender> GetGenders()
+        {
+            return (from x in db.LtGenders select x).ToList();
+        }       
+
+        public string GetGenderIDByName(string genderName)
+        {
+            return (from x in db.LtGenders where x.GenderName == genderName select x.IdGender).FirstOrDefault();
         }
     }
 }
