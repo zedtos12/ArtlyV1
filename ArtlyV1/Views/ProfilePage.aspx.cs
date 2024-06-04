@@ -24,6 +24,7 @@ namespace ArtlyV1.Views
         public String phoneNumber;
         List<MsProduct> productList;
         List<MsTransaction> transactionList;
+        List<MsTransaction> sortedTransactionList;
 
         public Boolean isShownUserSeller()
         {
@@ -92,7 +93,8 @@ namespace ArtlyV1.Views
             if(!IsPostBack)
             {
                 transactionList = profileHandler.getTransactionList(accessingUserID);
-                userTransactionRepeater.DataSource = transactionList;
+                sortedTransactionList = transactionList.OrderByDescending(transaction => transaction.OrderDate).ToList();
+                userTransactionRepeater.DataSource = sortedTransactionList;
                 userTransactionRepeater.DataBind();
 
                 productList = profileHandler.getProductList(shownUserID);
