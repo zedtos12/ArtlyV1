@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Navbar.Master" AutoEventWireup="true" CodeBehind="RegisterPage.aspx.cs" Inherits="ArtlyV1.Views.RegisterPage" %>
+﻿<%@ Page Title="Artly | Register" Language="C#" MasterPageFile="~/Views/Navbar.Master" AutoEventWireup="true" CodeBehind="RegisterPage.aspx.cs" Inherits="ArtlyV1.Views.RegisterPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title> Artly Register Page </title>
     <!-- Required meta tags -->

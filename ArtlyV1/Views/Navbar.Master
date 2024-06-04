@@ -75,18 +75,6 @@
                         else
                         { %>
                         <ul class="navbar-nav me-auto mb-1 ml-auto">
-                                <%if (Session["userrole"] as string != "" && Session["userrole"] as string == "Seller")
-                                {%>
-                                    <li style="display:flex; align-items:center">
-                                        <a href="SellerDashboard.aspx">
-                                            <i class="bi bi-shop-window" style="color:white;font-size:25px"></i>
-                                        </a>
-                                    </li>
-                                <%}
-                                else if(Session["userrole"] != null && Session["userrole"] as string == "User") { %>
-
-                                <%}%>
-                            
                             <li class="nav-item ml-4 d-flex align-items-center">
                                 <a class="nav-link active d-flex align-items-center justify-content-center" href="ProfilePage.aspx">
                                     <div class="accountImageContainer mr-1 d-flex justify-content-center align-items-center">
@@ -95,6 +83,18 @@
                                     <span class="accountUsername ml-2"><%=username%></span>
                                 </a>
                             </li>
+
+                            <%if (Session["userrole"] as string != "" && Session["userrole"] as string == "Seller")
+                            {%>
+                                <li class="nav-item ml-4 mr-2 d-flex align-items-center">
+                                    <a href="SellerDashboard.aspx">
+                                        <i class="bi bi-shop-window" style="color:white;font-size:25px"></i>
+                                    </a>
+                                </li>
+                            <%}
+                            else if(Session["userrole"] != null && Session["userrole"] as string == "User") { %>
+
+                            <%}%>
 
                             <li class="nav-item ml-4 mr-2 d-flex">
                                 <a class="d-flex align-items-center" href="ShoppingCartPage.aspx">
@@ -109,10 +109,10 @@
                             <%if (userRole != null && userRole == "Seller")
                             { %>
                                 <li class="nav-item ml-4 d-flex">
-                                    <button id="uploadBtn" class="btn d-flex align-items-center" runat="server">
+                                    <a id="uploadBtn" class="btn d-flex align-items-center">
                                         <img class="uploadImg mr-3" src="Images/Navbar/UploadIcon.png"/>
                                         Upload
-                                    </button>
+                                    </a>
                                 </li>
                             <% } %>
                         </ul>

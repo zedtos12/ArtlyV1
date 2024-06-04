@@ -11,9 +11,14 @@ namespace ArtlyV1.Views.Images
     public partial class SellerDashboard : System.Web.UI.MasterPage
     {
         NavbarHandler navbarHandler = new NavbarHandler();
-        public decimal balance;
-        protected void Page_Load(object sender, EventArgs e)
+        public String userRole;
+        public String username;
+
+        private void refresh()
         {
+            decimal balance = 0;
+            String profilePicturePath = null;
+
             if (Session["user"] == null && Request.Cookies["user"] != null)
             {
                 Session["user"] = Request.Cookies["user"].Value;
@@ -21,9 +26,32 @@ namespace ArtlyV1.Views.Images
 
             if (Session["user"] != null)
             {
-                balance = navbarHandler.getUserBalance(Session["user"].ToString());
-                Session["balance"] = balance;
+                String userID = Session["user"].ToString();
+                balance = navbarHandler.getUserBalance(userID);
+                userRole = navbarHandler.getUserRole(userID);
+                username = navbarHandler.getUserName(userID);
+                profilePicturePath = navbarHandler.getProfilePicturePath(userID);
             }
+
+            Session["balance"] = balance;
+            Session["userrole"] = userRole;
+
+            if (profilePicturePath == null)
+            {
+                profilePicturePath = "Images/Navbar/AccountDefaultIcon.png";
+            }
+
+            accountImage.ImageUrl = profilePicturePath + "?" + DateTime.Now;
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            refresh();
+        }
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            refresh();
         }
 
         protected void logoutBtn_Click(object sender, EventArgs e)

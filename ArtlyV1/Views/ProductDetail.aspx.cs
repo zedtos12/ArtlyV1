@@ -49,6 +49,8 @@ namespace ArtlyV1.Views
             productPrice = product.Price;
             productStock = product.Stock;
 
+            Title = "Artly | " + productName + " Details";
+
             sellerHyperlink.NavigateUrl = "~/Views/ProfilePage.aspx?ID=" + product.UserInput;
 
             cartList = (List<CartItem>)Session["cart"];

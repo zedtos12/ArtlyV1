@@ -72,7 +72,7 @@ namespace ArtlyV1.Controllers
 
         public List<TrUserAddress> getUserAddressList(String userID)
         {
-            return handler.getTrUserAddresses(userID);
+            return handler.getAddressList(userID);
         }
 
         public String addAddress(String userID, String addressName, String address)

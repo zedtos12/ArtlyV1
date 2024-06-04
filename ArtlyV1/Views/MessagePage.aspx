@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Navbar.Master" AutoEventWireup="true" CodeBehind="MessagePage.aspx.cs" Inherits="ArtlyV1.Views.MessagePage" %>
+﻿<%@ Page Title="Artly | Message" Language="C#" MasterPageFile="~/Views/Navbar.Master" AutoEventWireup="true" CodeBehind="MessagePage.aspx.cs" Inherits="ArtlyV1.Views.MessagePage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="CSS/MessagePageStyle.css">
