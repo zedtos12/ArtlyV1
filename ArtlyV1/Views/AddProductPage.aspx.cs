@@ -3,6 +3,7 @@ using ArtlyV1.Handlers;
 using ArtlyV1.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,6 +15,8 @@ namespace ArtlyV1.Views
     {
         ProductPageController productPageController = new ProductPageController();
         ProductHandler productHandler = new ProductHandler();
+        String unconfirmedImageFilePath;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             var TypeList = productPageController.GetListType();
@@ -60,48 +63,66 @@ namespace ArtlyV1.Views
 
         protected void addProductBtn_Click(object sender, EventArgs e)
         {
-
-            bool check = false;
-
+            String productCategory = ddlCategory.SelectedValue;
+            String productType = typeList.SelectedValue;
+            decimal price;
+            int stock;
             if (productName.Text == null || productName.Text == "")
             {
                 ErrorLabel.Text = "Product Name cannot be empty";
-                check = true;
+                return;
             }
             if (productDescription.Text == null || productDescription.Text == "")
             {
                 ErrorLabel.Text = "Product Description cannot be empty";
-                check = true;
+                return;
             }
             if (productPrice.Text == null || productPrice.Text == "")
             {
                 ErrorLabel.Text = "Product Price cannot be empty";
-                check = true;
+                return;
             }
+            if(!decimal.TryParse(productPrice.Text, out price))
+            {
+                ErrorLabel.Text = "Product Price must be a decimal";
+                return;
+            }            
             if (productStock.Text == null || productStock.Text == "")
             {
                 ErrorLabel.Text = "Product Stock cannot be empty";
-                check = true;
+                return;
+            }
+            if (!int.TryParse(productStock.Text, out stock))
+            {
+                ErrorLabel.Text = "Product Stock must be an integer";
+                return;
+            }
+            if(productCategory == null)
+            {
+                ErrorLabel.Text = "Product Category must be selected";
+                return;
             }
 
-            if (!check)
+            if(productType == "")
             {
-                var productCategory = ddlCategory.SelectedValue;
-                var productType = typeList.SelectedValue;
+                ErrorLabel.Text = "Product Type must be selected";
+                return;
+            }
 
-                if (this.productImageUpload.HasFile)
-                {
-                    String imageFilePath = "Images/Product/" + this.productImageUpload.FileName;
-                    this.productImageUpload.SaveAs(Server.MapPath("~/Views/Images/Product/") + this.productImageUpload.FileName);
-                    productHandler.InsertProduct(productName.Text, productCategory, productType, Session["user"].ToString(), decimal.Parse(productPrice.Text), int.Parse(productPrice.Text), productDescription.Text, imageFilePath);
-                    Response.Redirect("ProductSeller.aspx");
-                }
-                ErrorLabel.Text = "Please upload an image";
-            }
-            else
+            if (productImageUpload.HasFile)
             {
-                ErrorLabel.DataBind();
+                String productID = Guid.NewGuid().ToString();
+                productHandler.InsertProduct(productID, productName.Text, productCategory, productType, Session["user"].ToString(), price, stock, productDescription.Text);
+
+                String uploadImageFileExtension = Path.GetExtension(productImageUpload.FileName);
+                String imageFilePath = "Images/Product/Product-" + productID + uploadImageFileExtension;
+                productImageUpload.SaveAs(Server.MapPath("~/Views/Images/Product/") + "Product-" + productID + uploadImageFileExtension);
+                productHandler.UpdateProductImage(productID, imageFilePath);
+
+                Response.Redirect("ProductSeller.aspx");
             }
+            
+            ErrorLabel.Text = "Please upload an image";
         }
     }
 }

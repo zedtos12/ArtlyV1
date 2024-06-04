@@ -9,12 +9,41 @@
 
 .preview{
     width : 45%;
+    position: relative;
 }
 
-.productImage{
+.uploadImageIcon {
+    position: absolute;
+    right: 10px;
+    height: 75px;
+    bottom: 35px;
+    z-index: 999;
+}
+
+.productImageContainer{
     width : 100%;
-    min-height : 70vh;
+    height : 70vh;
     border-radius: 10px;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.productImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.file-upload {
+    cursor: pointer;
+}
+
+.file-upload input {
+    top: 0;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    display: none;
 }
 
 .formAdd {

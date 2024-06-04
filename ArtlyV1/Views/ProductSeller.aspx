@@ -8,9 +8,6 @@
         <div class="row m-0">
             <p class="text-left text-white font-weight-bold" style="font-size:1.5rem">Products</p>
         </div>
-        <div class="row m-0 d-flex justify-content-end align-items-end">
-            <asp:Button runat="server" type="button" CssClass="btn btn-warning" Text="Add New Product"/>
-        </div>
     </div>
     <div class="mt-5 p-2 productSection">
         <div class="row">

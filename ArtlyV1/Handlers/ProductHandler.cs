@@ -49,11 +49,18 @@ namespace ArtlyV1.Handlers
             db.SaveChanges();
         }
 
-        public void InsertProduct(string ProductName, string IdProductCategory, string IdProductType, string IdUser,
-                                        decimal price, int stock, string description, string ProductImage)
+        public void InsertProduct(string productID, string ProductName, string IdProductCategory, string IdProductType, string IdUser,
+                                        decimal price, int stock, string description)
         {
-            MsProduct product = ProductFactory.Create(ProductName, IdProductCategory, IdProductType, IdUser, price, stock, description, ProductImage);
+            MsProduct product = ProductFactory.Create(productID, ProductName, IdProductCategory, IdProductType, IdUser, price, stock, description, "placeholder");
             db.MsProducts.Add(product);
+            db.SaveChanges();
+        }
+
+        public void UpdateProductImage(String ProductID, String imageFilePath)
+        {
+            MsProduct product = (from x in db.ActiveEntities<MsProduct>() where x.IdProduct == ProductID select x).FirstOrDefault();
+            product.ProductImage = imageFilePath;
             db.SaveChanges();
         }
 
@@ -71,6 +78,7 @@ namespace ArtlyV1.Handlers
             product.ProductImage = ProductImage;
             db.SaveChanges();
         }
+
         public List<LtProductCategory> GetProductCategory()
         {
             return (from x in db.ActiveEntities<LtProductCategory>() select x).ToList();

@@ -11,8 +11,14 @@
         <div class="row d-flex justify-content-center align-items-center mt-5">
             <div class="container d-flex">
                 <div class="preview">
-                    <asp:Image ID="productImage" runat="server" CssClass="productImage" />
-                    <asp:FileUpload ID="productImageUpload" runat="server" CssClass="productImageUpload mt-3" />
+                    <div class="productImageContainer">
+                        <asp:Image ID="productImage" runat="server" CssClass="productImage" />
+                    </div>
+                    
+                    <label class="file-upload">
+                        <img src="Images/Profile/UploadIcon.png" class="uploadImageIcon" />
+                        <asp:FileUpload ID="productImageUpload" runat="server" CssClass="productImageUpload mt-3" />
+                    </label>
                 </div>
                 <div style="width: 10%">
                 </div>
@@ -51,4 +57,6 @@
             </div>
         </div>
     </div>
+
+    <script src="JS/AddProductPage.js"></script>
 </asp:Content>

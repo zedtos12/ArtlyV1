@@ -106,7 +106,7 @@
                                 <%if (userRole != null && userRole == "Seller")
                                 { %>
                                     <li class="nav-item ml-4 d-flex">
-                                        <a id="uploadBtn" class="btn d-flex align-items-center">
+                                        <a id="uploadBtn" class="btn d-flex align-items-center" href="AddProductPage.aspx">
                                             <img class="uploadImg mr-3" src="Images/Navbar/UploadIcon.png"/>
                                             Upload
                                         </a>
