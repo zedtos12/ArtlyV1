@@ -17,13 +17,13 @@ namespace ArtlyV1.Handlers
 
         private MsUser findUserUsingUsername(String username)
         {
-            MsUser user = (from x in db.MsUsers where x.UserName == username select x).FirstOrDefault();
+            MsUser user = (from x in db.ActiveEntities<MsUser>() where x.UserName == username && x.IsActive == true select x).FirstOrDefault();
             return user;
         }
 
         private MsUser findUserUsingEmail(String email)
         {
-            MsUser user = (from x in db.MsUsers where x.Email == email select x).FirstOrDefault();
+            MsUser user = (from x in db.ActiveEntities<MsUser>() where x.Email == email && x.IsActive == true select x).FirstOrDefault();
             return user;
         }
         
@@ -51,7 +51,7 @@ namespace ArtlyV1.Handlers
                 return "Email not unique!";
             }
 
-            MsUser user = UserFactory.create(Guid.NewGuid().ToString(), username, fullname, email, password, true, null, getRoleID().ToString(), null, 0);
+            MsUser user = UserFactory.create(Guid.NewGuid().ToString(), username, fullname, email, password, true, null, getRoleID().ToString(), null, 0, null, null, null);
             addUser(user);
 
             return "Successful";

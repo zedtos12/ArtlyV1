@@ -1,0 +1,68 @@
+﻿body {
+    background: linear-gradient(black, #151515 20%, #252525 60%, #2F2F2F);
+}
+
+.topUpWrapper {
+    width: 100%;
+    min-height: 80vh;
+    font-family: "Inder", sans-serif;
+    color: white;
+    padding: 0 50px;
+}
+
+.topUpTitle {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.topUpContent {
+    width: 30%;
+    min-width: 500px;
+    border-radius: 10px;
+    border: 1px solid #efefef;
+}
+
+.topUpInputWrapper {
+    width: 90%;
+}
+
+.topUpLabel {
+    color: #b3b3b3;
+}
+
+.topUpTB {
+    background-color: transparent;
+    border: 0;
+    color: white;
+    height: 30px;
+}
+
+.topUpTB:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.topUpTB::placeholder {
+    color: #6E6E6E;
+}
+
+.topUpTB:-webkit-autofill {
+    -webkit-box-shadow: none;
+    background-color: transparent;
+}
+
+.non-functional-btn {
+    width: 100%;
+    background-color: #212529;
+    color: white;
+}
+
+.non-functional-btn:hover {
+    color: white;
+}
+
+.btn-outline-light:hover {
+    background-color: #FCBF49;
+    border-color: #FCBF49;
+}

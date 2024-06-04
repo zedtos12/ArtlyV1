@@ -1,0 +1,84 @@
+﻿body {
+    background: linear-gradient(black, #151515 20%, #252525 60%, #2F2F2F);
+}
+
+.paymentWrapper {
+    width: 100%;
+    min-height: 90vh;
+    font-family: "Inder", sans-serif;
+    color: white;
+}
+
+.paymentContainer {
+    width: 50%;
+    min-width: 500px;
+    background-color: #323232;
+    border-radius: 10px;
+}
+
+.paymentTitle {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.userAddressRBList {
+    width: 60%;
+    min-width: 400px;
+    border-spacing: 0 15px;
+}
+
+.userAddressRBList label {
+    margin-bottom: 0px;
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.addressName {
+    color: #FCBF49;
+    font-size: 16px;
+}
+
+table {
+    border-collapse: separate;
+    margin: 0;
+}
+
+.userAddressRBList td {
+    border: 1px solid #878787;
+    border-radius: 10px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: start;
+    padding-left: 15px;
+    font-size: 14px;
+}
+
+.addressIcon {
+    width: 35px;
+    height: 35px;
+}
+
+.paymentMethodImage {
+    width: 75px;
+    height: auto;
+}
+
+.paymentHighlight {
+    color: #FCBF49;
+    padding-left: 10px;
+    text-align: right;
+}
+
+.paymentSeparator {
+    border: 1px solid rgba(255,255,255,.25);
+    width: 100%;
+}
+
+.btn-outline-light:hover {
+    background-color: #FCBF49;
+    border-color: #FCBF49;
+}

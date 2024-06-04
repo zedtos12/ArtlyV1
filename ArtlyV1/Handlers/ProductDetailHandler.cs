@@ -14,7 +14,7 @@ namespace ArtlyV1.Handlers
         public Boolean isProductFound(String productID)
         {
             MsProduct product = (from x in db.MsProducts where x.IdProduct == productID select x).FirstOrDefault();
-            return product != null;
+            return product != null; 
         }
 
         public MsProduct getProduct(String productID)

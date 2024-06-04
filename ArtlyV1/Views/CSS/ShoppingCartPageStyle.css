@@ -40,7 +40,7 @@
 }
 
 .cartSubtitleHighlight {
-    font-weight: 600;
+    color: #FCBF49;
 }
 
 .cartContent {
@@ -55,6 +55,10 @@
 
 .cartItemListTitle {
     width: 100%;
+    padding: 15px 30px;
+}
+
+.cartItemWrapper {
     padding: 15px 30px;
 }
 
@@ -111,6 +115,8 @@
 
 .summaryPriceHighlight {
     color: #FCBF49;
+    text-align: right;
+    padding-left: 10px;
 }
 
 .summarySeparator {
@@ -120,7 +126,11 @@
 }
 
 .summaryTotal {
-    font-size: 20px;
+    font-size: 18px;
+}
+
+.summaryCurrentBalance {
+    font-size: 18px;
 }
 
 .removeBtn {
@@ -152,7 +162,11 @@
     color: white;
 }
 
-@media (max-width: 1250px) {
+@media (max-width: 1500px) {
+    .cartWrapper {
+        padding: 0 10px;
+    }
+
     .cartContent {
         flex-direction: column;
     }
@@ -160,15 +174,9 @@
     .summaryWrapper {
         margin-top: 30px;
     }
-}
-
-@media (max-width: 1250px) {
-    .cartWrapper {
-        padding: 0 10px;
-    }
 
     .cartItemListWrapper {
-        width: 90%;
+        width: 500px;
     }
 
     .cartItemImage {
@@ -187,7 +195,6 @@
     .cartItemWrapper {
         flex-direction: column;
         align-items: center;
-        height: 300px;
         justify-content: space-between;
     }
 

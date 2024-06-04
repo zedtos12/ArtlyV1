@@ -76,6 +76,11 @@ h2 {
       box-shadow: none; 
     }
 
+.half .contents .form-control:-webkit-autofill {
+    -webkit-box-shadow: none;
+    background-color: transparent;
+}
+
 .half .bg {
   background-size: cover;
   background-position: center; }

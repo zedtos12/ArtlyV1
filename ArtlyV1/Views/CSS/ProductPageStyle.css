@@ -159,11 +159,10 @@ a:hover {
             opacity: 0;
             transition: bottom 0.4s, opacity 0.4s;
             width: 100%;
-            background: #323232;
+            background: #2C2C2C;
             display: flex;
             flex-direction: column;
             border: 1px solid #878787;
-            border-radius: 5px;
         }
 
             .section-products .single-product .part-1 ul a {

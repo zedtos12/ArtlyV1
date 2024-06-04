@@ -99,12 +99,18 @@
     <Content Include="Views\CSS\NavbarStyle.css" />
     <Content Include="Views\CSS\owl.carousel.min.css" />
     <Content Include="Views\CSS\LoginRegisterPageStyle.css" />
+    <Content Include="Views\CSS\PaymentPageStyle.css" />
     <Content Include="Views\CSS\ProductDetailPageStyle.css" />
     <Content Include="Views\CSS\ProductPageStyle.css" />
     <Content Include="Views\CSS\ProfileStyle.css" />
     <Content Include="Views\CSS\Seller-trans.css" />
+    <Content Include="Views\CSS\ProfileStyles.css" />
+    <Content Include="Views\CSS\ProfilePageStyle.css" />
     <Content Include="Views\CSS\SellerDashboardsStyle.css" />
     <Content Include="Views\CSS\ShoppingCartPageStyle.css" />
+    <Content Include="Views\CSS\TopUpPageStyle.css" />
+    <Content Include="Views\CSS\TransactionDetailPageStyle.css" />
+    <Content Include="Views\CSS\UpdateProfilePageStyle.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Views\Fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
@@ -138,6 +144,8 @@
     <Content Include="Views\Images\Navbar\AccountDefaultIcon.png" />
     <Content Include="Views\Images\Navbar\UploadIcon.png" />
     <Content Include="Views\Images\Navbar\CartIcon.png" />
+    <Content Include="Views\Images\Payment\BCALogo.png" />
+    <Content Include="Views\Images\Payment\GoPayLogo.png" />
     <Content Include="Views\Images\Product\Product1.png" />
     <Content Include="Views\Images\Product\Product2.png" />
     <Content Include="Views\Images\Product\Product3.png" />
@@ -146,15 +154,21 @@
     <Content Include="Views\Images\Product\Product6.png" />
     <Content Include="Views\Images\Product\Product7.png" />
     <Content Include="Views\Images\Product\Product8.png" />
+    <Content Include="Views\Images\Profile\AddressIcon.png" />
+    <Content Include="Views\Images\Profile\DefaultProfilePicture.png" />
+    <Content Include="Views\Images\Profile\PhoneIcon.png" />
+    <Content Include="Views\Images\Profile\UploadIcon.png" />
     <Content Include="Views\Images\RegisterPageImage.jpg" />
     <Content Include="Views\Images\SellerDashboard\user-1.jpg" />
     <Content Include="Views\JS\BecomeSellerJs.js" />
     <Content Include="Views\JS\bootstrap.min.js" />
     <Content Include="Views\JS\HomePageMain.js" />
     <Content Include="Views\JS\jquery-3.3.1.min.js" />
+    <Content Include="Views\JS\Message.js" />
     <Content Include="Views\JS\popper.min.js" />
     <Content Include="Views\JS\LoginRegisterPageMain.js" />
     <Content Include="Views\JS\owl.carousel.min.js" />
+    <Content Include="Views\JS\UpdateProfilePage.js" />
     <Content Include="Views\LoginPage.aspx" />
     <Content Include="Views\MessagePage.aspx" />
     <Content Include="Views\OrderDetailPage.aspx" />
@@ -166,30 +180,44 @@
     <Content Include="Views\SellerDashboard.aspx" />
     <Content Include="Views\SellerTransactionHistory.aspx" />
     <Content Include="Views\ShoppingCartPage.aspx" />
+    <Content Include="Views\PaymentPage.aspx" />
+    <Content Include="Views\TopUpPage.aspx" />
     <Content Include="Views\TopUpHistoryPage.aspx" />
+    <Content Include="Views\TransactionDetailPage.aspx" />
+    <Content Include="Views\UpdateProfilePage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Controllers\ProductPageController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\SellerDashboardController.cs" />
+    <Compile Include="Controllers\UpdateProfilePageController.cs" />
     <Compile Include="Factories\AddressFactory.cs" />
     <Compile Include="Factories\MessageFactory.cs" />
+    <Compile Include="Factories\ProductFactory.cs" />
+    <Compile Include="Factories\TopUpFactory.cs" />
+    <Compile Include="Factories\TransactionDetailFactory.cs" />
+    <Compile Include="Factories\TransactionFactory.cs" />
     <Compile Include="Factories\UserFactory.cs" />
     <Compile Include="Handlers\LoginHandler.cs" />
     <Compile Include="Handlers\MessageHandler.cs" />
     <Compile Include="Handlers\NavbarHandler.cs" />
     <Compile Include="Handlers\OrderHistoryHandler.cs" />
+    <Compile Include="Handlers\PendingHandler.cs" />
     <Compile Include="Handlers\ProductDetailHandler.cs" />
+    <Compile Include="Handlers\ProductHandler.cs" />
     <Compile Include="Handlers\ProductPageHandler.cs" />
     <Compile Include="Handlers\ProfilePageHandler.cs" />
     <Compile Include="Handlers\RegisterHandler.cs" />
+    <Compile Include="Handlers\PaymentHandler.cs" />
     <Compile Include="Handlers\SalesHistoryHandler.cs" />
     <Compile Include="Handlers\SellerDashboardHandler.cs" />
     <Compile Include="Handlers\SellerTransactionHistoryHandler.cs" />
     <Compile Include="Handlers\TopUpHandler.cs" />
+    <Compile Include="Handlers\TransactionDetailHandler.cs" />
     <Compile Include="Models\ArtlyDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -234,6 +262,9 @@
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MsUser.cs">
+      <DependentUpon>ArtlyDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PendingProduct.cs">
       <DependentUpon>ArtlyDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SellerDashboardResult.cs" />
@@ -355,12 +386,40 @@
     <Compile Include="Views\ShoppingCartPage.aspx.designer.cs">
       <DependentUpon>ShoppingCartPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\TopUpPage.aspx.cs">
+      <DependentUpon>TopUpPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TopUpPage.aspx.designer.cs">
+      <DependentUpon>TopUpPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PaymentPage.aspx.cs">
+      <DependentUpon>PaymentPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\PaymentPage.aspx.designer.cs">
+      <DependentUpon>PaymentPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\TopUpHistoryPage.aspx.cs">
       <DependentUpon>TopUpHistoryPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\TopUpHistoryPage.aspx.designer.cs">
       <DependentUpon>TopUpHistoryPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransactionDetailPage.aspx.cs">
+      <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TransactionDetailPage.aspx.designer.cs">
+      <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateProfilePage.aspx.cs">
+      <DependentUpon>UpdateProfilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateProfilePage.aspx.designer.cs">
+      <DependentUpon>UpdateProfilePage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -422,7 +481,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Images\Profile\ProfilePictures\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

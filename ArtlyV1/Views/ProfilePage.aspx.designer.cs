@@ -15,21 +15,40 @@ namespace ArtlyV1.Views
     {
 
         /// <summary>
-        /// UsernameLabel control.
+        /// profilePicture control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl UsernameLabel;
+        protected global::System.Web.UI.WebControls.Image profilePicture;
 
         /// <summary>
-        /// EmailLabel control.
+        /// updateBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EmailLabel;
+        protected global::System.Web.UI.WebControls.Button updateBtn;
+
+        /// <summary>
+        /// userTransactionRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater userTransactionRepeater;
+
+        /// <summary>
+        /// profileProductRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+
+        protected global::System.Web.UI.WebControls.Repeater profileProductRepeater;
     }
 }

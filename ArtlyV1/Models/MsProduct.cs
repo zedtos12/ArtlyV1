@@ -18,6 +18,7 @@ namespace ArtlyV1.Models
         public MsProduct()
         {
             this.TransactionDetails = new HashSet<TransactionDetail>();
+            this.PendingProducts = new HashSet<PendingProduct>();
         }
     
         public string IdProduct { get; set; }
@@ -37,5 +38,7 @@ namespace ArtlyV1.Models
         public virtual MsUser MsUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TransactionDetail> TransactionDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PendingProduct> PendingProducts { get; set; }
     }
 }
