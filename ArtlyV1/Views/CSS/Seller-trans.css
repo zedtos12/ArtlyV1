@@ -100,8 +100,14 @@
 
 .row-column{
     transition : 0.25s ease-in-out;
+    overflow :hidden;
 }
 
 .row-column:hover{
-    transform: scale(1.02)
+    transform: scale(1.02);
+    overflow : hidden;
+}
+
+.table-hover {
+    overflow: hidden;
 }

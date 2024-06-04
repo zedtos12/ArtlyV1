@@ -2,6 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="CSS/Dashboards.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
@@ -133,11 +135,11 @@
                                         <tbody>
                                             <asp:Repeater runat="server" ID="RecentlyRPT">
                                                 <ItemTemplate>
-                                                    <tr>
-                                                        <td><%# Eval("Buyer") %></td>
-                                                        <td><%# Eval("ProductName") %></td>
-                                                        <td class="text-success"> Rp <%# String.Format("{0:N2}", Eval("Price"))%><i class="fa fa-arrow-up"></i></td>
-                                                        <td><label class="badge badge-success">Completed</label></td>
+                                                    <tr class="row-column">
+                                                        <td class="border-0"><%# Eval("Buyer") %></td>
+                                                        <td class="border-0"><%# Eval("ProductName") %></td>
+                                                        <td class="text-success border-0"> Rp <%# String.Format("{0:N2}", Eval("Price"))%><i class="fa fa-arrow-up"></i></td>
+                                                        <%# Eval("status") %>
                                                     </tr>
                                                 </ItemTemplate>
                                             </asp:Repeater>

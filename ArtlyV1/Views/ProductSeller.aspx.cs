@@ -38,7 +38,7 @@ namespace ArtlyV1.Views
             }
             else if (e.CommandName == "Update")
             {
-
+                Response.Redirect("UpdateProductPage.aspx?productId=" + productId);
             }
         }
     }

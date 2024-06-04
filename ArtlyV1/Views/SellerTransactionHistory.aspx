@@ -44,7 +44,7 @@
                                 <td class="text border-0" style="color:#bbb"><%# Eval("Buyer") %></td>
                                 <td class="text border-0" style="color:#bbb"><%# Eval("ProductName") %></td>
                                 <td class="text border-0" style="color:#bbb"><i class="fa fa-arrow-up" style="color:lawngreen"></i> Rp <%# String.Format("{0:N2}", Eval("Price"))%></td>
-                                <td class="border-0"><label class="badge badge-success border-0">Completed</label></td>
+                                <%# Eval("status") %>
                             </tr>
                         </ItemTemplate>
                     </asp:Repeater>

@@ -189,6 +189,7 @@
     <Content Include="Views\TopUpPage.aspx" />
     <Content Include="Views\TopUpHistoryPage.aspx" />
     <Content Include="Views\TransactionDetailPage.aspx" />
+    <Content Include="Views\UpdateProductPage.aspx" />
     <Content Include="Views\UpdateProfilePage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -432,6 +433,13 @@
     </Compile>
     <Compile Include="Views\TransactionDetailPage.aspx.designer.cs">
       <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateProductPage.aspx.cs">
+      <DependentUpon>UpdateProductPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateProductPage.aspx.designer.cs">
+      <DependentUpon>UpdateProductPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\UpdateProfilePage.aspx.cs">
       <DependentUpon>UpdateProfilePage.aspx</DependentUpon>
