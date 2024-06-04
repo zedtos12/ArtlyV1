@@ -15,103 +15,99 @@ namespace ArtlyV1.Views
     public partial class ProfilePage : System.Web.UI.Page
     {
         ProfilePageHandler profileHandler = new ProfilePageHandler();
-        string userId;
-        MsUser User;
-        List<string> genderNames = new List<string>();
-       
+        String accessingUserID;
+        MsUser accessingUser;
+        String shownUserID;
+        MsUser shownUser;
+        public String username;
+        public String profilePicPath;
+        public String userDescription;
+        public String userDOB;
+        public String phoneNumber;
+        List<MsProduct> productList;
+        List<MsTransaction> transactionList;
+        List<MsTransaction> sortedTransactionList;
+
+        public Boolean isShownUserSeller()
+        {
+            if(shownUser.LtRole.RoleName == "Seller")
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public Boolean isOwnerAccessing()
+        {
+            if (Request["ID"] == null)
+            {
+                return true;
+            }
+            return false;
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["user"] == null)
-            //{
-            //    Response.Redirect("loginpage.aspx");
-            //}
-
-            //userId = Session["user"].ToString();
-            userId = "1f6a9ad8-520a-4e75-9e71-e086697d563c";
-            User = profileHandler.GetUserById(userId);
-
-            UsernameLabel.InnerText = User.UserName;
-
-            EmailInput.Value = User.Email;
-            NameInput.Value = User.FullName;
-
-            genderNames = profileHandler.GetGenderName();
-            genderNames.Insert(0, "select gender");
-
-            if (!IsPostBack)
+            if (Session["user"] == null)
             {
-                GenderDDL.DataSource = genderNames;
-                GenderDDL.DataBind();
+                Response.Redirect("~/Views/HomePage.aspx");
             }
 
-            if (User.IdGender != null)
+            accessingUserID = Session["user"].ToString();
+            accessingUser = profileHandler.GetUserById(accessingUserID);
+
+            if (isOwnerAccessing())
             {
-                GenderDDL.SelectedValue = User.LtGender.GenderName;
-            }
-
-            LoadAddressList();
-        }
-
-        protected void SaveProfile_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Debug.WriteLine("OKE");
-            string fullName = NameInput.Value;
-            DateTime dob = DateTime.Parse(NameInput.Value);
-
-            string genderName = GenderDDL.SelectedValue;
-            string genderID = profileHandler.GetGenderIDByName(genderName);
-
-            profileHandler.UpdateUser(userId, fullName, dob, genderID);
-            
-        }     
-
-        protected void btnSaveAddress_Click(object sender, EventArgs e)
-        {
-            string addressName = txtAddressName.Text.Trim();
-            string addressDetails = txtAddressDetails.Text.Trim();
-
-            if (!string.IsNullOrEmpty(addressName) && !string.IsNullOrEmpty(addressDetails))
-            {
-                string result = profileHandler.insertAddress(userId, addressDetails, addressName);
-                Response.Write("<script>alert('" + result + "')</script>");
-                txtAddressName.Text = string.Empty;
-                txtAddressDetails.Text = string.Empty;
-                addressModal.Style.Add("display", "none");
+                shownUserID = accessingUserID;
+                shownUser = accessingUser;
             }
             else
             {
-                Response.Write("<script>alert('Address name and detail must not be empty')</script>");
+                shownUserID = Request["ID"].ToString();
+                shownUser = profileHandler.GetUserById(shownUserID);
             }
-            LoadAddressList();
-        }
 
-        public void LoadAddressList()
-        {
-            List<TrUserAddress> addresses = profileHandler.GetAddressByUserId(userId);
-            StringBuilder addressListHTML = new StringBuilder();
+            username = shownUser.UserName;
+            profilePicPath = shownUser.ProfilePicture;
+            userDescription = shownUser.UserDescription;
 
-            foreach (TrUserAddress address in addresses)
+            if(shownUser.DOB != null)
             {
-                addressListHTML.Append("<div class='address-item'>");
-                addressListHTML.Append($"<div class='address-name font-weight-bold'>{address.AddressName}</div>");
-                addressListHTML.Append($"<p class='address-details'>{address.Address}</p>");
-                addressListHTML.Append("</div>");
-
-                System.Diagnostics.Debug.WriteLine(address.AddressName);
+                userDOB = shownUser.DOB.Value.ToString("dd-MM-yyyy");
             }
 
-            litAddressList.Text = addressListHTML.ToString();
+            phoneNumber = shownUser.PhoneNumber;
+
+            Title = username + "'s Profile";
+
+            if(profilePicPath == null)
+            {
+                profilePicPath = "Images/Profile/DefaultProfilePicture.png";
+            }
+
+            if(userDescription == null)
+            {
+                userDescription = "User has no user description.";
+            }
+
+            profilePicture.ImageUrl = profilePicPath + "?" + DateTime.Now;
+
+            if(!IsPostBack)
+            {
+                transactionList = profileHandler.getTransactionList(accessingUserID);
+                sortedTransactionList = transactionList.OrderByDescending(transaction => transaction.OrderDate).ToList();
+                userTransactionRepeater.DataSource = sortedTransactionList;
+                userTransactionRepeater.DataBind();
+
+                productList = profileHandler.getProductList(shownUserID);
+                profileProductRepeater.DataSource = productList;
+                profileProductRepeater.DataBind();
+            }
         }
 
-        protected void btnAddAddress_Click(object sender, EventArgs e)
+        protected void updateBtn_Click(object sender, EventArgs e)
         {
-            addressModal.Style.Add("display", "block");
-        }
-
-        protected void btnCloseModal_Click(object sender, EventArgs e)
-        {
-            addressModal.Style.Add("display", "none");
+            Response.Redirect("~/Views/UpdateProfilePage.aspx");
         }
     }
 }

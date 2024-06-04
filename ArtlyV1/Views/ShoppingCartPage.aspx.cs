@@ -1,6 +1,7 @@
 ﻿using ArtlyV1.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,6 +16,7 @@ namespace ArtlyV1.Views
         public decimal subtotalPrice = 0;
         public decimal tax = 0;
         public decimal totalPrice = 0;
+        public decimal currentBalance = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,7 +28,13 @@ namespace ArtlyV1.Views
 
         private void refreshPage()
         {
+            if (Session["balance"] == null)
+            {
+                Response.Redirect("~/Views/LoginPage.aspx");
+            }
+
             cartList = (List<CartItem>)Session["cart"];
+            currentBalance = decimal.Parse(Session["balance"].ToString());
             itemQty = 0;
             subtotalPrice = 0;
 
@@ -42,7 +50,6 @@ namespace ArtlyV1.Views
             }
 
             tax = subtotalPrice * 10 / 100;
-
             totalPrice = tax + subtotalPrice;
 
             cartItemRepeater.DataSource = cartList;
@@ -129,6 +136,28 @@ namespace ArtlyV1.Views
 
             item.qty++;
             refreshPage();
+        }
+
+        protected void paymentBtn_Click(object sender, EventArgs e)
+        {
+            refreshPage();
+            Session["cartTotal"] = totalPrice;
+            Response.Redirect("PaymentPage.aspx");
+        }
+
+        protected void cartItemRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if(e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                if (((CartItem)e.Item.DataItem).product.LtProductType.ProductTypeName == "Digital")
+                {
+                    Button decrementBtn = (Button)e.Item.FindControl("decrementQtyBtn");
+                    Button incrementBtn = (Button)e.Item.FindControl("incrementQtyBtn");
+
+                    decrementBtn.CssClass = "d-none";
+                    incrementBtn.CssClass = "d-none";
+                }
+            }
         }
     }
 }

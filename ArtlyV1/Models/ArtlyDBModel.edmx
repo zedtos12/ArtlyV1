@@ -90,6 +90,7 @@
           <Property Name="IdStatus" Type="nvarchar" MaxLength="36" Nullable="false" />
           <Property Name="IdPaymentMethod" Type="nvarchar" MaxLength="36" Nullable="false" />
           <Property Name="TrackingId" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdAddress" Type="nvarchar" MaxLength="36" />
         </EntityType>
         <EntityType Name="MsUser">
           <Key>
@@ -105,6 +106,9 @@
           <Property Name="DOB" Type="datetime2" Precision="7" />
           <Property Name="IsActive" Type="bit" />
           <Property Name="Balance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ProfilePicture" Type="nvarchar" MaxLength="500" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="15" />
+          <Property Name="UserDescription" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="TopUps">
           <Key>
@@ -191,6 +195,18 @@
             </Principal>
             <Dependent Role="MsProduct">
               <PropertyRef Name="UserInput" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MsTransac__IdAdd__3A4CA8FD">
+          <End Role="TrUserAddress" Type="Self.TrUserAddress" Multiplicity="0..1" />
+          <End Role="MsTransaction" Type="Self.MsTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrUserAddress">
+              <PropertyRef Name="IdAddress" />
+            </Principal>
+            <Dependent Role="MsTransaction">
+              <PropertyRef Name="IdAddress" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -336,6 +352,10 @@
             <End Role="MsUser" EntitySet="MsUser" />
             <End Role="MsProduct" EntitySet="MsProduct" />
           </AssociationSet>
+          <AssociationSet Name="FK__MsTransac__IdAdd__3A4CA8FD" Association="Self.FK__MsTransac__IdAdd__3A4CA8FD">
+            <End Role="TrUserAddress" EntitySet="TrUserAddress" />
+            <End Role="MsTransaction" EntitySet="MsTransaction" />
+          </AssociationSet>
           <AssociationSet Name="FK__MsTransac__IdPay__0D7A0286" Association="Self.FK__MsTransac__IdPay__0D7A0286">
             <End Role="LtPaymentMethod" EntitySet="LtPaymentMethod" />
             <End Role="MsTransaction" EntitySet="MsTransaction" />
@@ -435,6 +455,9 @@
           <NavigationProperty Name="MsTransactions" Relationship="ArtlyDatabaseModel.FK__MsTransac__IdUse__0B91BA14" FromRole="MsUser" ToRole="MsTransaction" />
           <NavigationProperty Name="TopUps" Relationship="ArtlyDatabaseModel.FK__TopUps__IdUser__17F790F9" FromRole="MsUser" ToRole="TopUp" />
           <NavigationProperty Name="MsProducts" Relationship="ArtlyDatabaseModel.FK__MsProduct__UserI__6E01572D" FromRole="MsUser" ToRole="MsProduct" />
+          <Property Name="ProfilePicture" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="UserDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK__MsUser__IdGender__628FA481">
           <End Role="LtGender" Type="Self.LtGender" Multiplicity="0..1" />
@@ -530,6 +553,10 @@
             <End Role="MsProduct" EntitySet="MsProducts" />
             <End Role="TransactionDetail" EntitySet="TransactionDetails" />
           </AssociationSet>
+          <AssociationSet Name="FK__MsTransac__IdAdd__3A4CA8FD" Association="ArtlyDatabaseModel.FK__MsTransac__IdAdd__3A4CA8FD">
+            <End Role="TrUserAddress" EntitySet="TrUserAddresses" />
+            <End Role="MsTransaction" EntitySet="MsTransactions" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="TrUserAddress">
           <Key>
@@ -540,6 +567,7 @@
           <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="AddressName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="MsUser" Relationship="ArtlyDatabaseModel.FK__TrUserAdd__IdUse__75A278F5" FromRole="TrUserAddress" ToRole="MsUser" />
+          <NavigationProperty Name="MsTransactions" Relationship="ArtlyDatabaseModel.FK__MsTransac__IdAdd__3A4CA8FD" FromRole="TrUserAddress" ToRole="MsTransaction" />
         </EntityType>
         <Association Name="FK__TrUserAdd__IdUse__75A278F5">
           <End Type="ArtlyDatabaseModel.MsUser" Role="MsUser" Multiplicity="1" />
@@ -598,6 +626,8 @@
           <NavigationProperty Name="LtStatu" Relationship="ArtlyDatabaseModel.FK__MsTransac__IdSta__0C85DE4D" FromRole="MsTransaction" ToRole="LtStatu" />
           <NavigationProperty Name="MsUser" Relationship="ArtlyDatabaseModel.FK__MsTransac__IdUse__0B91BA14" FromRole="MsTransaction" ToRole="MsUser" />
           <NavigationProperty Name="TransactionDetails" Relationship="ArtlyDatabaseModel.FK__Transacti__IdTra__29221CFB" FromRole="MsTransaction" ToRole="TransactionDetail" />
+          <Property Name="IdAddress" Type="String" MaxLength="36" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TrUserAddress" Relationship="ArtlyDatabaseModel.FK__MsTransac__IdAdd__3A4CA8FD" FromRole="MsTransaction" ToRole="TrUserAddress" />
         </EntityType>
         <EntityType Name="TopUp">
           <Key>
@@ -773,6 +803,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__MsTransac__IdAdd__3A4CA8FD">
+          <End Type="ArtlyDatabaseModel.TrUserAddress" Role="TrUserAddress" Multiplicity="0..1" />
+          <End Type="ArtlyDatabaseModel.MsTransaction" Role="MsTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrUserAddress">
+              <PropertyRef Name="IdAddress" />
+            </Principal>
+            <Dependent Role="MsTransaction">
+              <PropertyRef Name="IdAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -818,6 +860,9 @@
           <EntitySetMapping Name="MsUsers">
             <EntityTypeMapping TypeName="ArtlyDatabaseModel.MsUser">
               <MappingFragment StoreEntitySet="MsUser">
+                <ScalarProperty Name="UserDescription" ColumnName="UserDescription" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
@@ -874,6 +919,7 @@
           <EntitySetMapping Name="MsTransactions">
             <EntityTypeMapping TypeName="ArtlyDatabaseModel.MsTransaction">
               <MappingFragment StoreEntitySet="MsTransaction">
+                <ScalarProperty Name="IdAddress" ColumnName="IdAddress" />
                 <ScalarProperty Name="TrackingId" ColumnName="TrackingId" />
                 <ScalarProperty Name="IdPaymentMethod" ColumnName="IdPaymentMethod" />
                 <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />

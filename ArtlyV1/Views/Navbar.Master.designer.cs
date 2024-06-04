@@ -24,6 +24,15 @@ namespace ArtlyV1.Views
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
 
         /// <summary>
+        /// accountImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image accountImage;
+
+        /// <summary>
         /// logoutBtn control.
         /// </summary>
         /// <remarks>

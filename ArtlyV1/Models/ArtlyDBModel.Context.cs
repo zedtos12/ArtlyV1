@@ -9,7 +9,6 @@
 
 namespace ArtlyV1.Models
 {
-    using ArtlyV1.Repository;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;

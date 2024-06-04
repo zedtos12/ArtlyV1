@@ -14,11 +14,19 @@ namespace ArtlyV1.Models
     
     public partial class TrUserAddress
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TrUserAddress()
+        {
+            this.MsTransactions = new HashSet<MsTransaction>();
+        }
+    
         public string IdAddress { get; set; }
         public string IdUser { get; set; }
         public string Address { get; set; }
         public string AddressName { get; set; }
     
         public virtual MsUser MsUser { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MsTransaction> MsTransactions { get; set; }
     }
 }

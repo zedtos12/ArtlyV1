@@ -1,109 +1,93 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Navbar.Master" AutoEventWireup="true" CodeBehind="ProfilePage.aspx.cs" Inherits="ArtlyV1.Views.ProfilePage" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Views/Navbar.Master" AutoEventWireup="true" CodeBehind="ProfilePage.aspx.cs" Inherits="ArtlyV1.Views.ProfilePage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Edit</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="CSS/ProfileStyles.css" />
-    <style>
-        .container {
-            background: linear-gradient(135deg, #2F2F2F, #252525, #1C1C1C);
-        }
-    </style>
+    <link rel="stylesheet" href="CSS/ProfilePageStyle.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container mt-5 mb-5" style="height: 69vh">
-        <div class="row profile-section" style="height: 100%">
-
-            <div class="col-md-3 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                    <img class="rounded-circle mt-5" width="150" height="150" src="https://simplyilm.com/wp-content/uploads/2017/08/temporary-profile-placeholder-1.jpg">
-                    <span id="UsernameLabel" runat="server" class="font-weight-bold" style="color: white; margin-top: 15px;">Edogaru</span>
-                    <span></span>
-                </div>
-            </div>
-
-            <div class="col-md-5 border-right">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">Profile Settings</h4>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-md-6">
-                            <label class="labels" style="color: white;">Full name</label><input id="NameInput" runat="server" type="text" class="form-control" value="">
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-12">
-                            <label class="labels" style="color: white;">Email</label><input id="EmailInput" runat="server" type="text" class="form-control" value="">
-                        </div>
-                        <div class="col-md-12">
-                            <label class="labels" style="color: white;">Genders</label>
-                            <asp:DropDownList ID="GenderDDL" runat="server" CssClass="dropdown"></asp:DropDownList>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-12">
-                            <label class="labels" style="color: white;">Date of Birth</label>
-                            <asp:TextBox ID="txtBirthdate" runat="server"
-                                TextMode="Date"
-                                ToolTip="Please enter your birthdate in MM/dd/yyyy format."
-                                Width="150px"
-                                CssClass="form-control">
-                            </asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="mt-5 text-center">
-                        <asp:Button ID="SaveButton" runat="server" Text="Save Profile" CssClass="btn btn-primary profile-button" OnClick="SaveProfile_Click" />
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-md-4 address-section">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center address">
-                        <h4 class="text-right">Address Settings</h4>
-                        <asp:Button ID="btnAddAddress" runat="server" Text="+ Address" CssClass="btn btn-primary address-button" OnClick="btnAddAddress_Click" />
-                    </div>
-                    <br />
-                    <div class="scrollable-column mt-3">
-                        <asp:Literal ID="litAddressList" runat="server"></asp:Literal>
-                    </div>
-                </div>
-            </div>
-
-
-            <div id="addressModal" class="modal" runat="server">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Add Address</h5>
-                            <asp:Button ID="btnCloseModal" runat="server" Text="&times;" CssClass="close" OnClick="btnCloseModal_Click" />
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label class="labels">Address Name</label>
-                                <asp:TextBox ID="txtAddressName" runat="server" CssClass="form-control" placeholder="insert address name"></asp:TextBox>
-                            </div>
-                            <div class="form-group">
-                                <label class="labels">Address Details</label>
-                                <asp:TextBox ID="txtAddressDetails" runat="server" CssClass="form-control" placeholder="insert address details"></asp:TextBox>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <asp:Button ID="btnSaveAddress" runat="server" Text="Save Address" CssClass="btn btn-primary" OnClick="btnSaveAddress_Click" />
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="profileWrapper d-flex align-items-center justify-content-center flex-column pt-5 pb-5">
+        <div class="profileTitle mb-3"><%=username%>'s Profile</div>
+        <div class="profilePictureContainer d-flex justify-content-center align-items-center mb-4">
+            <asp:Image ID="profilePicture" CssClass="profilePicture" runat="server" />
         </div>
+        <div class="profileUsername mb-2"><%=username%></div>
+        <div class="profileUserDescription mb-2"><%=userDescription%></div>
 
+        <%if (userDOB != null)
+        { %>
+            <div class="profileUserDOB mb-3">Date Of Birth: <%=userDOB%></div>
+        <% }%>
 
+        <%if (phoneNumber != null)
+        { %>
+            <div class="profilePhoneNumber">
+                <img class="phoneIcon" src="Images/Profile/PhoneIcon.png"/>
+            </div>
+        <% } %>
+
+        <%if (isOwnerAccessing())
+        { %>
+            <asp:Button ID="updateBtn" CssClass="btn btn-outline-light mt-2" runat="server" Text="Update Profile" OnClick="updateBtn_Click"/>
+
+            <div class="userTransactionHistoryWrapper mt-5 align-items-center justify-content-center d-flex flex-column">
+                <div class="userTransactionHistoryTitle"> Your Transaction History </div>
+                <div class="userTransactionHistoryContent d-flex flex-column mt-3 pb-4 pl-2">
+                    <div class="userTransactionListTitle d-flex">
+                        <div class="transactionDateTitle"> Date </div>
+                        <div class="transactionStatusTitle"> Status </div>
+                        <div class="transactionPaymentMethodTitle"> Payment Method </div>
+                        <div class="transactionAddressNameTitle"> Address Name </div>
+                        <div class="transactionDetailTitle"> Details </div>
+                    </div>
+                    <div class="userTransactionListWrapper d-flex flex-column">
+                        <asp:Repeater ID="userTransactionRepeater" runat="server">
+                            <ItemTemplate>
+                                <div class="userTransactionWrapper d-flex align-items-center">
+                                    <div class="userTransactionDate"><%#Eval("OrderDate", "{0:dd-MM-yyyy}")%></div>
+                                    <div class="userTransactionStatus"><%#Eval("LtStatu.StatusName")%></div>
+                                    <div class="userTransactionPaymentMethod"><%#Eval("LtPaymentMethod.PaymentMethodName")%></div>
+                                    <div class="userTransactionAddressName"><%#(Eval("TrUserAddress.AddressName") == null) ? "No Shipping (Digital)" : Eval("TrUserAddress.AddressName")%></div>
+                                    <div class="userTransactionDetail">
+                                        <asp:HyperLink ID="userTransactionDetailHyperlink" runat="server" CssClass="userTransactionDetailHyperlink" NavigateUrl='<%#String.Format("~/Views/TransactionDetailPage.aspx?ID={0}", Eval("IdTransaction"))%>'> Detail </asp:HyperLink>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        <% } %>
+
+        <%if (isShownUserSeller())
+        { %>
+            <div class="profileProductListTitle mt-5 mb-3"><%=username%>'s Art</div>
+
+            <section class="section-products" style="padding:0; width: 70%;">
+		        <div class="container" style="padding-top: 20px; ">
+			        <div class="row justify-content-center">
+                        <asp:Repeater ID="profileProductRepeater" runat="server">
+                            <ItemTemplate>
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <asp:HyperLink runat="server" ID="productDetailLink" NavigateUrl='<%#Eval("IdProduct", "~/Views/ProductDetail.aspx?ID={0}")%>'>
+                                                <div class="single-product" style="background: url('<%#Eval("ProductImage")%>') no-repeat center center; background-size: cover; max-height:290px;">
+                                                <div class="part-1">
+                                                    <ul>
+                                                        <label class="labelProductName"><%#Eval("ProductName") %></label>
+                                                        <label class="labelSellerName"><%#Eval("MsUser.UserName") %></label>
+                                                        <label class="labelPrice">IDR <%#String.Format("{0:N2}", Eval("Price"))%></label>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </asp:HyperLink>
+                                    </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
+                </div>
+            </section>
+        <% } %>
     </div>
-
 </asp:Content>

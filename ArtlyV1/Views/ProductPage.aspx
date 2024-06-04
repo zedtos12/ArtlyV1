@@ -62,12 +62,12 @@
                         <ItemTemplate>
                             <div class="col-md-6 col-lg-4 col-xl-3">
                                 <asp:HyperLink runat="server" ID="productDetailLink" NavigateUrl='<%#Eval("IdProduct", "~/Views/ProductDetail.aspx?ID={0}")%>'>
-\                                    <div class="single-product" style="background: url('<%#Eval("ProductImage")%>') no-repeat center center; background-size: cover; max-height:290px;">
+                                    <div class="single-product" style="background: url('<%#Eval("ProductImage")%>') no-repeat center center; background-size: cover; max-height:290px;">
                                         <div class="part-1">
                                             <ul>
                                                 <label class="labelProductName"><%#Eval("ProductName") %></label>
                                                 <label class="labelSellerName"><%#Eval("MsUser.UserName") %></label>
-                                                <label class="labelPrice">Rp <%#String.Format("{0:N2}", Eval("Price"))%></label>
+                                                <label class="labelPrice">IDR <%#String.Format("{0:N2}", Eval("Price"))%></label>
                                             </ul>
                                         </div>
                                     </div>

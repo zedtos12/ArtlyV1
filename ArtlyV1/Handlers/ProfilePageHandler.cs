@@ -25,7 +25,7 @@ namespace ArtlyV1.Handlers
             return userAddresses;
         }
 
-        public string insertAddress(string userID, string address, string addressName)
+        public String insertAddress(String userID, String addressName, String address)
         {
             if (findDuplicateAddressName(userID, addressName))
             {
@@ -36,12 +36,68 @@ namespace ArtlyV1.Handlers
             db.TrUserAddresses.Add(NewAddress);
             db.SaveChanges();
 
-            return "Success";
+            return "Successful";
         }
 
         public MsUser GetUserById(string userID)
         {
-            return (from x in db.MsUsers where x.IdUser == userID select x).FirstOrDefault();
+            return (from x in db.ActiveEntities<MsUser>() where x.IdUser == userID select x).FirstOrDefault();
+        }
+
+        public List<MsProduct> getProductList(string userID)
+        {
+            List<MsProduct> productList = (from x in db.ActiveEntities<MsProduct>() where x.UserInput == userID select x).ToList();
+            return productList;
+        }
+
+        public void updateProfilePicture(String userID, String imageFilePath)
+        {
+            MsUser user = GetUserById(userID);
+
+            if(user == null)
+            {
+                return;
+            }
+
+            user.ProfilePicture = imageFilePath;
+            db.SaveChanges();
+        }
+
+        public String updateProfile(String userID, String newUserDescription, String newUserGenderID, DateTime? newUserDOB, String newPhoneNumber)
+        {
+            MsUser user = GetUserById(userID);
+            
+            if(user == null)
+            {
+                return "User not found!";
+            }
+
+            user.UserDescription = newUserDescription;
+            user.IdGender = newUserGenderID;
+            user.DOB = newUserDOB;
+            user.PhoneNumber = newPhoneNumber;
+            db.SaveChanges();
+
+            return "Successful";
+        }
+
+        public void removeAddress(String addressID)
+        {
+            TrUserAddress address = (from x in db.TrUserAddresses where x.IdAddress == addressID select x).FirstOrDefault();
+            db.TrUserAddresses.Remove(address);
+            db.SaveChanges();
+        }
+
+        public List<LtGender> getGenderList()
+        {
+            List<LtGender> genderList = (from x in db.LtGenders select x).ToList();
+            return genderList;
+        }
+
+        public List<MsTransaction> getTransactionList(String userID)
+        {
+            List<MsTransaction> transactionList = (from x in db.MsTransactions where x.IdUser == userID select x).ToList();
+            return transactionList;
         }
 
         public void UpdateUser(string userID, string fullName, DateTime dateTime, string GenderID)
