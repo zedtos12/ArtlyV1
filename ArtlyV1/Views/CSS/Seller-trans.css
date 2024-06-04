@@ -1,0 +1,95 @@
+﻿body {
+
+}
+
+.trans-history {
+    background-color: #929292;
+    color: #090C0C;
+    text-decoration: none
+}
+
+.con-header {
+    border: 1px solid white;
+    border-bottom: none;
+    border-radius: 10px;
+}
+
+.underline-header {
+    color: #FCBF49;
+}
+
+.underline-box {
+    border: 0;
+    background-color: transparent;
+    color: #FCBF49;
+    transition: 0.25s ease-in-out;
+}
+
+    .underline-box:hover {
+        border-bottom: 4px solid #FCBF49;
+        border-radius: 5px;
+        background-color: #929292;
+    }
+
+.active {
+    border-bottom: 4px solid #FCBF49;
+    border-radius: 5px;
+}
+
+.btn-filter-transaction {
+    background-color: #FCBF49;
+    color: #090C0C;
+    border: 0;
+    border-radius: 5px;
+    transition: 0.25s ease-in-out;
+}
+
+    .btn-filter-transaction:hover {
+        background-color: #090C0C;
+        color: #FCBF49;
+    }
+    .btn-filter-transaction:hover::after{
+        background-color:transparent;
+    }
+    .btn-filter-transaction:after{
+        background-color:transparent;
+    }
+    .btn-filter-transaction:checked{
+        background-color:transparent;
+    }
+    .btn-filter-transaction:hover selector{
+        background-color:transparent;
+    }
+    .btn-filter-transaction:active{
+        background-color:transparent;
+    }
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar
+}
+
+.table,
+.jsgrid .jsgrid-table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent
+}
+
+    .table thead th,
+    .jsgrid .jsgrid-table thead th {
+        border-top: 0;
+        border-bottom-width: 1px;
+        font-weight: 500;
+        font-size: .875rem;
+        text-transform: uppercase
+    }
+
+    .table td,
+    .jsgrid .jsgrid-table td {
+        font-size: 0.875rem;
+        padding: .875rem 0.9375rem
+    }
