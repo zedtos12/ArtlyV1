@@ -10,6 +10,7 @@ namespace ArtlyV1.Views.Images
 {
     public partial class SellerDashboard : System.Web.UI.MasterPage
     {
+
         NavbarHandler navbarHandler = new NavbarHandler();
         public String userRole;
         public String username;
@@ -46,6 +47,10 @@ namespace ArtlyV1.Views.Images
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null)
+            {
+                Response.Redirect("~/Views/LoginPage.aspx");
+            }
             refresh();
         }
 

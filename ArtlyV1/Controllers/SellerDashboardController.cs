@@ -11,6 +11,8 @@ namespace ArtlyV1.Controllers
     {
         SellerDashboardHandler SellerDashboardHandler = new SellerDashboardHandler();
         SellerTransactionHistoryHandler SellerTransactionHistoryHandler = new SellerTransactionHistoryHandler();
+        ProductPageHandler ProductPageHandler = new ProductPageHandler();
+        ProductHandler ProductHandler = new ProductHandler();
 
         public int getSellerSales(string sellerId)
         {
@@ -45,6 +47,16 @@ namespace ArtlyV1.Controllers
         public List<SellerDashboardResult_TransactionHistory> GetTransactionHistories(TransactionHistoryRequest param)
         {
             return SellerTransactionHistoryHandler.getSellerTransactionHistory(param);
+        }
+
+        public List<MsProduct> getListProductByUserId(string userId)
+        {
+            return ProductHandler.GetProductByUserId(userId);
+        }
+
+        public void DisableProduct(string productId)
+        {
+            ProductHandler.DisableProduct(productId);
         }
     }
 }

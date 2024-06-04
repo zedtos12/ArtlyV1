@@ -41,7 +41,7 @@ namespace ArtlyV1.Handlers
 
         public int getSellerProducts(string sellerId)
         {
-            var products = db.MsProducts
+            var products = db.ActiveEntities<MsProduct>()
                     .Where(x => x.UserInput == sellerId)
                     .ToList();
 
