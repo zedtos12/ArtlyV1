@@ -20,11 +20,11 @@ namespace ArtlyV1.Views
         protected void Page_Load(object sender, EventArgs e)
         {
             userID = Session["user"].ToString();
-            //userID = "24f5f8f0-dc1c-4785-a4ed-8947a3efa32a";
-            //userID = "1f6a9ad8-520a-4e75-9e71-e086697d563c";
+            userID = "24f5f8f0-dc1c-4785-a4ed-8947a3efa32a";
+            userID = "1f6a9ad8-520a-4e75-9e71-e086697d563c";
             string receiveruUsername = Request.QueryString["recieverUsername"];
-            // username = "bonif";
-            // username = "admin";
+            receiveruUsername = "bonif";
+            receiveruUsername = "admin";
             receiverID = messageHandler.GetUserID(receiveruUsername);
             string receiverFullName = messageHandler.GetFullName(receiverID);
             fullnameLabel.InnerText = receiverFullName;

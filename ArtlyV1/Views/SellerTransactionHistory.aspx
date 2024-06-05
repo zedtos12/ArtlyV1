@@ -15,7 +15,7 @@
         </div>
         <div class="container-fluid mt-3">
             <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle btn-filter-transaction" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                <button class="btn btn-secondary dropdown-toggle btn-filter-transaction" type="button" id="dropdownMenuButton" data-toggle="dropdown-menu">
                     <i class="fa fa-filter"></i>
                     Filter
                 </button>

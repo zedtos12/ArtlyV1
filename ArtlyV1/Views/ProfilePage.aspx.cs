@@ -46,7 +46,7 @@ namespace ArtlyV1.Views
             return false;
         }
 
-        protected void Page_Load(object sender, EventArgs e)
+        private void refresh()
         {
             if (Session["user"] == null)
             {
@@ -71,7 +71,7 @@ namespace ArtlyV1.Views
             profilePicPath = shownUser.ProfilePicture;
             userDescription = shownUser.UserDescription;
 
-            if(shownUser.DOB != null)
+            if (shownUser.DOB != null)
             {
                 userDOB = shownUser.DOB.Value.ToString("dd-MM-yyyy");
             }
@@ -80,19 +80,19 @@ namespace ArtlyV1.Views
 
             Title = "Artly | " + username + "'s Profile";
 
-            if(profilePicPath == null)
+            if (profilePicPath == null)
             {
                 profilePicPath = "Images/Profile/DefaultProfilePicture.png";
             }
 
-            if(userDescription == null)
+            if (userDescription == null)
             {
                 userDescription = "User has no user description.";
             }
 
             profilePicture.ImageUrl = profilePicPath + "?" + DateTime.Now;
 
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 transactionList = profileHandler.getTransactionList(accessingUserID);
                 sortedTransactionList = transactionList.OrderByDescending(transaction => transaction.OrderDate).ToList();
@@ -103,6 +103,16 @@ namespace ArtlyV1.Views
                 profileProductRepeater.DataSource = productList;
                 profileProductRepeater.DataBind();
             }
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            refresh();
+       }
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            refresh();
         }
 
         protected void updateBtn_Click(object sender, EventArgs e)

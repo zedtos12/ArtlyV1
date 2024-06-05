@@ -22,7 +22,7 @@ namespace ArtlyV1.Views
 			var userId = Session["user"];
 			registerController.SellerRegis(userId.ToString());
 			Session["userrole"] = "Seller";
-			Response.Redirect("/SellerDashboard.aspx");
+			Response.Redirect("~/Views/SellerDashboard.aspx");
         }
     }
 }
