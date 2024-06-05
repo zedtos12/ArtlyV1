@@ -162,6 +162,8 @@
     <Content Include="Views\Images\Profile\PhoneIcon.png" />
     <Content Include="Views\Images\Profile\UploadIcon.png" />
     <Content Include="Views\Images\RegisterPageImage.jpg" />
+    <Content Include="Views\Images\SellerDashboard\BecomeSeller.png" />
+    <Content Include="Views\Images\SellerDashboard\BecomeSellerV2.png" />
     <Content Include="Views\Images\SellerDashboard\user-1.jpg" />
     <Content Include="Views\JS\AddProductPage.js" />
     <Content Include="Views\JS\BecomeSellerJs.js" />

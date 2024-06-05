@@ -17,7 +17,7 @@
                     </div>
                     <!-- Column -->
                     <div class="col-md-5 mt-4">
-                        <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/sliders/static-slider/slider1/img1.png" alt="wrapkit" class="img-fluid"/>
+                        <img src="Images/SellerDashboard/BecomeSellerV2.png" alt="wrapkit" class="img-fluid"/>
                     </div>
                 </div>
             </div>
