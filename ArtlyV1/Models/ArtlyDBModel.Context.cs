@@ -40,6 +40,7 @@ namespace ArtlyV1.Models
         public virtual DbSet<TopUp> TopUps { get; set; }
         public virtual DbSet<TransactionDetail> TransactionDetails { get; set; }
         public virtual DbSet<MsProduct> MsProducts { get; set; }
+        public virtual DbSet<PendingProduct> PendingProducts { get; set; }
 
         public IQueryable<T> ActiveEntities<T>() where T : class
         {

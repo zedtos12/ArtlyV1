@@ -110,6 +110,14 @@
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="15" />
           <Property Name="UserDescription" Type="nvarchar" MaxLength="250" />
         </EntityType>
+        <EntityType Name="PendingProduct">
+          <Key>
+            <PropertyRef Name="IdPending" />
+          </Key>
+          <Property Name="IdPending" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="IdProduct" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="TopUps">
           <Key>
             <PropertyRef Name="IdTopUp" />
@@ -270,6 +278,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__PendingPr__IdPro__4F47C5E3">
+          <End Role="MsProduct" Type="Self.MsProduct" Multiplicity="1" />
+          <End Role="PendingProduct" Type="Self.PendingProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MsProduct">
+              <PropertyRef Name="IdProduct" />
+            </Principal>
+            <Dependent Role="PendingProduct">
+              <PropertyRef Name="IdProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__TopUps__IdUser__17F790F9">
           <End Role="MsUser" Type="Self.MsUser" Multiplicity="1" />
           <End Role="TopUps" Type="Self.TopUps" Multiplicity="*" />
@@ -329,6 +349,7 @@
           <EntitySet Name="MsProduct" EntityType="Self.MsProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MsTransaction" EntityType="Self.MsTransaction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MsUser" EntityType="Self.MsUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PendingProduct" EntityType="Self.PendingProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TopUps" EntityType="Self.TopUps" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TransactionDetail" EntityType="Self.TransactionDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TrUserAddress" EntityType="Self.TrUserAddress" Schema="dbo" store:Type="Tables" />
@@ -375,6 +396,10 @@
           <AssociationSet Name="FK__MsUser__IdRole__6383C8BA" Association="Self.FK__MsUser__IdRole__6383C8BA">
             <End Role="LtRole" EntitySet="LtRole" />
             <End Role="MsUser" EntitySet="MsUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PendingPr__IdPro__4F47C5E3" Association="Self.FK__PendingPr__IdPro__4F47C5E3">
+            <End Role="MsProduct" EntitySet="MsProduct" />
+            <End Role="PendingProduct" EntitySet="PendingProduct" />
           </AssociationSet>
           <AssociationSet Name="FK__TopUps__IdUser__17F790F9" Association="Self.FK__TopUps__IdUser__17F790F9">
             <End Role="MsUser" EntitySet="MsUser" />
@@ -556,6 +581,11 @@
           <AssociationSet Name="FK__MsTransac__IdAdd__3A4CA8FD" Association="ArtlyDatabaseModel.FK__MsTransac__IdAdd__3A4CA8FD">
             <End Role="TrUserAddress" EntitySet="TrUserAddresses" />
             <End Role="MsTransaction" EntitySet="MsTransactions" />
+          </AssociationSet>
+          <EntitySet Name="PendingProducts" EntityType="ArtlyDatabaseModel.PendingProduct" />
+          <AssociationSet Name="FK__PendingPr__IdPro__4F47C5E3" Association="ArtlyDatabaseModel.FK__PendingPr__IdPro__4F47C5E3">
+            <End Role="MsProduct" EntitySet="MsProducts" />
+            <End Role="PendingProduct" EntitySet="PendingProducts" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="TrUserAddress">
@@ -754,6 +784,7 @@
           <NavigationProperty Name="LtProductType" Relationship="ArtlyDatabaseModel.FK__MsProduct__IdPro__4D94879B" FromRole="MsProduct" ToRole="LtProductType" />
           <NavigationProperty Name="MsUser" Relationship="ArtlyDatabaseModel.FK__MsProduct__UserI__6E01572D" FromRole="MsProduct" ToRole="MsUser" />
           <NavigationProperty Name="TransactionDetails" Relationship="ArtlyDatabaseModel.FK__Transacti__IdPro__2A164134" FromRole="MsProduct" ToRole="TransactionDetail" />
+          <NavigationProperty Name="PendingProducts" Relationship="ArtlyDatabaseModel.FK__PendingPr__IdPro__4F47C5E3" FromRole="MsProduct" ToRole="PendingProduct" />
         </EntityType>
         <Association Name="FK__MsProduct__IdPro__4CA06362">
           <End Type="ArtlyDatabaseModel.LtProductCategory" Role="LtProductCategory" Multiplicity="1" />
@@ -812,6 +843,27 @@
             </Principal>
             <Dependent Role="MsTransaction">
               <PropertyRef Name="IdAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PendingProduct">
+          <Key>
+            <PropertyRef Name="IdPending" />
+          </Key>
+          <Property Name="IdPending" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="IdProduct" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="MsProduct" Relationship="ArtlyDatabaseModel.FK__PendingPr__IdPro__4F47C5E3" FromRole="PendingProduct" ToRole="MsProduct" />
+        </EntityType>
+        <Association Name="FK__PendingPr__IdPro__4F47C5E3">
+          <End Type="ArtlyDatabaseModel.MsProduct" Role="MsProduct" Multiplicity="1" />
+          <End Type="ArtlyDatabaseModel.PendingProduct" Role="PendingProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MsProduct">
+              <PropertyRef Name="IdProduct" />
+            </Principal>
+            <Dependent Role="PendingProduct">
+              <PropertyRef Name="IdProduct" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -964,6 +1016,15 @@
                 <ScalarProperty Name="IdProductCategory" ColumnName="IdProductCategory" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PendingProducts">
+            <EntityTypeMapping TypeName="ArtlyDatabaseModel.PendingProduct">
+              <MappingFragment StoreEntitySet="PendingProduct">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+                <ScalarProperty Name="IdPending" ColumnName="IdPending" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

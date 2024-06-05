@@ -14,8 +14,8 @@ namespace ArtlyV1.Models
     
     public partial class PendingProduct
     {
-        public string PendingId { get; set; }
-        public string ProductId { get; set; }
+        public string IdPending { get; set; }
+        public string IdProduct { get; set; }
         public bool IsActive { get; set; }
     
         public virtual MsProduct MsProduct { get; set; }

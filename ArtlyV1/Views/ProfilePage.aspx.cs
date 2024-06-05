@@ -78,7 +78,7 @@ namespace ArtlyV1.Views
 
             phoneNumber = shownUser.PhoneNumber;
 
-            Title = username + "'s Profile";
+            Title = "Artly | " + username + "'s Profile";
 
             if(profilePicPath == null)
             {
