@@ -16,13 +16,14 @@
 
         <%if (userDOB != null)
         { %>
-            <div class="profileUserDOB mb-3">Date Of Birth: <%=userDOB%></div>
+            <div class="profileUserDOB mb-2">Date Of Birth: <%=userDOB%></div>
         <% }%>
 
         <%if (phoneNumber != null)
         { %>
-            <div class="profilePhoneNumber">
-                <img class="phoneIcon" src="Images/Profile/PhoneIcon.png"/>
+            <div class="profilePhoneNumber d-flex justify-content-center align-items-center mb-2">
+                <img class="phoneIcon mr-2" src="Images/Profile/PhoneIcon.png"/>
+                <%=phoneNumber%>
             </div>
         <% } %>
 

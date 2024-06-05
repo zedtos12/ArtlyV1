@@ -19,13 +19,18 @@
 
 .sellerLink {
     color: #FCBF49;
+    text-decoration: underline;
     transition: 0.2s ease-in-out;
 }
 
 .sellerLink:hover {
     color: #E99900;
-    text-decoration: none;
+    text-decoration: underline;
     transition: 0.2s ease-in-out;
+}
+
+.highlight {
+    color: #FCBF49;
 }
 
 .btn-outline-light:hover {

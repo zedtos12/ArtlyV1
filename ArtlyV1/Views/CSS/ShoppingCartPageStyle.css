@@ -93,7 +93,7 @@
 }
 
 .cartItemSeparator {
-    width: 750px;
+    width: 800px;
     border: 1px solid rgba(255,255,255,.25);
     align-self: center;
 }
@@ -126,10 +126,6 @@
 }
 
 .summaryTotal {
-    font-size: 18px;
-}
-
-.summaryCurrentBalance {
     font-size: 18px;
 }
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/SellerDashboard.Master" AutoEventWireup="true" CodeBehind="AddProductPage.aspx.cs" Inherits="ArtlyV1.Views.AddProductPage" %>
+﻿<%@ Page Title="Artly | Add your Art" Language="C#" MasterPageFile="~/Views/SellerDashboard.Master" AutoEventWireup="true" CodeBehind="AddProductPage.aspx.cs" Inherits="ArtlyV1.Views.AddProductPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="CSS/AddProductStyle.css"/>
 </asp:Content>
