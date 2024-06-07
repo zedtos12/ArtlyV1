@@ -37,6 +37,10 @@
     white-space: pre-line;
 }
 
+.phoneIcon {
+    width: 30px;
+}
+
 .btn-outline-light:hover {
     background-color: #FCBF49;
     border-color: #FCBF49;

@@ -9,7 +9,9 @@
                     <div class="col-md-6 align-items-center justify-content-center d-flex mr-5" style="max-width: fit-content;"><img class="productImage card-img-top mb-5 mb-md-0" src="<%=productImage %>"" alt="..." /></div>
                     <div class="productText col-md-6 d-flex flex-column" style="max-width: fit-content;">
                         <h1 class="display-5 fw-bolder"><%=productName %></h1>
-                        <div class="small mb-1">Seller: <asp:HyperLink runat="server" ID="sellerHyperlink" class="sellerLink"><%=sellerName %></asp:HyperLink></div>
+                        <div class="small">Seller: <asp:HyperLink runat="server" ID="sellerHyperlink" class="sellerLink"><%=sellerName %></asp:HyperLink></div>
+                        <div class="small">Type: <span class="highlight"><%=productType%></span></div>
+                        <div class="small">Category: <span class="highlight"><%=productCategory%></span></div>
                         <div class="fs-5 mb-2">IDR <%=productPrice.ToString("#,##0.00") %></div>
 
                         <% if(isProductNonDigital())

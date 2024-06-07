@@ -51,15 +51,15 @@ namespace ArtlyV1.Handlers
             {
                 if (item.status == "Complete")
                 {
-                    item.status = "<td><label class=\"badge badge-success\">Completed</label></td>";
+                    item.status = "<td class=\"border-0\"><label class=\"badge badge-success border-0\">Completed</label></td>";
                 }
                 else if (item.status == "On-Delivery")
                 {
-                    item.status = "<td><label class=\"badge badge-warning\">On Delivery</label></td>";
+                    item.status = "<td class=\"border-0\"><label class=\"badge badge-warning border-0\">On Delivery</label></td>";
                 }
                 else if (item.status == "On-Process")
                 {
-                    item.status = "<td><label class=\"badge badge-info\">On Process</label></td>";
+                    item.status = "<td class=\"border-0\"><label class=\"badge badge-info border-0\">On Process</label></td>";
                 }
             }
 

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="Artly | Your Transaction History" Language="C#" MasterPageFile="~/Views/SellerDashboard.Master" AutoEventWireup="true" CodeBehind="SellerTransactionHistory.aspx.cs" Inherits="ArtlyV1.Views.SellerTransactionHistory" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="CSS/Seller-trans.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
@@ -14,7 +15,7 @@
         </div>
         <div class="container-fluid mt-3">
             <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle btn-filter-transaction" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                <button class="btn btn-secondary dropdown-toggle btn-filter-transaction" type="button" id="dropdownMenuButton" data-toggle="dropdown-menu">
                     <i class="fa fa-filter"></i>
                     Filter
                 </button>
@@ -39,11 +40,11 @@
                 <tbody>
                     <asp:Repeater runat="server" ID="TransactionHistoryRPT">
                         <ItemTemplate>
-                            <tr>
-                                <td class="text" style="color:#bbb"><%# Eval("Buyer") %></td>
-                                <td class="text" style="color:#bbb"><%# Eval("ProductName") %></td>
-                                <td class="text" style="color:#bbb"> Rp <%# String.Format("{0:N2}", Eval("Price"))%><i class="fa fa-arrow-up"></i></td>
-                                <td><label class="badge badge-success">Completed</label></td>
+                            <tr class="row-column">
+                                <td class="text border-0" style="color:#bbb"><%# Eval("Buyer") %></td>
+                                <td class="text border-0" style="color:#bbb"><%# Eval("ProductName") %></td>
+                                <td class="text border-0" style="color:#bbb"><i class="fa fa-arrow-up" style="color:lawngreen"></i> Rp <%# String.Format("{0:N2}", Eval("Price"))%></td>
+                                <%# Eval("status") %>
                             </tr>
                         </ItemTemplate>
                     </asp:Repeater>

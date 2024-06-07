@@ -8,11 +8,11 @@ namespace ArtlyV1.Factories
 {
     public class ProductFactory
     {
-        public static MsProduct Create(string ProductName, string IdProductCategory, string IdProductType, string IdUser, 
+        public static MsProduct Create(string productID, string ProductName, string IdProductCategory, string IdProductType, string IdUser, 
                                         decimal price, int stock, string description, string ProductImage)
         {
             MsProduct product = new MsProduct();
-            product.IdProduct = Guid.NewGuid().ToString();
+            product.IdProduct = productID;
             product.ProductName = ProductName;
             product.IdProductCategory = IdProductCategory;
             product.IdProductType = IdProductType;

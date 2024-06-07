@@ -18,7 +18,9 @@ namespace ArtlyV1.Views
         private MsProduct product;
         public String productName;
         public String sellerName;
-        public String sellerID;
+        public String productType;
+        public String productCategory;
+        String sellerID;
         public String productImage;
         public String productDescription;
         public decimal productPrice;
@@ -43,6 +45,8 @@ namespace ArtlyV1.Views
 
             productName = product.ProductName;
             sellerName = detailHandler.getSellerName(productID);
+            productType = product.LtProductType.ProductTypeName;
+            productCategory = product.LtProductCategory.ProductCategoryName;
             sellerID = product.UserInput;
             productImage = product.ProductImage;
             productDescription = product.Description;
@@ -51,7 +55,7 @@ namespace ArtlyV1.Views
 
             Title = "Artly | " + productName + " Details";
 
-            sellerHyperlink.NavigateUrl = "~/Views/ProfilePage.aspx?ID=" + product.UserInput;
+            sellerHyperlink.NavigateUrl = "~/Views/ProfilePage.aspx?ID=" + sellerID;
 
             cartList = (List<CartItem>)Session["cart"];
         }
@@ -86,7 +90,7 @@ namespace ArtlyV1.Views
 
         public Boolean isProductNonDigital()
         {
-            if(product.LtProductType.ProductTypeName != "Digital")
+            if(productType != "Digital")
             {
                 return true;
             }

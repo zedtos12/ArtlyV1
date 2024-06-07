@@ -101,6 +101,7 @@ namespace ArtlyV1.Views
                 String imageFilePath = "Images/Profile/ProfilePictures/ProfilePicture-" + userID + uploadImageFileExtension;
 
                 profilePictureImageUpload.SaveAs(Server.MapPath("~/Views/Images/Profile/ProfilePictures/") + "ProfilePicture-" + userID + uploadImageFileExtension);
+                controller.updateProfilePicture(userID, imageFilePath);
             }
         }
 

@@ -1,0 +1,30 @@
+﻿body {
+}
+
+.productSeller {
+    background-color: #929292;
+    color: #090C0C;
+    text-decoration: none
+}
+
+.card {
+}
+
+.img-card {
+    max-width: 10rem;
+    max-height: 10rem;
+    border-radius: 10px;
+}
+
+.card-product {
+    background-color: transparent;
+    background: none;
+    border-radius: 20px;
+    transition: 0.25s ease-in-out;
+}
+
+    .card-product:hover {
+        border: 0.1px grey solid;
+        opacity: 1;
+        transform: scale(1.1);
+    }

@@ -41,7 +41,7 @@ namespace ArtlyV1.Handlers
 
         public int getSellerProducts(string sellerId)
         {
-            var products = db.MsProducts
+            var products = db.ActiveEntities<MsProduct>()
                     .Where(x => x.UserInput == sellerId)
                     .ToList();
 
@@ -103,19 +103,19 @@ namespace ArtlyV1.Handlers
                     .Take(5)    
                     .ToList();
 
-            foreach (var sale in result)
+            foreach (var item in result)
             {
-                if (sale.status == "Complete")
+                if (item.status == "Complete")
                 {
-                    sale.status = "<td><label class=\"badge badge-success\">Completed</label></td>";
+                    item.status = "<td class=\"border-0\"><label class=\"badge badge-success border-0\">Completed</label></td>";
                 }
-                else if (sale.status == "On-Delivery")
+                else if (item.status == "On-Delivery")
                 {
-                    sale.status = "<td><label class=\"badge badge-warning\">On Delivery</label></td>";
+                    item.status = "<td class=\"border-0\"><label class=\"badge badge-warning border-0\">On Delivery</label></td>";
                 }
-                else if (sale.status == "On-Process")
+                else if (item.status == "On-Process")
                 {
-                    sale.status = "<td><label class=\"badge badge-info\">On Process</label></td>";
+                    item.status = "<td class=\"border-0\"><label class=\"badge badge-info border-0\">On Process</label></td>";
                 }
             }
 

@@ -12,12 +12,12 @@
                 <div class="row">
                     <!-- Column -->
                     <div class="col-md-7 align-self-center">
-                        <h1 class="title">Mulai Petualangan Berjualan Anda di Artly Hari Ini! yang Pastinya  <span class="text-success-gradiant typewrite" data-period="2000" data-type='["Aman", "Cepat", "Support 24/7", "Komisi Rendah"]'></span></h1>
+                        <h1 class="title">Start selling your art at Artly! <span class="text-success-gradiant typewrite" data-period="2000" data-type='["Secure", "Fast", "24/7 Support", "Easy"]'></span></h1>
                         <input type="button" Class="mt-5 contentBtn" value="Read More" onClick="scrollToSection()"/>
                     </div>
                     <!-- Column -->
                     <div class="col-md-5 mt-4">
-                        <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/sliders/static-slider/slider1/img1.png" alt="wrapkit" class="img-fluid"/>
+                        <img src="Images/SellerDashboard/BecomeSellerV2.png" alt="wrapkit" class="img-fluid"/>
                     </div>
                 </div>
             </div>
@@ -31,8 +31,8 @@
                 <div class="col-md-4 wrap-service6-box">
                     <div class="card border-0 bg-danger-gradiant text-white mb-4">
                         <div class="card-body">
-                            <h6 class="font-weight-medium text">Keamanan Terjamin</h6>
-                            <p class="mt-3">Dengan sistem enkripsi terbaru dan pengawasan ketat, Anda dapat berjualan dengan tenang tanpa khawatir.</p>
+                            <h6 class="font-weight-medium text">Security Guaranteed</h6>
+                            <p class="mt-3">With the best encryption technology and the highest level of surveillance, you can sell your art without worrying.</p>
                         </div>
                     </div>
                 </div>
@@ -40,8 +40,8 @@
                 <div class="col-md-4 wrap-service6-box">
                     <div class="card border-0 bg-danger-gradiant text-white mb-4">
                         <div class="card-body">
-                            <h6 class="font-weight-medium text">Proses Pendaftaran Cepat dan Mudah</h6>
-                            <p class="mt-3">Kami menawarkan proses pendaftaran yang sederhana dan cepat.</p>
+                            <h6 class="font-weight-medium text">Fast and Easy Registration</h6>
+                            <p class="mt-3">We offer a fast and easy registration process.</p>
                         </div>
                     </div>
                 </div>
@@ -49,8 +49,8 @@
                 <div class="col-md-4 wrap-service6-box">
                     <div class="card border-0 bg-danger-gradiant text-white mb-4">
                         <div class="card-body">
-                            <h6 class="font-weight-medium text">Dukungan Pelanggan 24/7</h6>
-                            <p class="mt-3">Tim dukungan kami siap membantu Anda kapan saja, setiap hari.</p>
+                            <h6 class="font-weight-medium text">24/7 Customer Support</h6>
+                            <p class="mt-3">Our team is ready to support you at any time, every day.</p>
                         </div>
                     </div>
                 </div>
@@ -58,8 +58,8 @@
                 <div class="col-md-4 wrap-service6-box">
                     <div class="card border-0 bg-danger-gradiant text-white mb-4">
                         <div class="card-body">
-                            <h6 class="font-weight-medium text">Fee Terjangkau</h6>
-                            <p class="mt-3">Nikmati struktur komisi yang kompetitif, dirancang untuk membantu Anda memaksimalkan profit tanpa beban biaya tinggi.</p>
+                            <h6 class="font-weight-medium text">Low Fees</h6>
+                            <p class="mt-3">Enjoy low commission fees, designed to help you maximize your profits.</p>
                         </div>
                     </div>
                 </div>
@@ -68,8 +68,8 @@
                 <div class="col-md-4 wrap-service6-box">
                     <div class="card border-0 bg-danger-gradiant text-white mb-4">
                         <div class="card-body">
-                            <h6 class="font-weight-medium text">Pembayaran yang Mudah</h6>
-                            <p class="mt-3">Kami mendukung metode pembayaran melalu applikasi kami untuk memudahkan pembeli dalam melakukan transaksi, sehingga penjualan Anda dapat meningkat.</p>
+                            <h6 class="font-weight-medium text">Easy Transactions</h6>
+                            <p class="mt-3">We support our own payment method in order to ease the payment process.</p>
                         </div>
                     </div>
                 </div>
@@ -176,7 +176,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-body">
-                                    <asp:Button runat="server" ID="createButton" CssClass="btn btn-primary" Text="Buka Toko" Enabled="false" OnClick="createButton_Click"/>
+                                    <asp:Button runat="server" ID="createButton" CssClass="btn btn-primary" Text="Join" Enabled="false" OnClick="createButton_Click"/>
                                 </div>
                             </div>
                         </div>

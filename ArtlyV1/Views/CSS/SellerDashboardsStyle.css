@@ -96,3 +96,21 @@ ul {
 .sidebar-nav .sidebar-list .sidebar-list-item {
     padding: 8px 0
 }
+
+.fa-arrow-up {
+    color: green;
+}
+
+.row-column {
+    transition: 0.25s ease-in-out;
+    overflow: hidden;
+}
+
+    .row-column:hover {
+        transform: scale(1.02);
+        overflow: hidden;
+    }
+
+.table-hover {
+    overflow: hidden;
+}

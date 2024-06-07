@@ -33,6 +33,8 @@
         <AssociationConnector Association="ArtlyDatabaseModel.FK__MsProduct__UserI__6E01572D" />
         <AssociationConnector Association="ArtlyDatabaseModel.FK__Transacti__IdPro__2A164134" />
         <AssociationConnector Association="ArtlyDatabaseModel.FK__MsTransac__IdAdd__3A4CA8FD" />
+        <EntityTypeShape EntityType="ArtlyDatabaseModel.PendingProduct" Width="1.5" PointX="17.125" PointY="1.75" />
+        <AssociationConnector Association="ArtlyDatabaseModel.FK__PendingPr__IdPro__4F47C5E3" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

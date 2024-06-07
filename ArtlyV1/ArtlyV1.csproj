@@ -90,7 +90,9 @@
       <DependentUpon>ArtlyDBModel.edmx</DependentUpon>
       <LastGenOutput>ArtlyDBModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\AddProductPage.aspx" />
     <Content Include="Views\BecomeSeller.aspx" />
+    <Content Include="Views\CSS\AddProductStyle.css" />
     <Content Include="Views\CSS\BecomSellerStyle.css" />
     <Content Include="Views\CSS\bootstrap.min.css" />
     <Content Include="Views\CSS\Dashboards.css" />
@@ -102,6 +104,7 @@
     <Content Include="Views\CSS\PaymentPageStyle.css" />
     <Content Include="Views\CSS\ProductDetailPageStyle.css" />
     <Content Include="Views\CSS\ProductPageStyle.css" />
+    <Content Include="Views\CSS\ProductSeller.css" />
     <Content Include="Views\CSS\ProfileStyle.css" />
     <Content Include="Views\CSS\Seller-trans.css" />
     <Content Include="Views\CSS\ProfileStyles.css" />
@@ -159,7 +162,10 @@
     <Content Include="Views\Images\Profile\PhoneIcon.png" />
     <Content Include="Views\Images\Profile\UploadIcon.png" />
     <Content Include="Views\Images\RegisterPageImage.jpg" />
+    <Content Include="Views\Images\SellerDashboard\BecomeSeller.png" />
+    <Content Include="Views\Images\SellerDashboard\BecomeSellerV2.png" />
     <Content Include="Views\Images\SellerDashboard\user-1.jpg" />
+    <Content Include="Views\JS\AddProductPage.js" />
     <Content Include="Views\JS\BecomeSellerJs.js" />
     <Content Include="Views\JS\bootstrap.min.js" />
     <Content Include="Views\JS\HomePageMain.js" />
@@ -175,6 +181,7 @@
     <Content Include="Views\OrderHistoryPage.aspx" />
     <Content Include="Views\ProductDetail.aspx" />
     <Content Include="Views\ProductPage.aspx" />
+    <Content Include="Views\ProductSeller.aspx" />
     <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
     <Content Include="Views\SellerDashboard.aspx" />
@@ -184,6 +191,7 @@
     <Content Include="Views\TopUpPage.aspx" />
     <Content Include="Views\TopUpHistoryPage.aspx" />
     <Content Include="Views\TransactionDetailPage.aspx" />
+    <Content Include="Views\UpdateProductPage.aspx" />
     <Content Include="Views\UpdateProfilePage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -281,6 +289,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\DatabaseSingleton.cs" />
     <Compile Include="TestEncrypte.cs" />
+    <Compile Include="Views\AddProductPage.aspx.cs">
+      <DependentUpon>AddProductPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\AddProductPage.aspx.designer.cs">
+      <DependentUpon>AddProductPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\BecomeSeller.aspx.cs">
       <DependentUpon>BecomeSeller.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -294,6 +309,13 @@
     </Compile>
     <Compile Include="Views\HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductSeller.aspx.cs">
+      <DependentUpon>ProductSeller.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ProductSeller.aspx.designer.cs">
+      <DependentUpon>ProductSeller.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\SellerDashboard.Master.cs">
       <DependentUpon>SellerDashboard.Master</DependentUpon>
@@ -414,6 +436,13 @@
     <Compile Include="Views\TransactionDetailPage.aspx.designer.cs">
       <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\UpdateProductPage.aspx.cs">
+      <DependentUpon>UpdateProductPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateProductPage.aspx.designer.cs">
+      <DependentUpon>UpdateProductPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\UpdateProfilePage.aspx.cs">
       <DependentUpon>UpdateProfilePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -502,7 +531,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57493</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44384/</IISUrl>
+          <IISUrl>http://localhost:44384/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>https://localhost:44384/</CustomServerUrl>

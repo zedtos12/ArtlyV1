@@ -201,8 +201,8 @@ body {
     }
 
     .btn-primary:disabled {
-        background-color: #FFC107;
-        border-color: #FFC107;
+        background-color: #FFE187;
+        border-color: #FFE187;
     }
     .btn-primary:enabled:hover {
         background-color: #D5A734;
