@@ -2,6 +2,10 @@
 
 }
 
+.nav-link {
+    border-bottom: 0 !important;
+}
+
 .trans-history {
     background-color: #929292;
     color: #090C0C;

@@ -1,4 +1,5 @@
 ﻿body {
+    overflow-x: hidden;
 }
 
 .addProduct{
@@ -22,7 +23,7 @@
 
 .productImageContainer{
     width : 100%;
-    height : 70vh;
+    height : 720px;
     border-radius: 10px;
     z-index: 1;
     overflow: hidden;
